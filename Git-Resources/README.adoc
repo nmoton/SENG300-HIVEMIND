@@ -1,0 +1,42 @@
+= Git-Resources
+
+For those interested in software development, you will eventually be introduced and required to use a form of
+version control. 
+
+For a general run down:
+
+* Version control allows team members to create "backups" of their data that are hosted on the cloud or a server
+(whether that's the company's cloud, or a public service like Github). These backups are accessible to anyone if
+your repository is public (open source), or to other members of the group (if your repository is private). These
+backups are called "commits". You have the freedom to commit your code whenever you want. It is ideal to commit your
+code regularly to ensure no data is lost, and so that you can return to your backups if something goes wrong.
+
+* Commits can be seen by group members. They have the ability to comment on your code, or to request to make changes
+to parts of your code. This is useful for error checking.
+
+* Repositories are essentially folders hosted on the cloud where you upload your commits to. Uploading a commit is
+known as "pushing your commit". You are essentially "pushing" your data to the repository. In our group, you will
+push your data to this repository.
+
+* The opposite of pushing, is "pulling". "Pulling" your data is downloading data from the repository to your computer(s).
+It is generally recommended to "pull" data before working on a project, so that you are up to date with any changes
+that may have occurred.
+
+* In order to prevent users from overwriting a member's data, Github uses "branches". Intially, you are making a copy
+of a repository that only you may modify. Having your own branch of a repository, allows you to have all the data of
+that repository, and lets you make as many modifications to it as you want, without having to worry about modifying
+another member's work. You are expected to create your own branch and work within it for certain parts of assignments.
+The "master" branch is a "master copy".
+
+* Upon finishing a project within your respective branches, Github allows branches to be merged together into one big
+file. For example, say we were each assigned independent functions to code. We would begin by branching off of master, into
+our own respective branches. We would then have the ability to code our functions in an environment similar to master.
+Upon completion of coding our functions, we would then be able to make a "pull-request" to merge all of our functions
+together.
+
+
+Version control is a very powerful tool that allows collaboration between members on projects. Thus, it is essential
+you learn the basics of Git, and how to use it. Below, I have provided a link to a tutorial that I highly recommend
+you watch: https://www.youtube.com/watch?v=0fKg7e37bQE
+
+
