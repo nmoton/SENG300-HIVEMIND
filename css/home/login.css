@@ -1,0 +1,45 @@
+.wrapper {
+	padding-top: 10vh;
+	margin-top: 80px;
+	margin-left: 80px;
+	margin-right: 80px;
+}
+
+.form-signin {
+	max-width: 450px;
+	margin: 0 auto;
+	padding: 15px 40px 50px;
+	border: 1px solid #e5e5e5;
+	border-radius: 10px;
+}
+
+.form-signin .temp-logo-holder {
+	padding-top: 20px;
+}
+
+.form-signin p {
+	text-align: center;
+	padding-bottom: 15px;
+}
+
+.form-signin-heading {
+	padding: 15px;
+}
+
+.form-signin .form-signin-heading, .form-signin .checkbox {
+	padding-bottom: 15px;
+}
+
+.form-signin input[type="text"], .form-signin input[type="password"] {
+	margin-bottom: 20px;
+}
+
+.form-signin .form-control {
+	padding: 12.5px;
+}
+
+#underLogin {
+	padding-top: 0 !important;
+	margin: 0 auto;
+	max-width: 450px;
+}
