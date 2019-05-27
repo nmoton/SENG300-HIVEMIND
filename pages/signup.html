@@ -2,9 +2,9 @@
 
 <html lang="en">
 	<head>
-		<title>Hive Mind - Log In</title>
+		<title>Hive Mind - Join For Free</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="Log in page for Hive mind">
+		<meta name="description" content="Registration Page for Hive Mind">
 		<meta name="author" content="Nathan Moton">
 
     	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
@@ -12,30 +12,45 @@
     	<link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
     	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     	<link href="../css/global.css" rel="stylesheet" media="screen">
-    	<link href="../../css/home/login.css" rel="stylesheet" media="screen">
+    	<link href="../css/signup.css" rel="stylesheet" media="screen">
 	</head>
 	<body>
 		<div class="wrapper">
 			<form class="form-signin">
 				<h2 class="temp-logo-holder text-center">Hive Mind Logo</h2>
-				<h2 class="form-signin-heading text-center">Welcome Back</h2>
-				<p>Sign in to stay up to date with the newest software engineering research.</p>
-				<input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus=""/>
-				<input type="password" class="form-control" name="password" placeholder="Password" required="" />
+				<h2 class="form-signin-heading text-center">Create your Hive Mind Account</h2>
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-s-6 col-xs-12">
+						<input type="text" class="form-control" name="firstName" placeholder="First Name" required="" autofocus=""/>
+					</div>
+					<div class="col-lg-6 col-md-6 col-s-6 col-xs-12">
+						<input type="text" class="form-control" name="lastName" placeholder="Last Name" required="" autofocus=""/>
+					</div>
+					<div class="col-lg-12 col-md-12 col-s-6 col-xs-12">
+						<input type="text" class="form-control" name="institution" placeholder="Institution" required="" />
+						<input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus=""/>
+					</div>
+					<div class="col-lg-6 col-md-6 col-s-6 col-xs-12">
+						<input type="password" class="form-control" name="password" placeholder="Password" required="" />
+					</div>
+					<div class="col-lg-6 col-md-6 col-s-6 col-xs-12">
+						<input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" required="" />
+					</div>
+				</div>
 				<label class="checkbox">
-					<input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe">
-					Remember Me
+					<input type="checkbox" value="notARobot" id="notARobot" name="notARobot">
+					I agree to all Terms & Conditions
 				</label>
-				<button class="btn btn-lg btn-primary btn-block">Login</button>
-				<small>
-					<a href="">Forgot Password?</a>
-				</small>
+				<button class="btn btn-lg btn-primary btn-block">Complete Registration</button>
 			</form>
 		</div>
 		<div class="wrapper" id="underLogin">
 			<small>
-				New to Hive Mind?
-				<a href="">Join For Free</a>
+				<a href="">Help</a>
+				·
+				<a href="">Privacy</a>
+				·
+				<a href="">Terms & Conditions</a>
 			</small>
 		</div>
 
