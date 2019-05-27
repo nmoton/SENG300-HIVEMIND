@@ -11,20 +11,44 @@ p, li a {
 }
 
 .navbar {
-    background-color: #000000;
-    border-color: #000000;
-    font-family: 'Libre Franklin', sans-serif;
+    background: none;
+    border-color: #fdc857;
+    background-color: #fdc857;
+    font-family: 'Roboto', sans-serif;
 }
 
+.navbar.navbar-expand-md.navbar-light li a{
+    color: black !important;
+    font-size: 1.05rem;
+}
 #masthead {
-    padding-top: 26.25vh;
+    padding: 26.25vh;
     height: 75vh;
-    padding-bottom: 26.25vh;
-    background-color: #ffffff;
+    width: 100%;
+    background-color: #fdc857;
+    background-image: url("../resources/background.png");
+    background-position: top;
+    top: 0px;
+    left: 0px;
+    background-size: auto;
+    background-repeat: no-repeat;
+    
+}
+
+#masthead h1 {
+    font-size: 3.5rem;
+    font-family: 'Chivo', sans-serif;
 }
  
 #masthead h3 {
     padding-bottom: 3vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn {
+    background-color: black;
+    color: white;
+    font-family: 'Roboto', sans-serif;
 }
 
 #footer-main h5 {
