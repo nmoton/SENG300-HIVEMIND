@@ -21,6 +21,7 @@ p, li a {
     color: black !important;
     font-size: 1.05rem;
 }
+
 #masthead {
     padding: 26.25vh;
     height: 75vh;
@@ -49,6 +50,19 @@ p, li a {
     background-color: black;
     color: white;
     font-family: 'Roboto', sans-serif;
+}
+
+#what-text {
+    padding-top: 20vh;
+    padding-left: 40vh;
+    height: auto;
+    width: 100%;
+}
+
+#what img {
+    margin-top: 15vh;
+    height: auto;
+    width: 50%;
 }
 
 #footer-main h5 {
