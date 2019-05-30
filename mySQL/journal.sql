@@ -20,9 +20,9 @@ CREATE TABLE Table1
 );
 
 -- adding some sample items - will remove later 
-INSERT INTO Table1 (email, userType, institution, firstName, lastName, password) Values("same email1", "writer", "sample institution", "sample firstName", "sample lastName", "password");
-INSERT INTO Table1 (email, userType, institution, firstName, lastName, password) Values("same email2", "reviewer", "sample institution", "sample firstName", "sample lastName", "password");
-INSERT INTO Table1 (email, userType, institution, firstName, lastName, password) Values("same email3", "editor", "sample institution", "sample firstName", "sample lastName", "password");
+INSERT INTO Table1 (email, userType, institution, firstName, lastName, password) Values("Joe@hotmail.com", "writer", "sample institution", "sample firstName", "sample lastName", "5f4dcc3b5aa765d61d8327deb882cf99");
+INSERT INTO Table1 (email, userType, institution, firstName, lastName, password) Values("Tom@ucalgary.ca", "reviewer", "sample institution", "sample firstName", "sample lastName", "5f4dcc3b5aa765d61d8327deb882cf99");
+INSERT INTO Table1 (email, userType, institution, firstName, lastName, password) Values("Ed@gmail.com", "editor", "sample institution", "sample firstName", "sample lastName", "5f4dcc3b5aa765d61d8327deb882cf99");
 
 
 -- when a writer submits a paper 
