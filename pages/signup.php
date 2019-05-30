@@ -22,8 +22,8 @@
 				<h2 class="temp-logo-holder text-center">Hive Mind Logo</h2>
 				<h2 class="form-signin-heading text-center">Create your Hive Mind Account</h2>
 				<?php 
-					include $_SERVER['DOCUMENT_ROOT'] . '/SENG300-HIVEMIND-master/pages/userHandler.php';
-					include $_SERVER['DOCUMENT_ROOT'] . '/SENG300-HIVEMIND-master/errors/errors.php'; 
+					include '../pages/userHandler.php';
+					include '../errors/errors.php'; 
 				?>
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
