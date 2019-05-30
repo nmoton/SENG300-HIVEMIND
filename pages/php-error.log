@@ -1,0 +1,13 @@
+[30-May-2019 05:14:04 Europe/Berlin] here
+[30-May-2019 05:31:47 Europe/Berlin] 232323232
+[30-May-2019 05:35:53 Europe/Berlin] 232323232
+[30-May-2019 06:04:13 Europe/Berlin] PHP Notice:  Undefined variable: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\userHandler.php on line 20
+[30-May-2019 06:04:53 Europe/Berlin] PHP Notice:  Undefined variable: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\userHandler.php on line 20
+[30-May-2019 06:31:33 Europe/Berlin] PHP Notice:  Undefined variable: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\userHandler.php on line 20
+[30-May-2019 06:31:33 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\userHandler.php on line 22
+[30-May-2019 06:32:33 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\userHandler.php on line 16
+[30-May-2019 06:32:46 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\userHandler.php on line 16
+[30-May-2019 06:40:26 Europe/Berlin] PHP Notice:  Undefined variable: password_1 in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\userHandler.php on line 44
+[30-May-2019 06:40:26 Europe/Berlin] PHP Notice:  Undefined variable: username in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\userHandler.php on line 51
+[30-May-2019 06:41:02 Europe/Berlin] PHP Notice:  Undefined index: username in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\userHandler.php on line 32
+[30-May-2019 06:41:02 Europe/Berlin] PHP Notice:  Undefined variable: username in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\userHandler.php on line 32
