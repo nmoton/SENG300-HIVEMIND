@@ -16,7 +16,7 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<form class="form-signin">
+			<form class="form-signin" method="post">
 				<?php 
 					include '../pages/userHandler.php';
 					include '../errors/errors.php'; 

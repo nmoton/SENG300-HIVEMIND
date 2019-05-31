@@ -51,15 +51,15 @@ if (isset($_POST['register'])){
 }
 
 if (isset($_POST['login'])){
-	$password = $_POST['password'];
-	$email = $_POST['email'];
-	
+	$password = mysqli_real_escape_string($db, $_POST['password']);
+	$email = mysqli_real_escape_string($db,$_POST['email']);
+
 	$password = md5($password);
 	
-	$query = "SELECT * FROM users WHERE username='$username' AND password='$password' LIMIT 1";
-	$results = mysqli_query($db, $query);
+	$query = "SELECT * FROM Table1 WHERE email='$email' AND password='$password'";
+	$result = mysqli_query($db, $query);
 	
-	if (mysql_num_rows($result)){
+	if (mysqli_num_rows($result) == 1){
 		header('location: Dashboard/dashboard.php');
 	}
 }
