@@ -77,7 +77,6 @@ CREATE TABLE reviewStatus
 (
 	AssignedSubmissionID int NOT NULL PRIMARY KEY,
 	AssignedReviewerEmail varchar(225) NOT NULL,
-	AssignedEditorEmail varchar(225) NOT NULL,
 	AssignedDeadlineReviewer date NOT NULL,
 	ReviewerFeedback text,
 	IntrimStatusUpdate varchar(225) NOT NULL,
