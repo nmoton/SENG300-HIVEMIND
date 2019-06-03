@@ -4,6 +4,7 @@ html {
 
 p, li a {
     font-size: 16px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .lead {
@@ -38,10 +39,66 @@ p, li a {
     font-family: 'Roboto', sans-serif;
 }
 
+#what {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+#what-header {
+    padding-bottom: 3vh;
+}
+
+#what h2 {
+    font-size: 1.75rem;
+    font-family: 'Chivo', sans-serif;
+}
+
+#what-features {
+    padding-top: 2vh;
+}
+
+#what h3 {
+    margin-top: 1vh;
+    font-size: 1.5rem;
+    font-family: 'Chivo', sans-serif;
+}
+
+#one-stop {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    background-color: #F5F5F5;
+}
+
+#one-stop h2 {
+    font-size: 1.75rem;
+    font-family: 'Chivo', sans-serif;
+}
+
+#one-stop h5 {
+    font-size: 1.25rem;
+    font-family: 'Chivo', sans-serif;
+}
+
+#getStarted h3 {
+    font-size: 1.50rem;
+    font-family: 'Chivo', sans-serif;
+}
+
+#getStarted h5 {
+    font-size: 1.25rem;
+    font-family: 'Chivo', sans-serif;
+}
+
+#getStarted {
+    text-align: center;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
 .btn {
     background-color: black;
     color: white;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Chivo', sans-serif;
 }
 
 #footer-main h5 {
