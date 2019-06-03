@@ -45,13 +45,16 @@ p, li a {
 }
 
 #what-header {
-    padding-bottom: 3vh;
+    padding-bottom: 5vh;
+    text-align: center;
 }
 
 #what h2 {
     font-size: 1.75rem;
     font-family: 'Chivo', sans-serif;
+    padding-bottom: 2.5vh;
 }
+
 
 #what-features {
     padding-top: 2vh;
@@ -67,6 +70,17 @@ p, li a {
     padding-top: 5vh;
     padding-bottom: 5vh;
     background-color: #F5F5F5;
+}
+
+#one-stop-header {
+    text-align: center
+}
+
+#one-stop img {
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    height: 200px;
+    width: 200px;
 }
 
 #one-stop h2 {
@@ -202,20 +216,23 @@ p, li a {
         font-size: 1rem;
         text-align: center;
     }
+
+    #what h2 {
+        margin-bottom: 2.5vh;
+    }
+
+    #what-header {
+        padding-bottom: 3vh;
+        text-align: left;
+    }
 }
 
 @media screen and (min-width: 999px) and (max-width:1249px) {
     #masthead {
         padding: 26.25vh;
-        height: 75vh;
+        height: 100vh;
         width: 100%;
         background-color: #fdc857;
-        background-image: url("../resources/indexBackground.png");
-        background-position: top;
-        top: 0px;
-        left: 0px;
-        background-size: auto;
-        background-repeat: no-repeat;
     }
 
     #masthead h1 {
@@ -226,6 +243,27 @@ p, li a {
     #masthead h3 {
         padding-bottom: 3vh;
         font-family: 'Roboto', sans-serif;
+    }
+
+    #what {
+        padding-top: 10vh;
+        padding-bottom: 10vh;
+    }
+
+    #what-header {
+        padding-bottom: 3vh;
+        text-align: left;
+    }
+
+    #what h2 {
+        font-size: 2.5rem;
+        font-family: 'Chivo', sans-serif;
+        margin-bottom: 2.5vh;
+    }
+
+    #one-stop {
+        padding-top: 10vh;
+        padding-bottom: 10vh;
     }
 
 }
@@ -253,6 +291,27 @@ p, li a {
         padding-bottom: 3vh;
         font-family: 'Roboto', sans-serif;
     }
+
+    #what {
+        padding-top: 10vh;
+        padding-bottom: 10vh;
+    }
+
+    #what-header {
+        padding-bottom: 3vh;
+        text-align: left;
+    }
+
+    #what h2 {
+        font-size: 2.5rem;
+        font-family: 'Chivo', sans-serif;
+        margin-bottom: 2.5vh;
+    }
+
+    #one-stop {
+        padding-top: 10vh;
+        padding-bottom: 10vh;
+    }
 }
 
 @media screen and (min-width: 1499px) and (max-width: 1749px) {
@@ -277,6 +336,27 @@ p, li a {
     #masthead h3 {
         padding-bottom: 3vh;
         font-family: 'Roboto', sans-serif;
+    }
+
+    #what {
+        padding-top: 10vh;
+        padding-bottom: 10vh;
+    }
+
+    #what-header {
+        padding-bottom: 3vh;
+        text-align: left;
+    }
+
+    #what h2 {
+        font-size: 2.5rem;
+        font-family: 'Chivo', sans-serif;
+        margin-bottom: 2.5vh;
+    }
+
+    #one-stop {
+        padding-top: 10vh;
+        padding-bottom: 10vh;
     }
 }
 
@@ -304,6 +384,26 @@ p, li a {
         font-family: 'Roboto', sans-serif;
     }
 
+    #what {
+        padding-top: 10vh;
+        padding-bottom: 10vh;
+    }
+
+    #what-header {
+        padding-bottom: 3vh;
+        text-align: left;
+    }
+
+    #what h2 {
+        font-size: 2.5rem;
+        font-family: 'Chivo', sans-serif;
+        margin-bottom: 2.5vh;
+    }
+
+    #one-stop {
+        padding-top: 10vh;
+        padding-bottom: 10vh;
+    }
 }
 
 @media screen and (min-width: 2149px) {
@@ -328,6 +428,27 @@ p, li a {
     #masthead h3 {
         padding-bottom: 3vh;
         font-family: 'Roboto', sans-serif;
+    }
+
+    #what {
+        padding-top: 10vh;
+        padding-bottom: 10vh;
+    }
+
+    #what-header {
+        padding-bottom: 3vh;
+        text-align: left;
+    }
+
+    #what h2 {
+        font-size: 2.5rem;
+        font-family: 'Chivo', sans-serif;
+        margin-bottom: 2.5vh;
+    }
+
+    #one-stop {
+        padding-top: 10vh;
+        padding-bottom: 10vh;
     }
 
     html {
