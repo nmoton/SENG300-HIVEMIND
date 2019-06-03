@@ -32,7 +32,14 @@
       <a href="login.php">Sign-out</a>
     </div>
   </div>
+  
+  	<br>
+		<b><h2><center> To Do List </center></h2></b>
+	<br>
  
+ 	<br>
+		<b><h2><center> Papers Awaiting a Reviewer </center></h2></b>
+	<br>	
  	<!--Generate columns -->
   	<table>
 	<tr>
@@ -51,7 +58,6 @@
 	<?php 
 		include 'tableGenerator.php';
 	?>
-	
 	
 	<br>
 		<b><h2><center> Assign a Reviewer </center></h2></b>
@@ -82,10 +88,8 @@
 		<div class="input-group">
 			<button type="submit" class="btn" name="addReviewer">Add</button>
 		</div>
-	</form>
+	</form>	
 
-  
-	
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
