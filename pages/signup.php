@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -16,9 +18,13 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<form class="form-signin">
+			<form class="form-signin" method="post">
 				<h2 class="temp-logo-holder text-center">Hive Mind Logo</h2>
 				<h2 class="form-signin-heading text-center">Create your Hive Mind Account</h2>
+				<?php 
+					include '../pages/userHandler.php';
+					include '../errors/errors.php'; 
+				?>
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						<input type="text" class="form-control" name="firstName" placeholder="First Name" required="" autofocus=""/>
@@ -30,7 +36,7 @@
 						<input type="text" class="form-control" name="institution" placeholder="Institution" required="" />
 					</div>
 					<div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
-						<input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus=""/>
+						<input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus=""/>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						<input type="password" class="form-control" name="password" placeholder="Password" required="" />
@@ -43,7 +49,7 @@
 					<input type="checkbox" value="notARobot" id="notARobot" name="notARobot">
 					I agree to all Terms & Conditions
 				</label>
-				<button class="btn btn-lg btn-primary btn-block">Complete Registration</button>
+				<button class="btn btn-lg btn-primary btn-block" name = "register">Complete Registration</button>
 			</form>
 		</div>
 		<div class="wrapper" id="underLogin">

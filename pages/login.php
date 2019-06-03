@@ -16,19 +16,23 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<form class="form-signin">
+			<form class="form-signin" method="post">
+				<?php 
+					include '../pages/userHandler.php';
+					include '../errors/errors.php'; 
+				?>
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12-col-xs-12">
 						<h2 class="temp-logo-holder text-center">Hive Mind Logo</h2>
 						<h2 class="form-signin-heading text-center">Welcome Back</h2>
 						<p>Sign in to stay up to date with the newest software engineering research.</p>
-						<input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus=""/>
+						<input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus=""/>
 						<input type="password" class="form-control" name="password" placeholder="Password" required="" />
 						<label class="checkbox">
 							<input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe">
 							Remember Me
 						</label>
-					<button class="btn btn-lg btn-primary btn-block">Login</button>
+					<button class="btn btn-lg btn-primary btn-block" name = "login">Login</button>
 				</div>
 			</div>
 				<small>
