@@ -35,11 +35,13 @@ if (isset($_POST['addReviewer']))
 			
 		$assignedDeadlineReviewer = $_POST['reviewDeadline'];
 		$writerResubmissionDate = $_POST['resubmissionDeadline'];
-		
+	
 		$query = "INSERT INTO reviewStatus (AssignedSubmissionID, AssignedReviewerEmail, AssignedDeadlineReviewer, IntrimStatusUpdate,WritersResubmissionDate) 
 		 VALUES('$submissionId', '$email', '$assignedDeadlineReviewer', 'Empty', '$writerResubmissionDate')";
 		$result = mysqli_query($db,$query);
-		error_log(mysqli_error($db));
+		
+		$update = "UPDATE submissionProfile SET PaperStatus = 'underReview' WHERE submissionId = '$submissionId'";
+		mysqli_query($db,$update);
 		
 		//reload the page
 		header('location: editor.php');
