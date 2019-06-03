@@ -77,22 +77,18 @@ p, li a {
 @media screen and (min-width: 0px) and (max-width: 499px) {
     h1 {
         font-size: 1.8rem;
-        text-align: center;
     }
 
     h2 {
         font-size: 1.4rem;
-        text-align: center;
     }
 
     h3 {
         font-size: 1rem;
-        text-align: center;
     }
 
     h4 {
         font-size: 1rem;
-        text-align: center;
     }
 
     h5 {
@@ -112,22 +108,18 @@ p, li a {
 @media screen and (min-width: 499px) and (max-width: 768px) {
     h1 {
         font-size: 2rem;
-        text-align: center;
     }
 
     h2 {
         font-size: 1.5rem;
-        text-align: center;
     }
 
     h3 {
         font-size: 1.25rem;
-        text-align: center;
     }
 
     h4 {
         font-size: 1rem;
-        text-align: center;
     }
 
     h5 {
@@ -139,17 +131,14 @@ p, li a {
 @media screen and (min-width: 768px) and (max-width: 999px) {
     h1 {
         font-size: 2.5rem;
-        text-align: center;
     }
 
     h2 {
         font-size: 1.85rem;
-        text-align: center;
     }
 
     h3 {
         font-size: 1.375rem;
-        text-align: center;
     }
 
     h4 {
@@ -172,6 +161,15 @@ p, li a {
         background-repeat: no-repeat;
     }
 
+    #masthead h1 {
+        font-size: 3.5rem;
+        font-family: 'Chivo', sans-serif;
+    }
+ 
+    #masthead h3 {
+        padding-bottom: 3vh;
+        font-family: 'Roboto', sans-serif;
+    }
 
 }
 
