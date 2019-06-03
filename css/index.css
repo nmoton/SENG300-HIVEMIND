@@ -23,26 +23,18 @@ p, li a {
 }
 
 #masthead {
-    padding: 26.25vh;
-    height: 75vh;
-    width: 100%;
+    height: 100vh;
     background-color: #fdc857;
-    background-image: url("../resources/indexBackground.png");
-    background-position: top;
-    top: 0px;
-    left: 0px;
-    background-size: auto;
-    background-repeat: no-repeat;
-    
+    padding-top: 25vh;
+    padding-bottom: 25vh;
 }
 
 #masthead h1 {
-    font-size: 3.5rem;
     font-family: 'Chivo', sans-serif;
 }
- 
+
 #masthead h3 {
-    padding-bottom: 3vh;
+    padding-bottom: 1.5vh;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -50,19 +42,6 @@ p, li a {
     background-color: black;
     color: white;
     font-family: 'Roboto', sans-serif;
-}
-
-#what-text {
-    padding-top: 20vh;
-    padding-left: 40vh;
-    height: auto;
-    width: 100%;
-}
-
-#what img {
-    margin-top: 15vh;
-    height: auto;
-    width: 50%;
 }
 
 #footer-main h5 {
@@ -95,7 +74,7 @@ p, li a {
     font-size: 0.65rem;
 }
 
-@media screen and (min-width: 300px) and (max-width: 499px) {
+@media screen and (min-width: 0px) and (max-width: 499px) {
     h1 {
         font-size: 1.8rem;
         text-align: center;
@@ -118,10 +97,6 @@ p, li a {
 
     h5 {
         font-size: 1rem;
-    }
-
-    #masthead {
-        height: 100vh;
     }
 
     #navbar-footer {
@@ -184,22 +159,122 @@ p, li a {
 }
 
 @media screen and (min-width: 999px) and (max-width:1249px) {
+    #masthead {
+        padding: 26.25vh;
+        height: 75vh;
+        width: 100%;
+        background-color: #fdc857;
+        background-image: url("../resources/indexBackground.png");
+        background-position: top;
+        top: 0px;
+        left: 0px;
+        background-size: auto;
+        background-repeat: no-repeat;
+    }
+
 
 }
 
 @media screen and (min-width: 1249px) and (max-width: 1499px) {
+    #masthead {
+        padding: 26.25vh;
+        height: 75vh;
+        width: 100%;
+        background-color: #fdc857;
+        background-image: url("../resources/indexBackground.png");
+        background-position: top;
+        top: 0px;
+        left: 0px;
+        background-size: auto;
+        background-repeat: no-repeat;
+    }
 
+    #masthead h1 {
+        font-size: 3.5rem;
+        font-family: 'Chivo', sans-serif;
+    }
+ 
+    #masthead h3 {
+        padding-bottom: 3vh;
+        font-family: 'Roboto', sans-serif;
+    }
 }
 
 @media screen and (min-width: 1499px) and (max-width: 1749px) {
+    #masthead {
+        padding: 26.25vh;
+        height: 75vh;
+        width: 100%;
+        background-color: #fdc857;
+        background-image: url("../resources/indexBackground.png");
+        background-position: top;
+        top: 0px;
+        left: 0px;
+        background-size: auto;
+        background-repeat: no-repeat;
+    }
 
+    #masthead h1 {
+        font-size: 3.5rem;
+        font-family: 'Chivo', sans-serif;
+    }
+ 
+    #masthead h3 {
+        padding-bottom: 3vh;
+        font-family: 'Roboto', sans-serif;
+    }
 }
 
 @media screen and (min-width: 1749px) and (max-width: 2149px) {
+    #masthead {
+        padding: 26.25vh;
+        height: 75vh;
+        width: 100%;
+        background-color: #fdc857;
+        background-image: url("../resources/indexBackground.png");
+        background-position: top;
+        top: 0px;
+        left: 0px;
+        background-size: auto;
+        background-repeat: no-repeat;
+    }
+
+    #masthead h1 {
+        font-size: 3.5rem;
+        font-family: 'Chivo', sans-serif;
+    }
+ 
+    #masthead h3 {
+        padding-bottom: 3vh;
+        font-family: 'Roboto', sans-serif;
+    }
 
 }
 
 @media screen and (min-width: 2149px) {
+    #masthead {
+        padding: 26.25vh;
+        height: 75vh;
+        width: 100%;
+        background-color: #fdc857;
+        background-image: url("../resources/indexBackground.png");
+        background-position: top;
+        top: 0px;
+        left: 0px;
+        background-size: auto;
+        background-repeat: no-repeat;
+    }
+
+    #masthead h1 {
+        font-size: 3.5rem;
+        font-family: 'Chivo', sans-serif;
+    }
+ 
+    #masthead h3 {
+        padding-bottom: 3vh;
+        font-family: 'Roboto', sans-serif;
+    }
+
     html {
         font-size: 16px;
     }
