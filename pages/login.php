@@ -43,7 +43,7 @@
 		<div class="wrapper" id="underLogin">
 			<small>
 				New to Hive Mind?
-				<a href="signup.html">Join For Free</a>
+				<a href="signup.php">Join For Free</a>
 			</small>
 		</div>
 
