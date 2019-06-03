@@ -5,12 +5,12 @@ USE journal;
 -- user can select whether they are reviewer, editor or writer 
 -- it is assumed that if one is reviewer, editor will check this manually to ensure its a valid entry 
 -- it is assumed that if one is editor then another editor will perform verification
-
+-- Options for userType: "writer", "reviewer", "editor"
 DROP TABLE IF EXISTS userProfile;
 CREATE TABLE userProfile
 (
 	email varchar(225) NOT NULL PRIMARY KEY,
-    userType varchar(225) DEFAULT "Writer",
+    userType varchar(225) DEFAULT "writer",
 	institution varchar(225) NOT NULL,
 	firstName varchar(225) NOT NULL,
 	lastName varchar(225) NOT NULL,
@@ -28,7 +28,7 @@ INSERT INTO userProfile (email, userType, institution, firstName, lastName, pass
 -- when a writer submits a paper 
 -- when writer withdraws a paper, remove its entry from this table
 -- when writer resubmits a paper then simply update the pdfSubmission field and update date of submission so editor can assign a new deadline for reviewer 
-
+-- Options for PaperStatus: "submitted", "underReview"
 DROP TABLE IF EXISTS submissionProfile;
 CREATE TABLE submissionProfile
 (
@@ -45,8 +45,8 @@ CREATE TABLE submissionProfile
 	reviewerPreference3 varchar(225)
 );
 
-INSERT INTO submissionProfile (paperTitle, email, topic, pdfSubmission, PaperStatus,dateOfSubmission, reviewerPreference1, reviewerPreference2) Values("Effect of Routing Algorithms on Network Efficiency", "EduardoPicatto@UCalgary.ca", "Networking", "sample text", "Submitted", "2019-2-2", "Ed Johnson", "Tom Smith");
-INSERT INTO submissionProfile (paperTitle, email, topic, pdfSubmission, PaperStatus,dateOfSubmission, reviewerPreference1) Values("Algorithmic Complexity Analysis of Matrix Multiplication", "EduardoPicatto@UCalgary.ca", "Algorithmics", "sample text", "Submitted", "2019-2-3", "Ed Johnson");
+INSERT INTO submissionProfile (paperTitle, email, topic, pdfSubmission, PaperStatus,dateOfSubmission, reviewerPreference1, reviewerPreference2) Values("Effect of Routing Algorithms on Network Efficiency", "EduardoPicatto@UCalgary.ca", "Networking", "sample text", "submitted", "2019-2-2", "Ed Johnson", "Tom Smith");
+INSERT INTO submissionProfile (paperTitle, email, topic, pdfSubmission, PaperStatus,dateOfSubmission, reviewerPreference1) Values("Algorithmic Complexity Analysis of Matrix Multiplication", "EduardoPicatto@UCalgary.ca", "Algorithmics", "sample text", "submitted", "2019-2-3", "Ed Johnson");
 
 
 
