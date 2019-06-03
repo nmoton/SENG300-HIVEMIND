@@ -33,10 +33,56 @@
     </div>
   </div>
  
-  
+ 	<!--Generate columns -->
+  	<table>
+	<tr>
+		<th>Submission ID</th>
+		<th>Title</th>
+		<th>Submitter Email</th>
+		<th>Topic</th>
+		<th>Status</th>
+		<th>Date</th>
+		<th>Reviewer Preference 1</th>
+		<th>Reviewer Preference 2</th>
+		<th>Reviewer Preference 3</th>
+		<th></th>
+	<tr>
+	<!--Generate cells -->
 	<?php 
-		include 'editorHandler.php';
+		include 'tableGenerator.php';
 	?>
+	
+	
+	<br>
+		<b><h2><center> Assign a Reviewer </center></h2></b>
+	<br>	
+	
+	<form method="post">
+	  	<?php 
+			include 'editorHandler.php';
+			include '../../../errors/errors.php';
+		?>
+		<div class="input-group">
+			<label>Enter the submission ID of the paper you want to assign a reviewer to</label>
+			<input type="text" name="submissionId">
+		</div>
+		<div class="input-group">
+			<label>Enter the E-mail of the reviewer</label>
+			<input type="text" name="email">
+		</div>
+			<div class="input-group">
+			<label>Enter the review deadline</label>
+			<input type="date" name="reviewDeadline">
+		</div>
+			</div>
+			<div class="input-group">
+			<label>Enter the resubmission deadline</label>
+			<input type="date" name="resubmissionDeadline">
+		</div>
+		<div class="input-group">
+			<button type="submit" class="btn" name="addReviewer">Add</button>
+		</div>
+	</form>
 
   
 	

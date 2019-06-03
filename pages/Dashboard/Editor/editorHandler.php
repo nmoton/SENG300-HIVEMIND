@@ -1,42 +1,52 @@
 <?php
+$errors = array();
+
+
 
 //initialize error log (use for debugging). Ex;
 //error_log(mysqli_error($db)); 
-//prints the last sql query error to phpError.log
+//prints the last sql query error to editorHandlerErrorlog
 ini_set("log_errors", 1);
-ini_set("error_log", "writerHandlerError.log");
+ini_set("error_log", "editorHandlerError.log");
 
-//create db link
 $db = mysqli_connect('localhost', 'root', '', 'journal');
 
-$paperQuery = "SELECT * FROM submissionProfile WHERE PaperStatus='Submitted'";
-$result = mysqli_query($db, $paperQuery);
+//handles the add reviewer button
+if (isset($_POST['addReviewer']))
+{
+	$submissionId = $_POST['submissionId'];
+	$email = $_POST['email'];
 	
-echo '
-	<table>
-	<tr>
-		<th>Title</th>
-		<th>Submitter Email</th>
-		<th>Topic</th>
-		<th>Status</th>
-		<th>Date</th>
-		<th>Reviewer Preference 1</th>
-		<th>Reviewer Preference 2</th>
-		<th>Reviewer Preference 3</th>
-	<tr>';
+	//check if the submission Id is a valid paper waiting to be assigned a reviewer
+	$valid_submission_query = "SELECT * FROM submissionProfile WHERE submissionId = '$submissionId' AND PaperStatus = 'submitted'";
+	$valid_submission_Id = mysqli_query($db, $valid_submission_query);
 	
-	while ($row = mysqli_fetch_assoc($result)){
-		echo '<tr>';
-			echo '<td>' . $row['paperTitle'] . '</td>';
-			echo '<td>' . $row['email'] . '</td>';
-			echo '<td>' . $row['topic'] . '</td>';
-			echo '<td>' . $row['PaperStatus'] . '</td>';
-			echo '<td>' . $row['dateOfSubmission'] . '</td>';
-			echo '<td>' . $row['reviewerPreference1'] . '</td>';
-			echo '<td>' . $row['reviewerPreference2'] . '</td>';
-			echo '<td>' . $row['reviewerPreference3'] . '</td>';
-		echo '</tr>';
+	//check if the email belongs to a reviewer
+	$valid_email_query = "SELECT * FROM userProfile WHERE email = '$email' AND userType = 'reviewer'";
+	$valid_email = mysqli_query($db, $valid_email_query);
+	
+	error_log(mysqli_num_rows($valid_email));
+	error_log(mysqli_num_rows($valid_submission_Id));
+	
+
+	
+	if (mysqli_num_rows($valid_submission_Id) && mysqli_num_rows($valid_email)){
+		error_log("here");
+			
+		$assignedDeadlineReviewer = $_POST['reviewDeadline'];
+		$writerResubmissionDate = $_POST['resubmissionDeadline'];
+		
+		$query = "INSERT INTO reviewStatus (AssignedSubmissionID, AssignedReviewerEmail, AssignedDeadlineReviewer, IntrimStatusUpdate,WritersResubmissionDate) 
+		 VALUES('$submissionId', '$email', '$assignedDeadlineReviewer', 'Empty', '$writerResubmissionDate')";
+		$result = mysqli_query($db,$query);
+		error_log(mysqli_error($db));
+		
+		//reload the page
+		header('location: editor.php');
+		 
+	} else {
+		array_push($errors, "Please enter a valid submission Id and reviewer E-mail");
 	}
-	
-	echo '<table>';
+
+}
 ?>

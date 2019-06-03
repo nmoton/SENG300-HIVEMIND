@@ -4,9 +4,8 @@ session_start();
 
 $email = "";
 
-//prints the last sql query error to phpError.log
 ini_set("log_errors", 1);
-ini_set("error_log", "phpError.log");
+ini_set("error_log", "userHandlerError.log");
 
 $errors = array();
 
