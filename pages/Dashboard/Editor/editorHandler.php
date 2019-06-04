@@ -25,18 +25,12 @@ if (isset($_POST['addReviewer']))
 	$valid_email_query = "SELECT * FROM userProfile WHERE email = '$email' AND userType = 'reviewer'";
 	$valid_email = mysqli_query($db, $valid_email_query);
 	
-	error_log(mysqli_num_rows($valid_email));
-	error_log(mysqli_num_rows($valid_submission_Id));
-	
-
-	
 	if (mysqli_num_rows($valid_submission_Id) && mysqli_num_rows($valid_email)){
-		error_log("here");
 			
 		$assignedDeadlineReviewer = $_POST['reviewDeadline'];
 		$writerResubmissionDate = $_POST['resubmissionDeadline'];
 	
-		$query = "INSERT INTO reviewStatus (AssignedSubmissionID, AssignedReviewerEmail, AssignedDeadlineReviewer, IntrimStatusUpdate,WritersResubmissionDate) 
+		$query = "INSERT INTO reviewStatus (AssignedSubmissionID, AssignedReviewer1Email, AssignedDeadlineReviewer, IntrimStatusUpdate,WritersResubmissionDate) 
 		 VALUES('$submissionId', '$email', '$assignedDeadlineReviewer', 'Empty', '$writerResubmissionDate')";
 		$result = mysqli_query($db,$query);
 		

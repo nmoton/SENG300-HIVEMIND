@@ -36,8 +36,29 @@
   	<br>
 		<b><h2><center> To Do List </center></h2></b>
 	<br>
- 
- 	<br>
+	<br>
+	
+	<br>
+		<b><h2><center> Papers Awaiting a Decision </center></h2></b>
+	<br>	
+ 	<!--Generate columns -->
+  	<table>
+	<tr>
+		<th>Submission ID</th>
+		<th>Title</th>
+		<th>Submitter Email</th>
+		<th>Topic</th>
+		<th>Status</th>
+		<th>Date</th>
+		<th></th>
+	<tr>
+	<!--Generate cells -->
+	<?php 
+		include 'toDoListTableGenerator.php';
+	?>
+	
+	
+	<br>
 		<b><h2><center> Papers Awaiting a Reviewer </center></h2></b>
 	<br>	
  	<!--Generate columns -->
@@ -56,7 +77,7 @@
 	<tr>
 	<!--Generate cells -->
 	<?php 
-		include 'tableGenerator.php';
+		include 'reviewerTableGenerator.php';
 	?>
 	
 	<br>

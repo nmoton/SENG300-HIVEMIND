@@ -76,7 +76,12 @@ DROP TABLE IF EXISTS reviewStatus;
 CREATE TABLE reviewStatus
 (
 	AssignedSubmissionID int NOT NULL PRIMARY KEY,
-	AssignedReviewerEmail varchar(225) NOT NULL,
+	AssignedReviewer1Email varchar(225) NOT NULL,
+	AssignedReviewer2Email varchar(225) NOT NULL,
+	AssignedReviewer3Email varchar(225) NOT NULL,
+	AssignedReviewer4Email varchar(225) NOT NULL,
+	AssignedReviewer5Email varchar(225) NOT NULL,
+	AssignedReviewer6Email varchar(225) NOT NULL,
 	AssignedDeadlineReviewer date NOT NULL,
 	ReviewerFeedback text,
 	IntrimStatusUpdate varchar(225) NOT NULL,
