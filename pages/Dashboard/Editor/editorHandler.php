@@ -18,20 +18,14 @@ if (isset($_POST['addReviewer']))
 	$email = $_POST['email'];
 	
 	//check if the submission Id is a valid paper waiting to be assigned a reviewer
-	$valid_submission_query = "SELECT * FROM submissionProfile WHERE submissionId = '$submissionId' AND PaperStatus = 'submitted'";
+	$valid_submission_query = "SELECT * FROM submissionProfile WHERE submissionId = '$submissionId'";
 	$valid_submission_Id = mysqli_query($db, $valid_submission_query);
 	
 	//check if the email belongs to a reviewer
 	$valid_email_query = "SELECT * FROM userProfile WHERE email = '$email' AND userType = 'reviewer'";
 	$valid_email = mysqli_query($db, $valid_email_query);
 	
-	error_log(mysqli_num_rows($valid_email));
-	error_log(mysqli_num_rows($valid_submission_Id));
-	
-
-	
 	if (mysqli_num_rows($valid_submission_Id) && mysqli_num_rows($valid_email)){
-		error_log("here");
 			
 		$assignedDeadlineReviewer = $_POST['reviewDeadline'];
 		$writerResubmissionDate = $_POST['resubmissionDeadline'];
@@ -40,8 +34,11 @@ if (isset($_POST['addReviewer']))
 		 VALUES('$submissionId', '$email', '$assignedDeadlineReviewer', 'Empty', '$writerResubmissionDate')";
 		$result = mysqli_query($db,$query);
 		
-		$update = "UPDATE submissionProfile SET PaperStatus = 'underReview' WHERE submissionId = '$submissionId'";
-		mysqli_query($db,$update);
+		$updateSubmission = "UPDATE submissionProfile SET PaperStatus = 'underReview' WHERE submissionId = '$submissionId'";
+		mysqli_query($db,$updateSubmission);
+		
+		$updateNumReviewrs = "UPDATE submissionProfile SET numReviewers = numReviewers + 1 WHERE submissionId = '$submissionId'";
+		mysqli_query($db,$updateNumReviewrs);
 		
 		//reload the page
 		header('location: editor.php');

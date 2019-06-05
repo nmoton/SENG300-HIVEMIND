@@ -1,9 +1,9 @@
 <?php
-//This class generates a the cells for the table in editor.php
+//This class generates a the cells for the reviewer table in editor.php
 
 $db = mysqli_connect('localhost', 'root', '', 'journal');
 
-$paperQuery = "SELECT * FROM submissionProfile WHERE PaperStatus='Submitted'";
+$paperQuery = "SELECT * FROM submissionProfile WHERE PaperStatus='Submitted' OR numReviewers < '3'";
 $result = mysqli_query($db, $paperQuery);
 	
 	//generate cell information from DB
