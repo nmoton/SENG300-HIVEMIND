@@ -18,21 +18,22 @@
 
 
   <body> 
-	<!-- add a logo --> 
-	<div class = "logo"><a href = ""><img src = "" style="width:5%"></a>
-	</div>
+  <!-- add a logo --> 
+  <div class = "logo"><a href = ""><img src = "" style="width:5%"></a>
+  </div>
 
   
-	<!-- Navigation -->
-	<div class="topnav">
-		<div class="topnav-right">
-		<a href="dashboard.php">Dashboard</a>
-		<a href="Writer/writer.php">Writer</a>
-		<a href="Reviewer/reviewer.php">Reviewer</a>
-		<a href="Editor/editor.php">Editor</a>
-		<a href="../login.php">Sign-out</a>
-		</div>
-	</div>
+  <!-- Navigation -->
+  <div class="topnav">
+    <div class="topnav-right">
+      <a href="../dashboard.php">Dashboard</a>
+      <a href="../Writer/writer.php">Writer</a>
+      <a href="reviewer.php">Reviewer</a>
+      <a href="../Editor/editor.php">Editor</a>
+      <a href="../../login.php">Sign-out</a>
+    </div>
+  </div>
+
 
 
 
