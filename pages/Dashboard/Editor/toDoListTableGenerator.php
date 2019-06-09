@@ -15,6 +15,9 @@ $result = mysqli_query($db, $paperQuery);
 			echo '<td>' . $row['topic'] . '</td>';
 			echo '<td>' . $row['PaperStatus'] . '</td>';
 			echo '<td>' . $row['dateOfSubmission'] . '</td>';
+			echo '<td><button type="button">Accept</button></td>';
+			echo '<td><button type="button">Reject</button></td>';
+			echo '<td><button type="button">Add Reviewer</button></td>';
 		echo '</tr>';
 	}
 	echo '<table>';

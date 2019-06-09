@@ -51,6 +51,8 @@
 		<th>Status</th>
 		<th>Date</th>
 		<th></th>
+		<th></th>
+		<th></th>
 	<tr>
 	<!--Generate cells -->
 	<?php 

@@ -18,6 +18,7 @@ $result = mysqli_query($db, $paperQuery);
 			echo '<td>' . $row['reviewerPreference1'] . '</td>';
 			echo '<td>' . $row['reviewerPreference2'] . '</td>';
 			echo '<td>' . $row['reviewerPreference3'] . '</td>';
+			echo '<td><button type="button">Add Reviewer</button></td>';
 		echo '</tr>';
 	}
 	echo '<table>';
