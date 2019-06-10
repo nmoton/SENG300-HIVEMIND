@@ -2,7 +2,7 @@
 
 <html lang="en">
 	<head>
-		<title>Dashboard</title>
+		<title>Editor</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content="Registration Page for Hive Mind">
 		<meta name="author" content="Nathan Moton">

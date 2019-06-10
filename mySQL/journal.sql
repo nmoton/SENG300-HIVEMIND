@@ -83,6 +83,9 @@ CREATE TABLE reviewStatus
 	AssignedReviewerEmail varchar(225) NOT NULL,
 	AssignedDeadlineReviewer date NOT NULL,
 	ReviewerFeedback text,
-	IntrimStatusUpdate varchar(225) NOT NULL,
+	InterimStatusUpdate varchar(225) NOT NULL,
 	WritersResubmissionDate date NOT NULL
 );
+
+INSERT INTO reviewStatus (AssignedSubmissionID, AssignedReviewerEmail, AssignedDeadlineReviewer, ReviewerFeedback, InterimStatusUpdate, WritersResubmissionDate) Values(1, "Todd@ucalgary.ca", "2019-2-3", "review text", "submitted", "2019-2-3");
+INSERT INTO reviewStatus (AssignedSubmissionID, AssignedReviewerEmail, AssignedDeadlineReviewer, ReviewerFeedback, InterimStatusUpdate, WritersResubmissionDate) Values(2, "jane@gmail.com", "2019-2-6", "review text", "submitted", "2019-2-18");

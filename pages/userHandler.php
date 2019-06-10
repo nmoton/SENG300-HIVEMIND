@@ -87,7 +87,7 @@ if (isset($_POST['login']))
    {
   	  $_SESSION['email'] = $email;
   	  $_SESSION['success'] = "You are now logged in";
-  	  header('location: dashboard.php');
+  	  header('location: Dashboard/dashboard.php');
   	}
      
    else 
