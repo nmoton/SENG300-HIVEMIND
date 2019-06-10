@@ -38,7 +38,7 @@
 	<br>
 	<br>
 	
-  <form method="post" action="editorHandler.php">
+  <form method="post" action="addReviewer.php">
   	 <?php 
 		include 'editorHandler.php';
 		include '../../../errors/errors.php';

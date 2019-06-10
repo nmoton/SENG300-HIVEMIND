@@ -18,3 +18,11 @@
 [10-Jun-2019 11:18:06 Europe/Berlin] PHP Notice:  Undefined variable: reviewerPref in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 40
 [10-Jun-2019 11:18:06 Europe/Berlin] PHP Notice:  Undefined variable: reviewerPref in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 43
 [10-Jun-2019 11:18:06 Europe/Berlin] PHP Notice:  Undefined variable: reviewerPref in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 46
+[10-Jun-2019 11:45:16 Europe/Berlin] PHP Notice:  Undefined variable: submissionId in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 88
+[10-Jun-2019 11:46:21 Europe/Berlin] PHP Notice:  Undefined variable: submissionId in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 97
+[10-Jun-2019 11:46:21 Europe/Berlin] PHP Notice:  Undefined variable: submissionId in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 100
+[10-Jun-2019 11:46:21 Europe/Berlin] PHP Notice:  Undefined variable: submissionId in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 103
+[10-Jun-2019 11:49:21 Europe/Berlin] PHP Notice:  Undefined variable: submissionId in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 96
+[10-Jun-2019 11:49:21 Europe/Berlin] PHP Notice:  Undefined variable: submissionId in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 99
+[10-Jun-2019 11:49:21 Europe/Berlin] PHP Notice:  Undefined variable: submissionId in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 102
+[10-Jun-2019 11:53:07 Europe/Berlin] PHP Notice:  Undefined index: assignedReviewerEmail in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 40

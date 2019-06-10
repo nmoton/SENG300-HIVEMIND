@@ -32,6 +32,7 @@ INSERT INTO userProfile (email, userType, institution, firstName, lastName, pass
 -- when writer resubmits a paper then simply update the pdfSubmission field and update date of submission so editor can assign a new deadline for reviewer 
 -- Options for PaperStatus: "submitted", "underReview"
 -- numReviewers is the Number of reviewers currently assigned to this paper
+-- reviewerPreference should be entered as the e-mail of the desired reviewer
 DROP TABLE IF EXISTS submissionProfile;
 CREATE TABLE submissionProfile
 (
@@ -49,8 +50,8 @@ CREATE TABLE submissionProfile
 	reviewerPreference3 varchar(225)
 );
 
-INSERT INTO submissionProfile (paperTitle, email, topic, pdfSubmission, PaperStatus,dateOfSubmission, reviewerPreference1, reviewerPreference2) Values("Effect of Routing Algorithms on Network Efficiency", "EduardoPicatto@UCalgary.ca", "Networking", "sample text", "submitted", "2019-2-2", "Ed Johnson", "Tom Smith");
-INSERT INTO submissionProfile (paperTitle, email, topic, pdfSubmission, PaperStatus,dateOfSubmission, reviewerPreference1) Values("Algorithmic Complexity Analysis of Matrix Multiplication", "EduardoPicatto@UCalgary.ca", "Algorithmics", "sample text", "submitted", "2019-2-3", "Ed Johnson");
+INSERT INTO submissionProfile (paperTitle, email, topic, pdfSubmission, PaperStatus,dateOfSubmission, reviewerPreference1, reviewerPreference2) Values("Effect of Routing Algorithms on Network Efficiency", "EduardoPicatto@UCalgary.ca", "Networking", "sample text", "submitted", "2019-2-2", "Todd@ucalgary.ca", "Glen@ucalgary.ca");
+INSERT INTO submissionProfile (paperTitle, email, topic, pdfSubmission, PaperStatus,dateOfSubmission, reviewerPreference1) Values("Algorithmic Complexity Analysis of Matrix Multiplication", "EduardoPicatto@UCalgary.ca", "Algorithmics", "sample text", "submitted", "2019-2-3", "Todd@ucalgary.ca");
 
 
 
@@ -69,7 +70,7 @@ CREATE TABLE reviewerSelection
 -- Reviewer, writer and editor 
 -- Here, 
 -- Editor role: 
-           -- editor will assign a paper to reviewer. Editor will need to add ID of the paper, add reviewer's name, enter their own username (assuming there can be multiple editors), 
+           -- editor will assign a paper to reviewer. Editor will need to add ID of the paper, add reviewer's name
            -- assign deadline
 -- Reviewer role:
             -- Add feedback for writer

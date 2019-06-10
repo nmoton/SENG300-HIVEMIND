@@ -9,7 +9,6 @@ ini_set("error_log", "editorHandlerError.log");
 
 $db = mysqli_connect('localhost', 'root', '', 'journal');
 
-
 //handles the "Add Reviewer" button on the "Papers Awaiting a Reviewer" table
 if (isset($_POST['addReviewer']))
 {
@@ -28,47 +27,69 @@ if (isset($_POST['addReviewer']))
 			echo '<td>' . $row['dateOfSubmission'] . '</td>';
 		echo '</tr>';
 	}
-	echo '</table><br>';
+	echo '</table>';
+	echo '<br \><br>';
+	
+	$reviewerQuery = "SELECT * FROM reviewStatus WHERE AssignedSubmissionID = '$submissionId'";
+	$reviewers = mysqli_query($db, $reviewerQuery);
+	
+	if (mysqli_num_rows($reviewers) == 0){
+		echo "There are no reviewers currently assigned to this submission";
+	} else {
+		echo "These are the reviewers currently assigned to this submission:";
+		while ($row = mysqli_fetch_assoc($reviewers)){
+			echo $row['AssignedReviewerEmail'] . "&nbsp&nbsp";
+		}
+	}
+	
+	echo '<br \><br>';
+	
 	echo "The submitter has requested these reviewers: ";
 	$submissionQuery = "SELECT * FROM submissionProfile WHERE submissionId = '$submissionId'";
 	$submission = mysqli_query($db, $submissionQuery);
 	while ($row = mysqli_fetch_assoc($submission)){
-		echo $row['reviewerPreference1'];
-		
-		if (!is_null($row['reviewerPreference1']) && !is_null($row['reviewerPreference2'])){
-			echo ', ';
-		}
-		
-		echo $row['reviewerPreference2'];
-		
-		if (!is_null($row['reviewerPreference2']) && !is_null($row['reviewerPreference3'])){
-			echo ', ';
-		}
-	
+		echo $row['reviewerPreference1'] . "&nbsp&nbsp";
+		echo $row['reviewerPreference2'] . "&nbsp&nbsp";
 		echo $row['reviewerPreference3'];
 	}
 	
 	echo "<br \><br>These reviewers have requested to review this paper: ";
 	//will add when the functionality for a reviewer to request a paper is implemented
 	
+	echo '<br \><br><br>';
+	echo '<form method="post">
+		<div class="input-group">
+			<label>Enter the E-mail of the reviewer you would like to assign to this paper</label>
+			<input type="text" name="email"">
+		</div>
+			<div class="input-group">
+			<label>Enter the review deadline</label>
+			<input type="date" name="reviewDeadline">
+		</div>
+			</div>
+			<div class="input-group">
+			<label>Enter the resubmission deadline</label>
+			<input type="date" name="resubmissionDeadline">
+		</div>
+		<div class="input-group">
+			<button type="submit" class="btn" name="add" value = ' . $submissionId .'>Add</button>
+		</div>
+	</form>	';
+	
 }
 
 
-//handles the add reviewer button
-/*if (isset($_POST['addReviewer']))
+//handles the add button the addReviewer page
+if (isset($_POST['add']))
 {
-	$submissionId = $_POST['submissionId'];
 	$email = $_POST['email'];
-	
-	//check if the submission Id is a valid paper waiting to be assigned a reviewer
-	$valid_submission_query = "SELECT * FROM submissionProfile WHERE submissionId = '$submissionId'";
-	$valid_submission_Id = mysqli_query($db, $valid_submission_query);
-	
+	$submissionId = $_POST['add'];
+
 	//check if the email belongs to a reviewer
 	$valid_email_query = "SELECT * FROM userProfile WHERE email = '$email' AND userType = 'reviewer'";
 	$valid_email = mysqli_query($db, $valid_email_query);
 	
-	if (mysqli_num_rows($valid_submission_Id) && mysqli_num_rows($valid_email)){
+	if (mysqli_num_rows($valid_email)){
 			
 		$assignedDeadlineReviewer = $_POST['reviewDeadline'];
 		$writerResubmissionDate = $_POST['resubmissionDeadline'];
@@ -83,12 +104,9 @@ if (isset($_POST['addReviewer']))
 		$updateNumReviewers = "UPDATE submissionProfile SET numReviewers = numReviewers + 1 WHERE submissionId = '$submissionId'";
 		mysqli_query($db,$updateNumReviewers);
 		
-		//reload the page
-		header('location: editor.php');
-		 
 	} else {
-		array_push($errors, "Please enter a valid submission Id and reviewer E-mail");
+		array_push($errors, "Please enter a valid reviewer E-mail");
 	}
 
-}*/
+}
 ?>
