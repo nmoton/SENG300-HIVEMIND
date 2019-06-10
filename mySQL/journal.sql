@@ -49,8 +49,8 @@ CREATE TABLE submissionProfile
 	reviewerPreference3 varchar(225)
 );
 
-INSERT INTO submissionProfile (paperTitle, email, topic, pdfSubmission, PaperStatus,dateOfSubmission, reviewerPreference1, reviewerPreference2) Values("Effect of Routing Algorithms on Network Efficiency", "EduardoPicatto@UCalgary.ca", "Networking", "sample text", "submitted", "2019-2-2", "Ed Johnson", "Tom Smith");
-INSERT INTO submissionProfile (paperTitle, email, topic, pdfSubmission, PaperStatus,dateOfSubmission, reviewerPreference1) Values("Algorithmic Complexity Analysis of Matrix Multiplication", "EduardoPicatto@UCalgary.ca", "Algorithmics", "sample text", "submitted", "2019-2-3", "Ed Johnson");
+INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1, reviewerPreference2) Values("Effect of Routing Algorithms on Network Efficiency", "EduardoPicatto@UCalgary.ca", "Networking", "Eduardo Picatto", "sample text", "submitted", "2019-2-2", "Ed Johnson", "Tom Smith");
+INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1) Values("Algorithmic Complexity Analysis of Matrix Multiplication", "EduardoPicatto@UCalgary.ca", "Algorithmics", "Eduardo Picatto", "sample text", "submitted", "2019-2-3", "Ed Johnson");
 
 
 

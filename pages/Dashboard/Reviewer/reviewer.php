@@ -88,7 +88,7 @@
 			$today = date("Y-m-d");
            
 						//show all papers assigned to this reviewer, whose deadlines haven't expired yet
-						$user_check_query = "SELECT AssignedSubmissionID, paperTitle, topic, pdfSubmission, AssignedDeadlineReviewer FROM reviewStatus INNER JOIN submissionProfile ON reviewStatus.AssignedSubmissionID=submissionProfile.submissionId WHERE AssignedReviewerEmail='$email' AND AssignedDeadlineReviewer >= '$today' AND reviewStatus.ReviewerFeedback IS NULL";
+						$user_check_query = "SELECT AssignedSubmissionID, paperTitle, topic, pdfSubmission, AssignedDeadlineReviewer FROM reviewStatus INNER JOIN submissionProfile ON reviewStatus.AssignedSubmissionID=submissionProfile.submissionId WHERE AssignedReviewerEmail='$email' AND AssignedDeadlineReviewer >= '$today' AND reviewStatus.InterimStatusUpdate = 'submitted'";
 						$result = $db->query($user_check_query);
 		
 					

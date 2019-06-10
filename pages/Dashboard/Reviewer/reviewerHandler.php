@@ -132,7 +132,7 @@ if (isset($_POST['reviewSubmission']))
 			//doing error checks
 			if ($reviewedPaper) 
 			{
-				if ($reviewedPaper['ReviewerFeedback']) 
+				if ($reviewedPaper['InterimStatusUpdate'] == 'reviewed') 
 				{
 					array_push($errors, "This paper already has a review.");
 				}
@@ -144,10 +144,8 @@ if (isset($_POST['reviewSubmission']))
 			//if there are no errors then write all the info to an XML string, and store in the table reviewStatus
 			if (count($errors) == 0) 
 			{
-				
-				$xmlReview = "A great review!";
 
-				$sql = "UPDATE reviewStatus SET ReviewerFeedback = '$xmlReview' WHERE AssignedSubmissionID = '$submissionID' AND AssignedReviewerEmail = '$email'";		
+				$sql = "UPDATE reviewStatus SET ReviewerRecommendation = '$decision', WriterFeedback = '$writerComments', EditorFeedback = '$editorComments', InterimStatusUpdate = 'reviewed' WHERE AssignedSubmissionID = '$submissionID' AND AssignedReviewerEmail = '$email'";		
 				
 					if ($db->query($sql) === TRUE) 
 					{
