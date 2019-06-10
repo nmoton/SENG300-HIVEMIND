@@ -59,7 +59,6 @@ if (isset($_POST['register']))
 
 
 
-
 //for logging in users 
 if (isset($_POST['login'])) 
 {
@@ -106,14 +105,25 @@ if (isset($_POST['login']))
 
 if (isset($_POST['newPaperSubmission'])) 
 		{
-			
+			//$destination_directory="/"; // end in slash so we can append filename
+			//$source_name = basename($_FILES['file']['name']);
+			//$source_tmp_name = $_FILES['paperUpload']['file'];
+
+
 			$email = $_SESSION['email'];
 			$paperTitle = $_POST['paperTitle'];
 			$topicPaper = $_POST['topicPaper'];
 			$authorsPaper = $_POST['authorsPaper'];
 			$dateOfSubmission = $_POST['dateOfSubmission'];
 
-			$paperUpload = $_POST['paperUpload'];
+
+			$paperUpload = $_FILES['paperUpload']['name'];
+
+			$destination_file = 'Uploads';
+
+			//$conn_id = ftp_connect('localhost') or die (error_log("ftp connect error"));
+			//ftp_put($conn_id,"/Upload.pdf", $paperUpload, FTP_BINARY);
+			//ftp_put($conn_id, $destination_directory, $paperUpload, FTP_BINARY);
 
 			
 			$Reviewer_Preference_1 = $_POST['Reviewer_Preference_1'];
