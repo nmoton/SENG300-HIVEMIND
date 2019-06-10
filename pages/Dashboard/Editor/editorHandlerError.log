@@ -1,0 +1,20 @@
+[10-Jun-2019 11:13:08 Europe/Berlin] PHP Warning:  implode(): Invalid arguments passed in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 34
+[10-Jun-2019 11:13:08 Europe/Berlin] 
+[10-Jun-2019 11:13:08 Europe/Berlin] 1
+[10-Jun-2019 11:13:17 Europe/Berlin] PHP Warning:  implode(): Invalid arguments passed in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 34
+[10-Jun-2019 11:13:17 Europe/Berlin] 
+[10-Jun-2019 11:13:17 Europe/Berlin] 1
+[10-Jun-2019 11:13:44 Europe/Berlin] PHP Warning:  implode(): Invalid arguments passed in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 34
+[10-Jun-2019 11:13:44 Europe/Berlin] 
+[10-Jun-2019 11:13:44 Europe/Berlin] 1
+[10-Jun-2019 11:15:18 Europe/Berlin] PHP Warning:  implode(): Invalid arguments passed in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 36
+[10-Jun-2019 11:15:18 Europe/Berlin] 
+[10-Jun-2019 11:15:18 Europe/Berlin] 1
+[10-Jun-2019 11:16:17 Europe/Berlin] PHP Warning:  Use of undefined constant mysqli_fetch_assoc - assumed 'mysqli_fetch_assoc' (this will throw an Error in a future version of PHP) in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 34
+[10-Jun-2019 11:16:17 Europe/Berlin] PHP Warning:  Illegal string offset 'reviewerPreference1' in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 34
+[10-Jun-2019 11:16:17 Europe/Berlin] 1
+[10-Jun-2019 11:18:06 Europe/Berlin] PHP Notice:  Undefined variable: reviewerPref in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 39
+[10-Jun-2019 11:18:06 Europe/Berlin] 1
+[10-Jun-2019 11:18:06 Europe/Berlin] PHP Notice:  Undefined variable: reviewerPref in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 40
+[10-Jun-2019 11:18:06 Europe/Berlin] PHP Notice:  Undefined variable: reviewerPref in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 43
+[10-Jun-2019 11:18:06 Europe/Berlin] PHP Notice:  Undefined variable: reviewerPref in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 46

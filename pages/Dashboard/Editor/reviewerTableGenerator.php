@@ -1,5 +1,5 @@
 <?php
-//This class generates a the cells for the reviewer table in editor.php
+//This class generates the cells for the reviewer table in editor.php
 
 $db = mysqli_connect('localhost', 'root', '', 'journal');
 
@@ -18,7 +18,8 @@ $result = mysqli_query($db, $paperQuery);
 			echo '<td>' . $row['reviewerPreference1'] . '</td>';
 			echo '<td>' . $row['reviewerPreference2'] . '</td>';
 			echo '<td>' . $row['reviewerPreference3'] . '</td>';
-			echo '<td><button type="button">Add Reviewer</button></td>';
+			//The value of the button is set to be the same as the submission ID
+			echo '<td><button type="submit" name = "addReviewer" value =' . $row['submissionId'] . '>Add Reviewer</button></td>';
 		echo '</tr>';
 	}
 	echo '<table>';

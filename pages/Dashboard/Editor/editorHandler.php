@@ -1,8 +1,6 @@
 <?php
 $errors = array();
 
-
-
 //initialize error log (use for debugging). Ex;
 //error_log(mysqli_error($db)); 
 //prints the last sql query error to editorHandlerErrorlog
@@ -11,8 +9,53 @@ ini_set("error_log", "editorHandlerError.log");
 
 $db = mysqli_connect('localhost', 'root', '', 'journal');
 
-//handles the add reviewer button
+
+//handles the "Add Reviewer" button on the "Papers Awaiting a Reviewer" table
 if (isset($_POST['addReviewer']))
+{
+	$submissionId = $_POST['addReviewer'];
+	
+	$submissionQuery = "SELECT * FROM submissionProfile WHERE submissionId = '$submissionId'";
+	$submission = mysqli_query($db, $submissionQuery);
+	
+	while ($row = mysqli_fetch_assoc($submission)){
+		echo '<tr>';
+			echo '<td>' . $row['submissionId'] . '</td>';
+			echo '<td>' . $row['paperTitle'] . '</td>';
+			echo '<td>' . $row['email'] . '</td>';
+			echo '<td>' . $row['topic'] . '</td>';
+			echo '<td>' . $row['PaperStatus'] . '</td>';
+			echo '<td>' . $row['dateOfSubmission'] . '</td>';
+		echo '</tr>';
+	}
+	echo '</table><br>';
+	echo "The submitter has requested these reviewers: ";
+	$submissionQuery = "SELECT * FROM submissionProfile WHERE submissionId = '$submissionId'";
+	$submission = mysqli_query($db, $submissionQuery);
+	while ($row = mysqli_fetch_assoc($submission)){
+		echo $row['reviewerPreference1'];
+		
+		if (!is_null($row['reviewerPreference1']) && !is_null($row['reviewerPreference2'])){
+			echo ', ';
+		}
+		
+		echo $row['reviewerPreference2'];
+		
+		if (!is_null($row['reviewerPreference2']) && !is_null($row['reviewerPreference3'])){
+			echo ', ';
+		}
+	
+		echo $row['reviewerPreference3'];
+	}
+	
+	echo "<br \><br>These reviewers have requested to review this paper: ";
+	//will add when the functionality for a reviewer to request a paper is implemented
+	
+}
+
+
+//handles the add reviewer button
+/*if (isset($_POST['addReviewer']))
 {
 	$submissionId = $_POST['submissionId'];
 	$email = $_POST['email'];
@@ -37,8 +80,8 @@ if (isset($_POST['addReviewer']))
 		$updateSubmission = "UPDATE submissionProfile SET PaperStatus = 'underReview' WHERE submissionId = '$submissionId'";
 		mysqli_query($db,$updateSubmission);
 		
-		$updateNumReviewrs = "UPDATE submissionProfile SET numReviewers = numReviewers + 1 WHERE submissionId = '$submissionId'";
-		mysqli_query($db,$updateNumReviewrs);
+		$updateNumReviewers = "UPDATE submissionProfile SET numReviewers = numReviewers + 1 WHERE submissionId = '$submissionId'";
+		mysqli_query($db,$updateNumReviewers);
 		
 		//reload the page
 		header('location: editor.php');
@@ -47,5 +90,5 @@ if (isset($_POST['addReviewer']))
 		array_push($errors, "Please enter a valid submission Id and reviewer E-mail");
 	}
 
-}
+}*/
 ?>
