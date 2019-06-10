@@ -72,9 +72,9 @@ CREATE TABLE reviewerSelection
            -- editor will assign a paper to reviewer. Editor will need to add ID of the paper, add reviewer's name, enter their own username (assuming there can be multiple editors), 
            -- assign deadline
 -- Reviewer role:
-            -- Add feedback for writer
-            -- update intrim status for editor (empty, accept with major revision, accept with minor revision, reject)
--- When reviewer updates the intrim status, editor will be able to assign deadline to writers for resubmission
+            -- Add recommendation for editor (accept, accept with major revisions, accept with minor revisions, reject)
+            -- Add comments for writer/editor
+			-- Update the interim status (from 'submitted' to 'reviewed'), at which point editor will be able to assign deadline to writers for resubmission
 
 DROP TABLE IF EXISTS reviewStatus;
 CREATE TABLE reviewStatus
@@ -82,10 +82,13 @@ CREATE TABLE reviewStatus
 	AssignedSubmissionID int NOT NULL,
 	AssignedReviewerEmail varchar(225) NOT NULL,
 	AssignedDeadlineReviewer date NOT NULL,
-	ReviewerFeedback text,
+	ReviewerRecommendation varchar(225),
+	WriterFeedback text,
+	EditorFeedback text,
 	InterimStatusUpdate varchar(225) NOT NULL,
 	WritersResubmissionDate date NOT NULL
 );
 
-INSERT INTO reviewStatus (AssignedSubmissionID, AssignedReviewerEmail, AssignedDeadlineReviewer, ReviewerFeedback, InterimStatusUpdate, WritersResubmissionDate) Values(1, "Todd@ucalgary.ca", "2019-2-3", NULL, "submitted", "2019-2-3");
-INSERT INTO reviewStatus (AssignedSubmissionID, AssignedReviewerEmail, AssignedDeadlineReviewer, ReviewerFeedback, InterimStatusUpdate, WritersResubmissionDate) Values(2, "jane@gmail.com", "2019-2-6", NULL, "submitted", "2019-2-18");
+INSERT INTO reviewStatus (AssignedSubmissionID, AssignedReviewerEmail, AssignedDeadlineReviewer, ReviewerRecommendation, WriterFeedback, EditorFeedback, InterimStatusUpdate, WritersResubmissionDate) Values(1, "Todd@ucalgary.ca", "2019-08-03", NULL, NULL, NULL, "submitted", "2019-12-3");
+INSERT INTO reviewStatus (AssignedSubmissionID, AssignedReviewerEmail, AssignedDeadlineReviewer, ReviewerRecommendation, WriterFeedback, EditorFeedback, InterimStatusUpdate, WritersResubmissionDate) Values(2, "jane@gmail.com", "2019-08-06", NULL, NULL, NULL, "submitted", "2019-12-18");
+INSERT INTO reviewStatus (AssignedSubmissionID, AssignedReviewerEmail, AssignedDeadlineReviewer, ReviewerRecommendation, WriterFeedback, EditorFeedback, InterimStatusUpdate, WritersResubmissionDate) Values(1, "jane@gmail.com", "2019-08-06", NULL, NULL, NULL, "submitted", "2019-12-18");
