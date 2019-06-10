@@ -85,10 +85,10 @@
 			}
 
 			$email = $_SESSION['email'];
-			
+			$today = date("Y-m-d");
            
-						
-						$user_check_query = "SELECT reviewStatus.AssignedSubmissionID, submissionProfile.paperTitle, submissionProfile.topic, submissionProfile.pdfSubmission, reviewStatus.AssignedDeadlineReviewer FROM reviewStatus INNER JOIN submissionProfile ON reviewStatus.AssignedSubmissionID=submissionProfile.submissionId WHERE reviewStatus.AssignedReviewerEmail='$email'";
+						//show all papers assigned to this reviewer, whose deadlines haven't expired yet
+						$user_check_query = "SELECT AssignedSubmissionID, paperTitle, topic, pdfSubmission, AssignedDeadlineReviewer FROM reviewStatus INNER JOIN submissionProfile ON reviewStatus.AssignedSubmissionID=submissionProfile.submissionId WHERE AssignedReviewerEmail='$email' AND AssignedDeadlineReviewer >= '$today' AND reviewStatus.ReviewerFeedback IS NULL";
 						$result = $db->query($user_check_query);
 		
 					
@@ -293,34 +293,34 @@
 
 
 <div class="form-style-10">
-<h1>Make a new Submission!<span> Follow 3 Easy Steps Below!</span></h1>
-<form method="post" action="writer.php">
+<h1>Write a review!<span></span></h1>
+<form method="post" action="reviewer.php">
 	<?php include('errors.php'); ?>
 	<center> 
     <div class="section"><span>1</span>Paper Information</div>
     <div class="inner-wrap">
-        <label>Title of the paper <input type="text" name="paperTitle" /></label>
-				<label>Topic of the paper <input type="text" name="topicPaper" /></label>
-				<label>Authors of the paper <input type="text" name="authorsPaper" /></label>
-				<label>Enter date <input type="date" name="dateOfSubmission" /></label>
+        <label>Submission ID <input type="number" name="paperID" /></label>
+		<label>Decision <select name="decision">
+			  <option value="accept">Accept</option>
+			  <option value="minor_rev">Accept with minor revisions</option>
+			  <option value="major_rev">Accept with major revisions</option>
+			  <option value="reject">Reject</option>
+			</select>
     </div>
 
 
-    <div class="section"><span>2</span>Upload</div>
+    <div class="section"><span>2</span>Comments for the Authors</div>
     <div class="inner-wrap">
-        <label>Upload your PDF <input type="file" name="paperUpload" /></label>
+        <label><textarea name="writerComments" style="width:300px; height:300px;">Type your suggestions here.</textarea></label>
     </div>
 
-
-    <div class="section"><span>3</span>Reviewer Preference. Enter up to 3 names.</div>
+	<div class="section"><span>3</span>Comments for the Editors</div>
     <div class="inner-wrap">
-        <label>Reviewer Preference 1 <input type="text" name="Reviewer_Preference_1" /></label>
-				<label>Reviewer Preference 2 <input type="text" name="Reviewer_Preference_2" /></label>
-				<label>Reviewer Preference 3 <input type="text" name="Reviewer_Preference_3" /></label>	
+        <label><textarea name="editorComments" style="width:300px; height:300px;">Type your suggestions here.</textarea></label>
     </div>
 
     <div class="input-group">
-     	<button type="submit" class="btn" name="newPaperSubmission">Submit</button>
+     	<button type="submit" class="btn" name="reviewSubmission">Submit</button>
     </div>
 	</center>
 </form>
@@ -350,16 +350,3 @@
 
 
 
-
-
-	
-
-
-
-
-
-
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-	</body>
