@@ -24,11 +24,11 @@
   <!-- Navigation -->
   <div class="topnav">
     <div class="topnav-right">
-      <a href="dashboard.php">Dashboard</a>
-      <a href="writer.php">Writer</a>
-      <a href="reviewer.php">Reviewer</a>
-      <a href="editor.php">Editor</a>
-      <a href="login.php">Sign-out</a>
+      <a href="../dashboard.php">Dashboard</a>
+      <a href="../Writer/writer.php">Writer</a>
+      <a href="../Reviewer/reviewer.php">Reviewer</a>
+      <a href="../Editor/editor.php">Editor</a>
+      <a href="../../login.php">Sign-out</a>
     </div>
   </div>
   
