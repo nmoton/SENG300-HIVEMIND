@@ -9,6 +9,108 @@ ini_set("error_log", "editorHandlerError.log");
 
 $db = mysqli_connect('localhost', 'root', '', 'journal');
 
+//handles the "evaluate" button on the "To Do List" table
+if (isset($_POST['evaluate'])){
+	$submissionId = $_POST['evaluate'];
+	
+	$submissionQuery = "SELECT * FROM submissionProfile WHERE submissionId = '$submissionId'";
+	$submission = mysqli_query($db, $submissionQuery);
+	
+	while ($row = mysqli_fetch_assoc($submission)){
+		echo '<tr>';
+			echo '<td>' . $row['submissionId'] . '</td>';
+			echo '<td>' . $row['paperTitle'] . '</td>';
+			echo '<td>' . $row['email'] . '</td>';
+			echo '<td>' . $row['topic'] . '</td>';
+			echo '<td>' . $row['PaperStatus'] . '</td>';
+			echo '<td>' . $row['dateOfSubmission'] . '</td>';
+		echo '</tr>';
+	}
+	echo '</table>';
+	echo '<br \><br>';
+	
+	echo '<b><h2><center> Reviewer Feedback </center></h2></b><br>';
+	echo 'These reviewers have not yet submitted a review:';
+	
+	$reviewerQuery = "SELECT * FROM reviewStatus WHERE AssignedSubmissionId = '$submissionId' AND InterimStatusUpdate != 'reviewed'";
+	$incompleteReviewers = mysqli_query($db, $reviewerQuery);
+	
+	while ($row = mysqli_fetch_assoc($incompleteReviewers)){
+		echo $row['AssignedReviewerEmail'] . "&nbsp&nbsp";
+	}
+	
+	echo '<table>
+	<tr>
+		<th>&nbsp&nbspReviewer&nbsp&nbsp</th>
+		<th>&nbsp&nbspReviewer Recommendation&nbsp&nbsp</th>
+		<th>&nbsp&nbspFeedback for the Submitter&nbsp&nbsp</th>
+		<th>&nbsp&nbspNotes to the Editor&nbsp&nbsp</th>
+		<th>&nbsp&nbspWriter Resubmission Date&nbsp&nbsp</th>
+	<tr>';
+	
+	$reviewStatus_query = "SELECT * FROM reviewStatus WHERE AssignedSubmissionId = '$submissionId' AND InterimStatusUpdate = 'reviewed'";
+	$reviewStatus = mysqli_query($db, $reviewStatus_query);
+	
+	while ($row = mysqli_fetch_assoc($reviewStatus)){
+		echo '<tr>';
+			echo '<td>' . $row['AssignedReviewerEmail'] . '</td>';
+			echo '<td>' . $row['ReviewerRecommendation'] . '</td>';
+			echo '<td>' . $row['WriterFeedback'] . '</td>';
+			echo '<td>' . $row['EditorFeedback'] . '</td>';
+			echo '<td>' . $row['WritersResubmissionDate'] . '</td>';
+		echo '</tr>';
+	}
+	
+	echo '</table>';
+	echo '<br \><br>';
+	
+	echo '<form method="post"';
+	echo '<div class="input-group">
+			<button type="submit" class="btn" name="accept" value = ' . $submissionId .'>Accept</button>
+		</div>';
+	echo '<div class="input-group">
+			<button type="submit" class="btn" name="acceptMinorRevision" value = ' . $submissionId .'>Accept With Minor Revisions</button>
+		</div>';
+	echo '<div class="input-group">
+			<button type="submit" class="btn" name="acceptMajorRevision" value = ' . $submissionId .'>Accept With Major Revisions</button>
+		</div>';
+	echo '<div class="input-group">
+			<button type="submit" class="btn" name="reject" value = ' . $submissionId .'>Reject</button>
+		</div>';
+}
+
+//handles the "accept" button on the evaluatePaper.php page
+if (isset($_POST['accept'])){
+	$submissionId = $_POST['accept'];
+	
+	$updateQuery = "UPDATE submissionProfile SET PaperStatus = 'accepted' WHERE submissionId = '$submissionId'";
+	$update = mysqli_query($db,$updateQuery);
+}
+
+//handles the "Accept With Minor Revisions" button on the evaluatePaper.php page
+if (isset($_POST['acceptMinorRevision'])){
+	$submissionId = $_POST['acceptMinorRevision'];
+	
+	$updateQuery = "UPDATE submissionProfile SET PaperStatus = 'acceptMinor' WHERE submissionId = '$submissionId'";
+	$update = mysqli_query($db,$updateQuery);
+}
+
+//handles the "Accept With Major Revisions" button on the evaluatePaper.php page
+if (isset($_POST['acceptMajorRevision'])){
+	$submissionId = $_POST['acceptMajorRevision'];
+	
+	$updateQuery = "UPDATE submissionProfile SET PaperStatus = 'acceptMajor' WHERE submissionId = '$submissionId'";
+	$update = mysqli_query($db,$updateQuery);
+}
+
+//handles the "Reject" button on the evaluatePaper.php page
+if (isset($_POST['reject'])){
+	$submissionId = $_POST['reject'];
+	
+	$updateQuery = "UPDATE submissionProfile SET PaperStatus = 'rejected' WHERE submissionId = '$submissionId'";
+	$update = mysqli_query($db,$updateQuery);
+}
+
 //handles the "Add Reviewer" button on the "Papers Awaiting a Reviewer" table
 if (isset($_POST['addReviewer']))
 {
@@ -100,7 +202,7 @@ if (isset($_POST['add']))
 		$assignedDeadlineReviewer = $_POST['reviewDeadline'];
 		$writerResubmissionDate = $_POST['resubmissionDeadline'];
 	
-		$query = "INSERT INTO reviewStatus (AssignedSubmissionID, AssignedReviewerEmail, AssignedDeadlineReviewer, IntrimStatusUpdate,WritersResubmissionDate) 
+		$query = "INSERT INTO reviewStatus (AssignedSubmissionID, AssignedReviewerEmail, AssignedDeadlineReviewer, InterimStatusUpdate,WritersResubmissionDate) 
 		 VALUES('$submissionId', '$email', '$assignedDeadlineReviewer', 'Empty', '$writerResubmissionDate')";
 		$result = mysqli_query($db,$query);
 		

@@ -15,8 +15,7 @@
     	<link href="../css/signup.css" rel="stylesheet" media="screen">
 		<link rel="stylesheet" href="stylesheet.css">
 	</head>
-
-
+	
   <body> 
   <!-- add a logo --> 
   <div class = "logo"><a href = ""><img src = "" style="width:5%"></a>
@@ -34,20 +33,10 @@
   </div>
   
   	<br>
-		<b><h2><center> To Do List </center></h2></b>
-	<br>
+		<b><h2><center> Accept/Reject this Paper </center></h2></b>
 	<br>
 	
-  <form method="post" action="addReviewer.php">
-  	 <?php 
-		include 'editorHandler.php';
-		include '../../../errors/errors.php';
-	?>
-	<br>
-		<b><h2><center> Papers Awaiting a Decision </center></h2></b>
-	<br>	
- 	<!--Generate columns -->
-  	<table>
+	<table>
 	<tr>
 		<th>Submission ID</th>
 		<th>Title</th>
@@ -55,44 +44,11 @@
 		<th>Topic</th>
 		<th>Status</th>
 		<th>Date</th>
-		<th></th>
-		<th></th>
 	<tr>
-	<!--Generate cells -->
-	<?php 
-		include 'toDoListTableGenerator.php';
-	?>
-	</table>
-   </form>
 	
-	
-  <form method="post" action="addReviewer.php">
-	<br>
-		<b><h2><center> Papers Awaiting a Reviewer </center></h2></b>
-	<br>	
- 	<!--Generate columns -->
-  	<table>
-	<tr>
-		<th>Submission ID</th>
-		<th>Title</th>
-		<th>Submitter Email</th>
-		<th>Topic</th>
-		<th>Status</th>
-		<th>Date</th>
-		<th>Reviewer Preference 1</th>
-		<th>Reviewer Preference 2</th>
-		<th>Reviewer Preference 3</th>
-		<th></th>
-	<tr>
-	<!--Generate cells -->
-	<?php 
-		include 'reviewerTableGenerator.php';
-	?>
-	</table>
-  </form>
+<?php
+	include 'editorHandler.php';
+	include '../../../errors/errors.php';
+?>
   
-  	<br>
-		<b><h2><center> Search All Papers </center></h2></b>
-	<br>
-  
-</html>
+ </html>
