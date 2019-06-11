@@ -55,10 +55,15 @@
 		<div class="wrapper" id="underLogin">
 			<small>
 				<a href="">Help</a>
-				·
+                .
 				<a href="">Privacy</a>
-				·
+                .
 				<a href="">Terms & Conditions</a>
+				.
+			</small>
+			<small>
+				Already have an account?
+				<a href="login.php">Login Here</a>
 			</small>
 		</div>
 
