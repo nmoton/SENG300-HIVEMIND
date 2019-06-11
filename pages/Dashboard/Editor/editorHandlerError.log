@@ -1,28 +1,11 @@
-[10-Jun-2019 11:13:08 Europe/Berlin] PHP Warning:  implode(): Invalid arguments passed in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 34
-[10-Jun-2019 11:13:08 Europe/Berlin] 
-[10-Jun-2019 11:13:08 Europe/Berlin] 1
-[10-Jun-2019 11:13:17 Europe/Berlin] PHP Warning:  implode(): Invalid arguments passed in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 34
-[10-Jun-2019 11:13:17 Europe/Berlin] 
-[10-Jun-2019 11:13:17 Europe/Berlin] 1
-[10-Jun-2019 11:13:44 Europe/Berlin] PHP Warning:  implode(): Invalid arguments passed in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 34
-[10-Jun-2019 11:13:44 Europe/Berlin] 
-[10-Jun-2019 11:13:44 Europe/Berlin] 1
-[10-Jun-2019 11:15:18 Europe/Berlin] PHP Warning:  implode(): Invalid arguments passed in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 36
-[10-Jun-2019 11:15:18 Europe/Berlin] 
-[10-Jun-2019 11:15:18 Europe/Berlin] 1
-[10-Jun-2019 11:16:17 Europe/Berlin] PHP Warning:  Use of undefined constant mysqli_fetch_assoc - assumed 'mysqli_fetch_assoc' (this will throw an Error in a future version of PHP) in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 34
-[10-Jun-2019 11:16:17 Europe/Berlin] PHP Warning:  Illegal string offset 'reviewerPreference1' in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 34
-[10-Jun-2019 11:16:17 Europe/Berlin] 1
-[10-Jun-2019 11:18:06 Europe/Berlin] PHP Notice:  Undefined variable: reviewerPref in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 39
-[10-Jun-2019 11:18:06 Europe/Berlin] 1
-[10-Jun-2019 11:18:06 Europe/Berlin] PHP Notice:  Undefined variable: reviewerPref in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 40
-[10-Jun-2019 11:18:06 Europe/Berlin] PHP Notice:  Undefined variable: reviewerPref in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 43
-[10-Jun-2019 11:18:06 Europe/Berlin] PHP Notice:  Undefined variable: reviewerPref in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 46
-[10-Jun-2019 11:45:16 Europe/Berlin] PHP Notice:  Undefined variable: submissionId in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 88
-[10-Jun-2019 11:46:21 Europe/Berlin] PHP Notice:  Undefined variable: submissionId in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 97
-[10-Jun-2019 11:46:21 Europe/Berlin] PHP Notice:  Undefined variable: submissionId in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 100
-[10-Jun-2019 11:46:21 Europe/Berlin] PHP Notice:  Undefined variable: submissionId in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 103
-[10-Jun-2019 11:49:21 Europe/Berlin] PHP Notice:  Undefined variable: submissionId in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 96
-[10-Jun-2019 11:49:21 Europe/Berlin] PHP Notice:  Undefined variable: submissionId in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 99
-[10-Jun-2019 11:49:21 Europe/Berlin] PHP Notice:  Undefined variable: submissionId in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 102
-[10-Jun-2019 11:53:07 Europe/Berlin] PHP Notice:  Undefined index: assignedReviewerEmail in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 40
+[11-Jun-2019 11:12:27 Europe/Berlin] 
+[11-Jun-2019 11:12:59 Europe/Berlin] PHP Notice:  Undefined variable: mysqli_error in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 94
+[11-Jun-2019 11:12:59 Europe/Berlin] PHP Fatal error:  Uncaught Error: Function name must be a string in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php:94
+Stack trace:
+#0 E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\addReviewer.php(50): include()
+#1 {main}
+  thrown in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 94
+[11-Jun-2019 11:13:16 Europe/Berlin] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 94
+[11-Jun-2019 11:13:16 Europe/Berlin] 
+[11-Jun-2019 11:13:27 Europe/Berlin] Unknown column 'email' in 'where clause'
+[11-Jun-2019 11:14:01 Europe/Berlin] 

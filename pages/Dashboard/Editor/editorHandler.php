@@ -60,16 +60,16 @@ if (isset($_POST['addReviewer']))
 	echo '<form method="post">
 		<div class="input-group">
 			<label>Enter the E-mail of the reviewer you would like to assign to this paper</label>
-			<input type="text" name="email"">
+			<input type="text" name="email"" required>
 		</div>
 			<div class="input-group">
 			<label>Enter the review deadline</label>
-			<input type="date" name="reviewDeadline">
+			<input type="date" name="reviewDeadline" required>
 		</div>
 			</div>
 			<div class="input-group">
 			<label>Enter the resubmission deadline</label>
-			<input type="date" name="resubmissionDeadline">
+			<input type="date" name="resubmissionDeadline" required>
 		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="add" value = ' . $submissionId .'>Add</button>
@@ -77,7 +77,6 @@ if (isset($_POST['addReviewer']))
 	</form>	';
 	
 }
-
 
 //handles the add button the addReviewer page
 if (isset($_POST['add']))
@@ -89,8 +88,15 @@ if (isset($_POST['add']))
 	$valid_email_query = "SELECT * FROM userProfile WHERE email = '$email' AND userType = 'reviewer'";
 	$valid_email = mysqli_query($db, $valid_email_query);
 	
-	if (mysqli_num_rows($valid_email)){
-			
+	$already_assigned_query = "SELECT * FROM reviewStatus WHERE AssignedreviewerEmail = '$email' AND AssignedSubmissionID = '$submissionId'";
+	$already_assigned = mysqli_query($db, $already_assigned_query);
+	
+	
+	if (mysqli_num_rows($already_assigned) > 0){
+		array_push($errors, "This reviewer is already assigned to this paper");
+	}
+	else if (mysqli_num_rows($valid_email)){
+
 		$assignedDeadlineReviewer = $_POST['reviewDeadline'];
 		$writerResubmissionDate = $_POST['resubmissionDeadline'];
 	
@@ -107,6 +113,5 @@ if (isset($_POST['add']))
 	} else {
 		array_push($errors, "Please enter a valid reviewer E-mail");
 	}
-
 }
 ?>
