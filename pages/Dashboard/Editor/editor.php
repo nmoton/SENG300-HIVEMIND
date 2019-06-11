@@ -113,7 +113,7 @@
 		<th>Submitter Email</th>
 		<th>Topic</th>
 		<th>Status</th>
-		<th>Date</th>
+		<th>Date Submitted</th>
 		<th></th>
 	<tr>
 	
