@@ -15,6 +15,9 @@ $result = mysqli_query($db, $paperQuery);
 			echo '<td>' . $row['topic'] . '</td>';
 			echo '<td>' . $row['PaperStatus'] . '</td>';
 			echo '<td>' . $row['dateOfSubmission'] . '</td>';
+			//The value of the buttons is set to be the same as the submission ID
+			echo '<td><button type="submit" formaction="evaluatePaper.php" name= "evaluate" value =' . $row['submissionId'] . '">Evaluate</button></td>';
+			echo '<td><button type="submit" name= "addReviewer" value =' . $row['submissionId'] . '">Add Reviewer</button></td>';
 		echo '</tr>';
 	}
 	echo '<table>';

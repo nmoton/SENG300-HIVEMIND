@@ -38,6 +38,11 @@
 	<br>
 	<br>
 	
+  <form method="post" action="addReviewer.php">
+  	<?php 
+		include 'editorHandler.php';
+		include '../../../errors/errors.php';
+	?>
 	<br>
 		<b><h2><center> Papers Awaiting a Decision </center></h2></b>
 	<br>	
@@ -51,13 +56,17 @@
 		<th>Status</th>
 		<th>Date</th>
 		<th></th>
+		<th></th>
 	<tr>
 	<!--Generate cells -->
 	<?php 
 		include 'toDoListTableGenerator.php';
 	?>
+	</table>
+   </form>
 	
 	
+  <form method="post" action="addReviewer.php">
 	<br>
 		<b><h2><center> Papers Awaiting a Reviewer </center></h2></b>
 	<br>	
@@ -79,42 +88,37 @@
 	<?php 
 		include 'reviewerTableGenerator.php';
 	?>
-	
+	</table>
+  </form>
+  
+  	<br>
+		<b><h2><center> Search All Papers </center></h2></b>
 	<br>
-		<b><h2><center> Assign a Reviewer </center></h2></b>
-	<br>	
 	
-	<form method="post">
-	  	<?php 
-			include 'editorHandler.php';
-			include '../../../errors/errors.php';
-		?>
+	 <form method="post">
+		<center>
 		<div class="input-group">
-			<label>Enter the submission ID of the paper you want to assign a reviewer to</label>
-			<input type="text" name="submissionId">
+			<input type="text" placeholder="Search.." name="search">
 		</div>
 		<div class="input-group">
-			<label>Enter the E-mail of the reviewer</label>
-			<input type="text" name="email">
+			<button type="submit" name="searchButton">Search</button>
 		</div>
-			<div class="input-group">
-			<label>Enter the review deadline</label>
-			<input type="date" name="reviewDeadline">
-		</div>
-			</div>
-			<div class="input-group">
-			<label>Enter the resubmission deadline</label>
-			<input type="date" name="resubmissionDeadline">
-		</div>
-		<div class="input-group">
-			<button type="submit" class="btn" name="addReviewer">Add</button>
-		</div>
-	</form>	
-
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-	</body>
-
-
+		</center>
+    </form>
+   
+  	<table>
+	<tr>
+		<th>Submission ID</th>
+		<th>Title</th>
+		<th>Submitter Email</th>
+		<th>Topic</th>
+		<th>Status</th>
+		<th>Date Submitted</th>
+		<th></th>
+	<tr>
+	
+	<?php 
+		include 'searchGenerator.php';
+	?>
+  
 </html>
