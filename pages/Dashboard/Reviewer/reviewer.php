@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
 	<head>
-		<title>Writer</title>
+		<title>Reviewer</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="Registration Page for Hive Mind">
+		<meta name="description" content="Reviewer Page for Hive Mind">
 		<meta name="author" content="Nathan Moton">
 
     	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
@@ -18,22 +17,22 @@
 	</head>
 
 
-	<body> 
-	<!-- add a logo --> 
-	<div class = "logo"><a href = ""><img src = "" style="width:5%"></a>
-	</div>
+  <body> 
+  <!-- add a logo --> 
+  <div class = "logo"><a href = ""><img src = "" style="width:5%"></a>
+  </div>
 
   
-	<!-- Navigation -->
-	<div class="topnav">
-		<div class="topnav-right">
-		<a href="../dashboard.php">Dashboard</a>
-		<a href="writer.php">Writer</a>
-		<a href="../Reviewer/reviewer.php">Reviewer</a>
-		<a href="../Editor/editor.php">Editor</a>
-		<a href="../../login.php">Sign-out</a>
-		</div>
-	</div>
+  <!-- Navigation -->
+  <div class="topnav">
+    <div class="topnav-right">
+      <a href="../dashboard.php">Dashboard</a>
+      <a href="../Writer/writer.php">Writer</a>
+      <a href="reviewer.php">Reviewer</a>
+      <a href="../Editor/editor.php">Editor</a>
+      <a href="../../login.php">Sign-out</a>
+    </div>
+  </div>
 
 
 
@@ -41,20 +40,24 @@
 
 
 
+
+
+
+  
 
 <!--feature 1: View all the submission made by the writer with their status 
 	Paper ID | Paper Title | Status 
 	This should be a table -->
 
 	
-	<?php include('userHandler.php'); ?>
+	<?php include('reviewerHandler.php'); ?>
 	
 
     <!--make a table -->
     <body>
 	<br>
 	<p></p>
-    <h2><b><center>Your Submissions</center></b></h2>
+    <h2><b><center>Requested Reviews</center></b></h2>
 
     <div class="container">
     
@@ -64,9 +67,8 @@
     <th>Submission ID</th>
     <th>Paper Title</th>
 	<th>Topic</th>
-    <th>Status</th>
-	<th>Comments</th>
-
+    <th>PDF</th>
+    <th>Deadline</th>
 
     </tr>
     </thead>
@@ -83,41 +85,33 @@
 			}
 
 			$email = $_SESSION['email'];
-			
-			/*$user_check_query = "SELECT submissionProfile.submissionId, submissionProfile.paperTitle, submissionProfile.topic, submissionProfile.PaperStatus, reviewStatus. ReviewerFeedback
-								FROM (submissionProfile NATURAL JOIN reviewStatus) 
-								WHERE submissionProfile.email='$email' AND submissionProfile.submissionId=reviewStatus.AssignedSubmissionID";*/
+			$today = date("Y-m-d");
            
-						
-
-						$user_check_query = "SELECT submissionId, paperTitle, topic, PaperStatus FROM submissionProfile WHERE email='$email'";
+						//show all papers assigned to this reviewer, whose deadlines haven't expired yet
+						$user_check_query = "SELECT AssignedSubmissionID, paperTitle, topic, pdfSubmission, AssignedDeadlineReviewer FROM reviewStatus INNER JOIN submissionProfile ON reviewStatus.AssignedSubmissionID=submissionProfile.submissionId WHERE AssignedReviewerEmail='$email' AND AssignedDeadlineReviewer >= '$today' AND reviewStatus.InterimStatusUpdate = 'submitted'";
 						$result = $db->query($user_check_query);
 		
 					
-						
-						if (!empty($result) && $result->num_rows > 0)
+						if ($result && $result->num_rows > 0)
 						{
 							
 							while ($row = $result->fetch_assoc())
 							{
-								echo"<td>".$row["submissionId"]."</td>";
+								echo"<td>".$row["AssignedSubmissionID"]."</td>";
 								echo"<td>".$row["paperTitle"]."</td>";
 								echo"<td>".$row["topic"]."</td>";
-								echo"<td>".$row["PaperStatus"]."</td>";
-								//echo"<td>".$row["reviewStatus.ReviewerFeedback"]."</td>";
-								echo "</tr>";
-
+								echo"<td>".$row["pdfSubmission"]."</td>";
+								echo"<td>".$row["AssignedDeadlineReviewer"]."</td>";
 							}
 						}
-
 
 						else
 						{
 							echo "<br>";
-							echo "<center><b>You have no submission. Make one today!</b></center>";
+							echo "<center><b>You currently have no papers assigned for review</b></center>";
 						}
 
-					
+
            						
     ?>
     </table>
@@ -144,8 +138,8 @@
 
 
 
-<!--feature 2: Ask user to upload new submission if they have any
-			In the form ask to write Title, Topic, authors, pdf submission upload, select date, reviewer preference1, reviewer prefernce 2, reviewer preference 3 -->  
+<!--feature 2: Ask user to upload new review
+			Stores information in a .xml file, which is added to the reviewStatus table as a string -->  
 
 <!--Relevant CSS code for the form --> 
 <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
@@ -293,128 +287,43 @@
 </style>
 
 
+<!--error checking --> 
 
 
 
-
-
-<!--Making a submission --> 
 <div class="form-style-10">
-<h1>Part 1: Make a new Submission!<span> Follow 3 Easy Steps Below!</span></h1>
-<form method="post" action="writer.php">
+<h1>Write a review!<span></span></h1>
+<form method="post" action="reviewer.php">
 	<?php include('errors.php'); ?>
 	<center> 
     <div class="section"><span>1</span>Paper Information</div>
     <div class="inner-wrap">
-        <label>Title of the paper <input type="text" name="paperTitle" /></label>
-				<label>Topic of the paper <input type="text" name="topicPaper" /></label>
-				<label>Authors of the paper <input type="text" name="authorsPaper" /></label>
-				<label>Enter date <input type="date" name="dateOfSubmission" /></label>
+        <label>Submission ID <input type="number" name="paperID" /></label>
+		<label>Decision <select name="decision">
+			  <option value="accept">Accept</option>
+			  <option value="minor_rev">Accept with minor revisions</option>
+			  <option value="major_rev">Accept with major revisions</option>
+			  <option value="reject">Reject</option>
+			</select>
     </div>
 
 
-    <div class="section"><span>2</span>Upload</div>
+    <div class="section"><span>2</span>Comments for the Authors</div>
     <div class="inner-wrap">
-        <label>Upload your PDF <input type="file" name="paperUpload" /></label>
+        <label><textarea name="writerComments" style="width:300px; height:300px;">Type your suggestions here.</textarea></label>
     </div>
 
-
-    <div class="section"><span>3</span>Reviewer Preference. Enter up to 3 names.</div>
+	<div class="section"><span>3</span>Comments for the Editors</div>
     <div class="inner-wrap">
-        <label>Reviewer Preference 1 <input type="text" name="Reviewer_Preference_1" /></label>
-				<label>Reviewer Preference 2 <input type="text" name="Reviewer_Preference_2" /></label>
-				<label>Reviewer Preference 3 <input type="text" name="Reviewer_Preference_3" /></label>	
+        <label><textarea name="editorComments" style="width:300px; height:300px;">Type your suggestions here.</textarea></label>
     </div>
-
 
     <div class="input-group">
-     	<button type="submit" class="btn" name="newPaperSubmission">Submit</button>
+     	<button type="submit" class="btn" name="reviewSubmission">Submit</button>
     </div>
 	</center>
 </form>
 </div>
-
-
-
-
-
-<p>
-  <!-- circle dots -->
-  <div style="text-align:center">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-</p>
-
-
-
-
-
-
-
-
-
-
-<!--uploading feature--> 
-<div class="form-style-10">
-<h1> Part 2: Upload your PDF!<span> Complete after Part 1</span></h1>
-	<form action="upload.php" method="post" enctype="multipart/form-data">
-	<div class="inner-wrap">
-		<center> 
-			<input type="file" name="fileToUpload" id="fileToUpload">
-			<input type="submit" value="Upload PDF" name="submit">
-		</center>
-	</div>
-</form>
-</div>
-
-
-
-
-
-
-
-<p>
-  <!-- circle dots -->
-  <div style="text-align:center">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-</p>
-
-
-
-
-
-
-
-
-
-
-<!--Enter submissionId of the paper you'd like to withdraw --> 
-<!--Delete a submisison--> 
-<div class="form-style-10">
-<h1> Withdraw a Submission<span> Wrong submission? No Problem! </span></h1>
-<form action="delete.php" method="post">
-	<div class="inner-wrap">
-		<center> 
-			<label> Enter SubmissionId: </label>
-			<input type="int" name="submissionId" required>
-		</center>
-	</div>
-
-	<div class="input-group">
-			<button type="submit" class="btn" name="deleteSubmission">Delete</button>
-	</div>
-</form>
-</div>
-
-
-
- 
-
 
 
 
@@ -437,8 +346,6 @@
 
 	
 </html>
-
-
 
 
 

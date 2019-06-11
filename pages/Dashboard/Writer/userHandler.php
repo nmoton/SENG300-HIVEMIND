@@ -137,7 +137,7 @@ if (isset($_POST['newPaperSubmission']))
 			//error checking if user forgot to add anything
 			if (empty($paperTitle) || empty($topicPaper) || empty($authorsPaper) || empty($dateOfSubmission) || empty($paperUpload)) 
 			{
-				array_push($errors, "<b><center>One or more of the requird field is missing. Please ensure all the relevant information has been entered.</center></b>");
+				array_push($errors, "<b><center>One or more required fields is missing. Please ensure all relevant information has been entered.</center></b>");
 			}
 			
 
