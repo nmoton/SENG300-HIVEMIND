@@ -28,6 +28,10 @@
 						<p>Sign in to stay up to date with the newest software engineering research.</p>
 						<input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus=""/>
 						<input type="password" class="form-control" name="password" placeholder="Password" required="" />
+						<label class="checkbox">
+							<input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe">
+							Remember Me
+						</label>
 					<button class="btn btn-lg btn-primary btn-block" name = "login">Login</button>
 				</div>
 			</div>

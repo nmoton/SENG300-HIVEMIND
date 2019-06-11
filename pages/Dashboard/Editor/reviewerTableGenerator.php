@@ -1,9 +1,9 @@
 <?php
-//This class generates a the cells for the reviewer table in editor.php
+//This class generates the cells for the reviewer table in editor.php
 
 $db = mysqli_connect('localhost', 'root', '', 'journal');
 
-$paperQuery = "SELECT * FROM submissionProfile WHERE PaperStatus='Submitted' OR numReviewers < '3'";
+$paperQuery = "SELECT * FROM submissionProfile WHERE PaperStatus='Submitted' AND numReviewers < '3'";
 $result = mysqli_query($db, $paperQuery);
 	
 	//generate cell information from DB
@@ -18,6 +18,8 @@ $result = mysqli_query($db, $paperQuery);
 			echo '<td>' . $row['reviewerPreference1'] . '</td>';
 			echo '<td>' . $row['reviewerPreference2'] . '</td>';
 			echo '<td>' . $row['reviewerPreference3'] . '</td>';
+			//The value of the button is set to be the same as the submission ID
+			echo '<td><button type="submit" name = "addReviewer" value =' . $row['submissionId'] . '>Add Reviewer</button></td>';
 		echo '</tr>';
 	}
 	echo '<table>';

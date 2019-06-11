@@ -1,0 +1,4 @@
+[11-Jun-2019 12:20:50 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 38
+[11-Jun-2019 12:32:28 Europe/Berlin] PHP Notice:  Undefined index: AssignedreviewerEmail in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 56
+[11-Jun-2019 12:32:28 Europe/Berlin] PHP Notice:  Undefined index: AssignedreviewerEmail in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 56
+[11-Jun-2019 12:32:28 Europe/Berlin] PHP Notice:  Undefined index: AssignedreviewerEmail in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Editor\editorHandler.php on line 56
