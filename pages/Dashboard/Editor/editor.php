@@ -39,7 +39,7 @@
 	<br>
 	
   <form method="post" action="addReviewer.php">
-  	 <?php 
+  	<?php 
 		include 'editorHandler.php';
 		include '../../../errors/errors.php';
 	?>
@@ -94,5 +94,31 @@
   	<br>
 		<b><h2><center> Search All Papers </center></h2></b>
 	<br>
+	
+	 <form method="post">
+		<center>
+		<div class="input-group">
+			<input type="text" placeholder="Search.." name="search">
+		</div>
+		<div class="input-group">
+			<button type="submit" name="searchButton">Search</button>
+		</div>
+		</center>
+    </form>
+   
+  	<table>
+	<tr>
+		<th>Submission ID</th>
+		<th>Title</th>
+		<th>Submitter Email</th>
+		<th>Topic</th>
+		<th>Status</th>
+		<th>Date</th>
+		<th></th>
+	<tr>
+	
+	<?php 
+		include 'searchGenerator.php';
+	?>
   
 </html>

@@ -177,7 +177,6 @@ if (isset($_POST['addReviewer']))
 			<button type="submit" class="btn" name="add" value = ' . $submissionId .'>Add</button>
 		</div>
 	</form>	';
-	
 }
 
 //handles the add button the addReviewer page
