@@ -1,0 +1,3 @@
+[12-Jun-2019 00:01:09 UTC] PHP Notice:  Undefined index: paperUpload in C:\Users\Janet\Desktop\SENG300-HIVEMIND\pages\Dashboard\Writer\userHandler.php on line 120
+[12-Jun-2019 00:05:22 UTC] PHP Notice:  Undefined index: paperUpload in C:\Users\Janet\Desktop\SENG300-HIVEMIND\pages\Dashboard\Writer\userHandler.php on line 120
+[12-Jun-2019 00:14:55 UTC] PHP Notice:  Undefined index: reviewStatus.ReviewerFeedback in C:\Users\Janet\Desktop\SENG300-HIVEMIND\pages\Dashboard\Writer\writer.php on line 107

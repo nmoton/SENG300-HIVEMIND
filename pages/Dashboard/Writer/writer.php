@@ -84,9 +84,9 @@
 
 			$email = $_SESSION['email'];
 			
-			/*$user_check_query = "SELECT submissionProfile.submissionId, submissionProfile.paperTitle, submissionProfile.topic, submissionProfile.PaperStatus, reviewStatus. ReviewerFeedback
+			$user_check_query = "SELECT submissionProfile.submissionId, submissionProfile.paperTitle, submissionProfile.topic, submissionProfile.PaperStatus, reviewStatus.ReviewerFeedback
 								FROM (submissionProfile NATURAL JOIN reviewStatus) 
-								WHERE submissionProfile.email='$email' AND submissionProfile.submissionId=reviewStatus.AssignedSubmissionID";*/
+								WHERE submissionProfile.email='$email' AND submissionProfile.submissionId=reviewStatus.AssignedSubmissionID";
            
 						
 
@@ -104,7 +104,7 @@
 								echo"<td>".$row["paperTitle"]."</td>";
 								echo"<td>".$row["topic"]."</td>";
 								echo"<td>".$row["PaperStatus"]."</td>";
-								//echo"<td>".$row["reviewStatus.ReviewerFeedback"]."</td>";
+								echo"<td>".$row["reviewStatus.ReviewerFeedback"]."</td>";
 								echo "</tr>";
 
 							}
