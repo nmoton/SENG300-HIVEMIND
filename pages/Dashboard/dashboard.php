@@ -36,7 +36,7 @@
 							<a class="nav-link text-black" href="Writer/writer.php">Writer</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-black" href="Writer/reviewer.php">Reviewer</a>
+							<a class="nav-link text-black" href="Reviewer/reviewer.php">Reviewer</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link text-black" href="Editor/editor.php">Editor</a>

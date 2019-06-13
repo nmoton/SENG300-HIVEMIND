@@ -15,40 +15,40 @@
     	<link href="../css/signup.css" rel="stylesheet" media="screen">
 		<link rel="stylesheet" href="stylesheet.css">
 	</head>
-
-
+	
   <body> 
   <!-- add a logo --> 
   <div class = "logo"><a href = ""><img src = "" style="width:5%"></a>
   </div>
-
   
   <!-- Navigation -->
   <div class="topnav">
     <div class="topnav-right">
-      <a href="dashboard.php">Dashboard</a>
-      <a href="writer.php">Writer</a>
-      <a href="reviewer.php">Reviewer</a>
-      <a href="editor.php">Editor</a>
-      <a href="login.php">Sign-out</a>
+      <a href="../dashboard.php">Dashboard</a>
+      <a href="../Writer/writer.php">Writer</a>
+      <a href="../Reviewer/reviewer.php">Reviewer</a>
+      <a href="../Editor/editor.php">Editor</a>
+      <a href="../../login.php">Sign-out</a>
     </div>
   </div>
-
-
-
-
-
-
-
-
+  
+  	<br>
+		<b><h2><center> Accept/Reject this Paper </center></h2></b>
+	<br>
 	
-
-
-
-
-
-
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-	</body>
+	<table>
+	<tr>
+		<th>Submission ID</th>
+		<th>Title</th>
+		<th>Submitter Email</th>
+		<th>Topic</th>
+		<th>Status</th>
+		<th>Date</th>
+	<tr>
+	
+<?php
+	include 'editorHandler.php';
+	include '../../../errors/errors.php';
+?>
+  
+ </html>

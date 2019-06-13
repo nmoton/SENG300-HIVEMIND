@@ -65,6 +65,8 @@
     <th>Paper Title</th>
 	<th>Topic</th>
     <th>Status</th>
+	<th>Comments</th>
+
 
     </tr>
     </thead>
@@ -82,14 +84,18 @@
 
 			$email = $_SESSION['email'];
 			
+			$user_check_query = "SELECT submissionProfile.submissionId, submissionProfile.paperTitle, submissionProfile.topic, submissionProfile.PaperStatus, reviewStatus.ReviewerFeedback
+								FROM (submissionProfile NATURAL JOIN reviewStatus) 
+								WHERE submissionProfile.email='$email' AND submissionProfile.submissionId=reviewStatus.AssignedSubmissionID";
            
 						
+
 						$user_check_query = "SELECT submissionId, paperTitle, topic, PaperStatus FROM submissionProfile WHERE email='$email'";
 						$result = $db->query($user_check_query);
 		
 					
 						
-						if ($result->num_rows > 0)
+						if (!empty($result) && $result->num_rows > 0)
 						{
 							
 							while ($row = $result->fetch_assoc())
@@ -98,8 +104,12 @@
 								echo"<td>".$row["paperTitle"]."</td>";
 								echo"<td>".$row["topic"]."</td>";
 								echo"<td>".$row["PaperStatus"]."</td>";
+								echo"<td>".$row["reviewStatus.ReviewerFeedback"]."</td>";
+								echo "</tr>";
+
 							}
 						}
+
 
 						else
 						{
@@ -107,7 +117,7 @@
 							echo "<center><b>You have no submission. Make one today!</b></center>";
 						}
 
-
+					
            						
     ?>
     </table>
@@ -283,12 +293,14 @@
 </style>
 
 
-<!--error checking --> 
 
 
 
+
+
+<!--Making a submission --> 
 <div class="form-style-10">
-<h1>Make a new Submission!<span> Follow 3 Easy Steps Below!</span></h1>
+<h1>Part 1: Make a new Submission!<span> Follow 3 Easy Steps Below!</span></h1>
 <form method="post" action="writer.php">
 	<?php include('errors.php'); ?>
 	<center> 
@@ -314,12 +326,95 @@
 				<label>Reviewer Preference 3 <input type="text" name="Reviewer_Preference_3" /></label>	
     </div>
 
+
     <div class="input-group">
      	<button type="submit" class="btn" name="newPaperSubmission">Submit</button>
     </div>
 	</center>
 </form>
 </div>
+
+
+
+
+
+<p>
+  <!-- circle dots -->
+  <div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</p>
+
+
+
+
+
+
+
+
+
+
+<!--uploading feature--> 
+<div class="form-style-10">
+<h1> Part 2: Upload your PDF!<span> Complete after Part 1</span></h1>
+	<form action="upload.php" method="post" enctype="multipart/form-data">
+	<div class="inner-wrap">
+		<center> 
+			<input type="file" name="fileToUpload" id="fileToUpload">
+			<input type="submit" value="Upload PDF" name="submit">
+		</center>
+	</div>
+</form>
+</div>
+
+
+
+
+
+
+
+<p>
+  <!-- circle dots -->
+  <div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</p>
+
+
+
+
+
+
+
+
+
+
+<!--Enter submissionId of the paper you'd like to withdraw --> 
+<!--Delete a submisison--> 
+<div class="form-style-10">
+<h1> Withdraw a Submission<span> Wrong submission? No Problem! </span></h1>
+<form action="delete.php" method="post">
+	<div class="inner-wrap">
+		<center> 
+			<label> Enter SubmissionId: </label>
+			<input type="int" name="submissionId" required>
+		</center>
+	</div>
+
+	<div class="input-group">
+			<button type="submit" class="btn" name="deleteSubmission">Delete</button>
+	</div>
+</form>
+</div>
+
+
+
+ 
+
 
 
 
