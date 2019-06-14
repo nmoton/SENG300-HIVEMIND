@@ -63,20 +63,14 @@ if (isset($_POST['evaluate'])){
 	}
 	
 	echo '</table>';
-	echo '<br \><br>';
 	
 	echo '<form method="post"';
 	echo '<div class="input-group">
-			<button type="submit" class="btn" name="accept" value = ' . $submissionId .'>Accept</button>
-		</div>';
-	echo '<div class="input-group">
-			<button type="submit" class="btn" name="acceptMinorRevision" value = ' . $submissionId .'>Accept With Minor Revisions</button>
-		</div>';
-	echo '<div class="input-group">
-			<button type="submit" class="btn" name="acceptMajorRevision" value = ' . $submissionId .'>Accept With Major Revisions</button>
-		</div>';
-	echo '<div class="input-group">
-			<button type="submit" class="btn" name="reject" value = ' . $submissionId .'>Reject</button>
+			<center>
+			<button type="submit" style="width:140px; class="btn" name="accept" value = ' . $submissionId .'>Accept</button>
+			<button type="submit" style="width:300px; class="btn" name="acceptMinorRevision" value = ' . $submissionId .'>Accept With Minor Revisions</button>
+			<button type="submit" style="width:300px; class="btn" name="acceptMajorRevision" value = ' . $submissionId .'>Accept With Major Revisions</button>
+			<button type="submit" style="width:140px; class="btn" name="reject" value = ' . $submissionId .'>Reject</button>
 		</div>';
 }
 

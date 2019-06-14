@@ -78,7 +78,6 @@
 		<th>Status</th>
 		<th>Date Submitted</th>
 		<th></th>
-		<th></th>
 	<tr>
 	<!--Generate cells -->
 	<?php 
