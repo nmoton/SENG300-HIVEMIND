@@ -20,7 +20,7 @@ if (isset($_POST['searchButton'])){
 			echo '<td>' . $row['topic'] . '</td>';
 			echo '<td>' . $row['PaperStatus'] . '</td>';
 			echo '<td>' . $row['dateOfSubmission'] . '</td>';
-			echo '<td><button type="submit" name= "viewPaper" value =' . $row['submissionId'] . '">View Paper</button></td>';
+			echo '<td><button type="submit" style="width:130px;" name= "viewPaper" value =' . $row['submissionId'] . '">View Paper</button></td>';
 		echo '</tr>';
 	}
 	echo '<table>';

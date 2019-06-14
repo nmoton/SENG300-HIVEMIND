@@ -3,6 +3,12 @@ $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) 
+{
+    
+}
+
 
 
 // Check if file already exists
@@ -36,6 +42,31 @@ else
     }
 }
 
+
+
+// to retrive file 
+
+/* 1. name of file is saved on mySQL
+2.  when someone wants to see it, retrieve that name
+3. check if that file actually exists.
+
+<?php
+$filename = '/path/to/foo.txt';
+
+if (file_exists($filename)) 
+{
+    echo "The file $filename exists";
+} 
+
+else 
+{
+    echo "The file $filename does not exist";
+}
+
+
+?>
+
+4. if so, retrieve it
 
 
 ?>

@@ -36,7 +36,7 @@
 		<b><h2><center> Accept/Reject this Paper </center></h2></b>
 	<br>
 	
-	<table>
+  	<table class = "table table-bordered">
 	<tr>
 		<th>Submission ID</th>
 		<th>Title</th>

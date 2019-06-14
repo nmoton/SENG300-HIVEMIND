@@ -39,7 +39,8 @@ if (isset($_POST['evaluate'])){
 		echo $row['AssignedReviewerEmail'] . "&nbsp&nbsp";
 	}
 	
-	echo '<table>
+	echo '
+	<table class = "table table-bordered">
 	<tr>
 		<th>&nbsp&nbspReviewer&nbsp&nbsp</th>
 		<th>&nbsp&nbspReviewer Recommendation&nbsp&nbsp</th>

@@ -1,2 +1,5 @@
 [10-Jun-2019 06:27:59 UTC] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\Users\Janet\Desktop\SENG300-HIVEMIND\pages\Dashboard\Reviewer\reviewer.php on line 96
 [10-Jun-2019 06:28:02 UTC] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\Users\Janet\Desktop\SENG300-HIVEMIND\pages\Dashboard\Reviewer\reviewer.php on line 96
+[14-Jun-2019 11:36:08 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewer.php on line 87
+[14-Jun-2019 11:36:09 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewer.php on line 87
+[14-Jun-2019 11:49:18 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewer.php on line 87

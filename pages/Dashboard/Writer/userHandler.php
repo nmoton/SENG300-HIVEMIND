@@ -95,8 +95,4 @@ if (isset($_POST['newPaperSubmission']))
 		}
 
 
-
-		
-
-
 ?>

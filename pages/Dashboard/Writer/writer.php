@@ -65,8 +65,7 @@
     <th>Paper Title</th>
 	<th>Topic</th>
     <th>Status</th>
-	<th>Comments From Reviewer</th>
-	<th>Click to Download Paper</th> 
+	<th>Comments</th>
 
 
     </tr>
@@ -85,18 +84,13 @@
 
 			$email = $_SESSION['email'];
 			
-
-			$update = "CREATE VIEW reviewMergeWriterStatus 
-								AS SELECT *
-								FROM (submissionProfile INNER JOIN reviewStatus ON submissionProfile.submissionId=reviewStatus.AssignedSubmissionID) ";
-			$update = mysqli_query($db,$update);
-				
-
-			$user_check_query = "SELECT *
-								FROM reviewMergeWriterStatus 
-								WHERE email='$email'";
+			$user_check_query = "SELECT submissionProfile.submissionId, submissionProfile.paperTitle, submissionProfile.topic, submissionProfile.PaperStatus, reviewStatus.ReviewerFeedback
+								FROM (submissionProfile NATURAL JOIN reviewStatus) 
+								WHERE submissionProfile.email='$email' AND submissionProfile.submissionId=reviewStatus.AssignedSubmissionID";
            
 						
+
+						$user_check_query = "SELECT submissionId, paperTitle, topic, PaperStatus FROM submissionProfile WHERE email='$email'";
 						$result = $db->query($user_check_query);
 		
 					
@@ -110,10 +104,7 @@
 								echo"<td>".$row["paperTitle"]."</td>";
 								echo"<td>".$row["topic"]."</td>";
 								echo"<td>".$row["PaperStatus"]."</td>";
-								echo"<td>".$row["WriterFeedback"]."</td>";
-								echo "<form action='viewPDF.php' method='post'>";
-								echo '<td><button type="submit" formaction="viewPDF.php" name = "viewPDF" value =' . $row['submissionId'] . '>View PDF</button></td>';
-								echo "</form>";
+								echo"<td>".$row["reviewStatus.ReviewerFeedback"]."</td>";
 								echo "</tr>";
 
 							}
@@ -127,19 +118,12 @@
 						}
 
 					
-
+           						
     ?>
     </table>
 
 
     <br><br>
-
-	
-
-
-
-
-
           
 
 	<p>

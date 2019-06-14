@@ -34,9 +34,7 @@
   </div>
   
   	<br>
-		<b><h2><center> To Do List </center></h2></b>
-	<br>
-	<br>
+	<b><h2><center> To Do List </center></h2></b>
 	
   <form method="post" action="addReviewer.php">
   	<?php 
@@ -44,17 +42,17 @@
 		include '../../../errors/errors.php';
 	?>
 	<br>
-		<b><h2><center> Papers Awaiting a Decision </center></h2></b>
+		<b><h4><center> Papers Awaiting a Decision </center></h4></b>
 	<br>	
  	<!--Generate columns -->
-  	<table>
+  	<table class = "table table-bordered">
 	<tr>
 		<th>Submission ID</th>
 		<th>Title</th>
 		<th>Submitter Email</th>
 		<th>Topic</th>
 		<th>Status</th>
-		<th>Date</th>
+		<th>Date Submitted</th>
 		<th></th>
 		<th></th>
 	<tr>
@@ -68,20 +66,18 @@
 	
   <form method="post" action="addReviewer.php">
 	<br>
-		<b><h2><center> Papers Awaiting a Reviewer </center></h2></b>
+		<b><h4><center> Papers Awaiting a Reviewer </center></h4></b>
 	<br>	
  	<!--Generate columns -->
-  	<table>
+  	<table class = "table table-bordered">
 	<tr>
 		<th>Submission ID</th>
 		<th>Title</th>
 		<th>Submitter Email</th>
 		<th>Topic</th>
 		<th>Status</th>
-		<th>Date</th>
-		<th>Reviewer Preference 1</th>
-		<th>Reviewer Preference 2</th>
-		<th>Reviewer Preference 3</th>
+		<th>Date Submitted</th>
+		<th></th>
 		<th></th>
 	<tr>
 	<!--Generate cells -->
@@ -90,7 +86,8 @@
 	?>
 	</table>
   </form>
-  
+	
+	<br>
   	<br>
 		<b><h2><center> Search All Papers </center></h2></b>
 	<br>
@@ -106,7 +103,7 @@
 		</center>
     </form>
    
-  	<table>
+  	<table class = "table table-bordered">
 	<tr>
 		<th>Submission ID</th>
 		<th>Title</th>
