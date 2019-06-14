@@ -210,6 +210,10 @@ if (isset($_POST['add']))
 		
 		$updateNumReviewers = "UPDATE submissionProfile SET numReviewers = numReviewers + 1 WHERE submissionId = '$submissionId'";
 		mysqli_query($db,$updateNumReviewers);
+
+		header('location: editor.php');
+
+		
 		
 	} else {
 		array_push($errors, "Please enter a valid reviewer E-mail");
