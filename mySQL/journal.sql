@@ -54,8 +54,6 @@ INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission,
 INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1) Values("Algorithmic Complexity Analysis of Matrix Multiplication", "EduardoPicatto@UCalgary.ca", "Algorithmics", "Eduardo Picatto", "sample text", "submitted", "2019-2-3", "Ed Johnson");
 
 
-
-
 -- Table for reviewer and writer 
 -- a reviewer can select as many papers as they want/are interested in reviewing 
 

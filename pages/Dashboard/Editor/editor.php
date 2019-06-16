@@ -85,6 +85,21 @@
 	?>
 	</table>
   </form>
+  
+  	<br>
+  	<br>
+		<b><h2><center> Assign Reviewer Privileges </center></h2></b>
+	<br>
+	<form method="post">
+		<center>
+		<div class="input-group">
+			<input type="text" placeholder="Enter the email of the user you want to assign privileges to" name = "enteredEmail">
+		</div>
+		<div class="input-group">
+			<button type="submit" name="createReviewer">Assign</button>
+		</div>
+		</center>
+    </form>
 	
 	<br>
   	<br>

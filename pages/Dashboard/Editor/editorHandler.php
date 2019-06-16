@@ -80,6 +80,8 @@ if (isset($_POST['accept'])){
 	
 	$updateQuery = "UPDATE submissionProfile SET PaperStatus = 'accepted' WHERE submissionId = '$submissionId'";
 	$update = mysqli_query($db,$updateQuery);
+	
+	header('location: editor.php');
 }
 
 //handles the "Accept With Minor Revisions" button on the evaluatePaper.php page
@@ -88,6 +90,8 @@ if (isset($_POST['acceptMinorRevision'])){
 	
 	$updateQuery = "UPDATE submissionProfile SET PaperStatus = 'acceptMinor' WHERE submissionId = '$submissionId'";
 	$update = mysqli_query($db,$updateQuery);
+	
+	header('location: editor.php');
 }
 
 //handles the "Accept With Major Revisions" button on the evaluatePaper.php page
@@ -96,6 +100,8 @@ if (isset($_POST['acceptMajorRevision'])){
 	
 	$updateQuery = "UPDATE submissionProfile SET PaperStatus = 'acceptMajor' WHERE submissionId = '$submissionId'";
 	$update = mysqli_query($db,$updateQuery);
+	
+	header('location: editor.php');
 }
 
 //handles the "Reject" button on the evaluatePaper.php page
@@ -104,6 +110,8 @@ if (isset($_POST['reject'])){
 	
 	$updateQuery = "UPDATE submissionProfile SET PaperStatus = 'rejected' WHERE submissionId = '$submissionId'";
 	$update = mysqli_query($db,$updateQuery);
+	
+	header('location: editor.php');
 }
 
 //handles the "Add Reviewer" button on the "Papers Awaiting a Reviewer" table
@@ -172,6 +180,29 @@ if (isset($_POST['addReviewer']))
 			<button type="submit" class="btn" name="add" value = ' . $submissionId .'>Add</button>
 		</div>
 	</form>	';
+}
+
+//handles the create a reviewer field on the editor page.
+if (isset($_POST['createReviewer'])){
+	$enteredEmail = $_POST['enteredEmail'];
+
+	$valid_email_query = "SELECT * FROM userProfile WHERE email = '$enteredEmail'";
+	$valid_email = mysqli_query($db, $valid_email_query);
+	
+	if (mysqli_num_rows($valid_email) == 0){
+		array_push($errors, "This user does not exist");
+	} else {
+		$userProfile = mysqli_fetch_assoc($valid_email);
+		if ($userProfile['userType'] == 'writer'){
+			$update_type_query = "UPDATE userProfile SET userType = 'reviewer' WHERE email = '$enteredEmail'";
+			$result = mysqli_query($db, $update_type_query);
+			
+			echo 'Succesfully assigned privileges';
+		} else {
+			array_push($errors, "This user already has reviewer privileges");
+		}
+	}
+	
 }
 
 //handles the add button the addReviewer page
