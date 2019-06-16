@@ -53,7 +53,6 @@ CREATE TABLE submissionProfile
 INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1, reviewerPreference2) Values("Effect of Routing Algorithms on Network Efficiency", "EduardoPicatto@UCalgary.ca", "Networking", "Eduardo Picatto", "sample text", "submitted", "2019-2-2", "Ed Johnson", "Tom Smith");
 INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1) Values("Algorithmic Complexity Analysis of Matrix Multiplication", "EduardoPicatto@UCalgary.ca", "Algorithmics", "Eduardo Picatto", "sample text", "submitted", "2019-2-3", "Ed Johnson");
 
-
 -- Table for reviewer and writer 
 -- a reviewer can select as many papers as they want/are interested in reviewing 
 
@@ -72,7 +71,6 @@ CREATE TABLE reviewerSelection
            -- editor will assign a paper to reviewer. Editor will need to add ID of the paper, add reviewer's name
            -- assign deadline
 -- Reviewer role:
-
             -- Add recommendation for editor (accept, accept with major revisions, accept with minor revisions, reject)
             -- Add comments for writer/editor
 			-- Update the interim status (from 'submitted' to 'reviewed'), at which point editor will be able to assign deadline to writers for resubmission

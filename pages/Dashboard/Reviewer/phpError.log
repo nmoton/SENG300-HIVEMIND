@@ -1,19 +1,8 @@
-[10-Jun-2019 06:27:59 UTC] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\Users\Janet\Desktop\SENG300-HIVEMIND\pages\Dashboard\Reviewer\reviewer.php on line 96
-[10-Jun-2019 06:28:02 UTC] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\Users\Janet\Desktop\SENG300-HIVEMIND\pages\Dashboard\Reviewer\reviewer.php on line 96
-[14-Jun-2019 11:36:08 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewer.php on line 87
-[14-Jun-2019 11:36:09 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewer.php on line 87
-[14-Jun-2019 11:49:18 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewer.php on line 87
-[14-Jun-2019 11:55:59 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewer.php on line 87
-[14-Jun-2019 12:15:46 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewer.php on line 87
-[14-Jun-2019 12:15:50 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewer.php on line 87
-[14-Jun-2019 12:33:19 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewer.php on line 87
-[14-Jun-2019 12:36:13 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewer.php on line 87
-[14-Jun-2019 12:36:19 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewer.php on line 87
-[14-Jun-2019 12:44:31 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewer.php on line 87
-[14-Jun-2019 12:44:32 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewer.php on line 87
-[14-Jun-2019 12:44:47 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewer.php on line 87
-[14-Jun-2019 12:44:52 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewer.php on line 87
-[14-Jun-2019 12:44:53 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewer.php on line 87
-[14-Jun-2019 12:45:05 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewer.php on line 87
-[14-Jun-2019 12:45:12 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewer.php on line 87
-[14-Jun-2019 12:45:15 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewer.php on line 87
+[16-Jun-2019 11:57:22 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewerHandler.php on line 3
+[16-Jun-2019 11:57:36 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewerHandler.php on line 3
+[16-Jun-2019 11:57:39 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewerHandler.php on line 3
+[16-Jun-2019 11:57:40 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewerHandler.php on line 3
+[16-Jun-2019 11:57:51 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewerHandler.php on line 3
+[16-Jun-2019 11:57:54 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewerHandler.php on line 3
+[16-Jun-2019 11:58:14 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewerHandler.php on line 3
+[16-Jun-2019 11:58:33 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Reviewer\reviewerHandler.php on line 3

@@ -50,7 +50,13 @@
 		</nav>
 
 		<div class="container" id="dashboard-journals">
-			<div class="card">
+			<div class="card">			
+			
+				<?php 
+					
+				
+				
+				?>
 	  			<div class="card-header">
 	    			<h4>Nathan Moton</h4>
 	    			Added a new publication

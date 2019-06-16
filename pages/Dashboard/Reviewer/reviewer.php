@@ -1,5 +1,23 @@
 <!DOCTYPE html>
 
+<?php
+	include '../../userHandler.php';
+
+	if (!isset($_SESSION['email'])){
+		header('location:../../invalidPermissions.php');
+	} else {
+		$email = $_SESSION['email'];
+		
+		$user_privilege_query = "SELECT * FROM userProfile WHERE email = '$email'";
+		$user_privilege_result = mysqli_query($db, $user_privilege_query);
+		$user_privilege_array = mysqli_fetch_assoc($user_privilege_result);
+		
+		if (!($user_privilege_array['userType'] !== "writer")){
+			header('location:../../invalidPermissions.php');
+		}
+	}
+?>
+
 <html lang="en">
 	<head>
 		<title>Reviewer</title>
