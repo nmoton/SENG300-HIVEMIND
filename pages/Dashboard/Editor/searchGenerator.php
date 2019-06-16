@@ -8,7 +8,7 @@ if (isset($_POST['searchButton'])){
 	
 	error_log($search_value);
 
-	$searchQuery = "SELECT * FROM submissionProfile WHERE paperTitle = '$search_value' OR email = '$search_value' OR topic = '$search_value' OR authors = '$search_value'";
+	$searchQuery = "SELECT * FROM submissionProfile WHERE paperTitle LIKE '%$search_value%' OR email LIKE '%$search_value%' OR topic LIKE '%$search_value%' OR authors LIKE '%$search_value%'";
 	$result = mysqli_query($db, $searchQuery);
 
 	//generate cell information from DB
