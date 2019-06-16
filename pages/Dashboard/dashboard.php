@@ -72,7 +72,7 @@
 							<a href="#">Download</a>
 						</div>
 						<div class="card-footer text-muted">
-							3 hours ago
+							On ' . $paper['dateOfSubmission'] . '
 						</div>
 					</div>';
 					
