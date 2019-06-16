@@ -51,14 +51,13 @@
 
 		<div class="container" id="dashboard-journals">
 			<?php 
-				//Displays 10 published papers
+				//Displays the most recent 10 published papers
 				$db = mysqli_connect('localhost', 'root', '', 'journal');
 
-				$paperQuery = "SELECT * FROM submissionProfile WHERE PaperStatus = 'accepted'";
+				$paperQuery = "SELECT * FROM submissionProfile WHERE PaperStatus = 'accepted' ORDER BY dateOfSubmission ASC";
 				$papersResult = mysqli_query($db, $paperQuery);
 				
 				$paperNumber = 0;
-				
 				while (($paper = mysqli_fetch_assoc($papersResult)) && $paperNumber <= 10){
 			
 					echo '

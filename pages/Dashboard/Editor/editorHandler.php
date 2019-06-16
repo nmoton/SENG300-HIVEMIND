@@ -49,8 +49,8 @@ if (isset($_POST['evaluate'])){
 		<th>&nbsp&nbspWriter Resubmission Date&nbsp&nbsp</th>
 	<tr>';
 	
-	$reviewStatus_query = "SELECT * FROM reviewStatus WHERE AssignedSubmissionId = '$submissionId' AND InterimStatusUpdate = 'reviewed'";
-	$reviewStatus = mysqli_query($db, $reviewStatus_query);
+	$reviewStatusQuery = "SELECT * FROM reviewStatus WHERE AssignedSubmissionId = '$submissionId' AND InterimStatusUpdate = 'reviewed'";
+	$reviewStatus = mysqli_query($db, $reviewStatusQuery);
 	
 	while ($row = mysqli_fetch_assoc($reviewStatus)){
 		echo '<tr>';
@@ -186,16 +186,16 @@ if (isset($_POST['addReviewer']))
 if (isset($_POST['createReviewer'])){
 	$enteredEmail = $_POST['enteredEmail'];
 
-	$valid_email_query = "SELECT * FROM userProfile WHERE email = '$enteredEmail'";
-	$valid_email = mysqli_query($db, $valid_email_query);
+	$validEmailQuery = "SELECT * FROM userProfile WHERE email = '$enteredEmail'";
+	$validEmail = mysqli_query($db, $validEmailQuery);
 	
 	if (mysqli_num_rows($valid_email) == 0){
 		array_push($errors, "This user does not exist");
 	} else {
 		$userProfile = mysqli_fetch_assoc($valid_email);
 		if ($userProfile['userType'] == 'writer'){
-			$update_type_query = "UPDATE userProfile SET userType = 'reviewer' WHERE email = '$enteredEmail'";
-			$result = mysqli_query($db, $update_type_query);
+			$updateTypeQuery = "UPDATE userProfile SET userType = 'reviewer' WHERE email = '$enteredEmail'";
+			$result = mysqli_query($db, $updateTypeQuery);
 			
 			echo 'Succesfully assigned privileges';
 		} else {
@@ -212,14 +212,14 @@ if (isset($_POST['add']))
 	$submissionId = $_POST['add'];
 
 	//check if the email belongs to a reviewer
-	$valid_email_query = "SELECT * FROM userProfile WHERE email = '$email' AND userType = 'reviewer'";
-	$valid_email = mysqli_query($db, $valid_email_query);
+	$validEmailQuery = "SELECT * FROM userProfile WHERE email = '$email' AND userType = 'reviewer'";
+	$validEmail = mysqli_query($db, $validEmailQuery);
 	
 	$already_assigned_query = "SELECT * FROM reviewStatus WHERE AssignedreviewerEmail = '$email' AND AssignedSubmissionID = '$submissionId'";
-	$already_assigned = mysqli_query($db, $already_assigned_query);
+	$already_assigned = mysqli_query($db, $alreadyAssignedQuery);
 	
 	
-	if (mysqli_num_rows($already_assigned) > 0){
+	if (mysqli_num_rows($alreadyAssigned) > 0){
 		array_push($errors, "This reviewer is already assigned to this paper");
 	}
 	else if (mysqli_num_rows($valid_email)){

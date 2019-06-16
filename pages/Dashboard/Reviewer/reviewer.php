@@ -8,11 +8,11 @@
 	} else {
 		$email = $_SESSION['email'];
 		
-		$user_privilege_query = "SELECT * FROM userProfile WHERE email = '$email'";
-		$user_privilege_result = mysqli_query($db, $user_privilege_query);
-		$user_privilege_array = mysqli_fetch_assoc($user_privilege_result);
+		$userPrivilegeQuery = "SELECT * FROM userProfile WHERE email = '$email'";
+		$userPrivilegeResult = mysqli_query($db, $userPrivilegeQuery);
+		$userPrivilegeArray = mysqli_fetch_assoc($userPrivilegeResult);
 		
-		if (!($user_privilege_array['userType'] !== "writer")){
+		if (!($userPrivilegeArray['userType'] !== "writer")){
 			header('location:../../invalidPermissions.php');
 		}
 	}

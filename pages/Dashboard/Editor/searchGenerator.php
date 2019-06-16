@@ -4,9 +4,9 @@
 $db = mysqli_connect('localhost', 'root', '', 'journal');
 
 if (isset($_POST['searchButton'])){
-	$search_value = $_POST['search'];
+	$searchValue = $_POST['search'];
 
-	$searchQuery = "SELECT * FROM submissionProfile WHERE paperTitle LIKE '%$search_value%' OR email LIKE '%$search_value%' OR topic LIKE '%$search_value%' OR authors LIKE '%$search_value%'";
+	$searchQuery = "SELECT * FROM submissionProfile WHERE paperTitle LIKE '%$searchValue%' OR email LIKE '%$searchValue%' OR topic LIKE '%$searchValue%' OR authors LIKE '%$searchValue%'";
 	$result = mysqli_query($db, $searchQuery);
 
 	//generate cell information from DB
