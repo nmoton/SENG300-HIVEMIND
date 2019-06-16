@@ -189,10 +189,10 @@ if (isset($_POST['createReviewer'])){
 	$validEmailQuery = "SELECT * FROM userProfile WHERE email = '$enteredEmail'";
 	$validEmail = mysqli_query($db, $validEmailQuery);
 	
-	if (mysqli_num_rows($valid_email) == 0){
+	if (mysqli_num_rows($validEmail) == 0){
 		array_push($errors, "This user does not exist");
 	} else {
-		$userProfile = mysqli_fetch_assoc($valid_email);
+		$userProfile = mysqli_fetch_assoc($validEmail);
 		if ($userProfile['userType'] == 'writer'){
 			$updateTypeQuery = "UPDATE userProfile SET userType = 'reviewer' WHERE email = '$enteredEmail'";
 			$result = mysqli_query($db, $updateTypeQuery);
@@ -215,14 +215,14 @@ if (isset($_POST['add']))
 	$validEmailQuery = "SELECT * FROM userProfile WHERE email = '$email' AND userType = 'reviewer'";
 	$validEmail = mysqli_query($db, $validEmailQuery);
 	
-	$already_assigned_query = "SELECT * FROM reviewStatus WHERE AssignedreviewerEmail = '$email' AND AssignedSubmissionID = '$submissionId'";
-	$already_assigned = mysqli_query($db, $alreadyAssignedQuery);
+	$alreadyAssignedQuery = "SELECT * FROM reviewStatus WHERE AssignedreviewerEmail = '$email' AND AssignedSubmissionID = '$submissionId'";
+	$alreadyAssigned = mysqli_query($db, $alreadyAssignedQuery);
 	
 	
 	if (mysqli_num_rows($alreadyAssigned) > 0){
 		array_push($errors, "This reviewer is already assigned to this paper");
 	}
-	else if (mysqli_num_rows($valid_email)){
+	else if (mysqli_num_rows($validEmail)){
 
 		$assignedDeadlineReviewer = $_POST['reviewDeadline'];
 		$writerResubmissionDate = $_POST['resubmissionDeadline'];

@@ -74,6 +74,7 @@
 		<th>Date Submitted</th>
 		<th></th>
 		<th></th>
+		<th></th>
 	<tr>
 	<!--Generate cells -->
 	<?php 
@@ -96,6 +97,7 @@
 		<th>Topic</th>
 		<th>Status</th>
 		<th>Date Submitted</th>
+		<th></th>
 		<th></th>
 	<tr>
 	<!--Generate cells -->
@@ -147,8 +149,10 @@
 		<th></th>
 	<tr>
 	
+	<form method = "post">
 	<?php 
 		include 'searchGenerator.php';
 	?>
+	</form>
   
 </html>

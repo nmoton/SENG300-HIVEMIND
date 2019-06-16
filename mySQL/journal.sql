@@ -50,11 +50,11 @@ CREATE TABLE submissionProfile
 	reviewerPreference3 varchar(225)
 );
 
-INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1, reviewerPreference2) Values("Effect of Routing Algorithms on Network Efficiency", "Joe@UCalgary.ca", "Networking", "Eduardo Picatto", "sample text", "submitted", "2019-2-2", "Tom@ucalgary.ca", "Todd@ucalgary.ca");
-INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1) Values("Algorithmic Complexity Analysis of Matrix Multiplication", "Joe@UCalgary.ca", "Algorithmics", "Eduardo Picatto", "sample text", "submitted", "2019-2-3", "Glen@ucalgary.ca");
-INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1) Values("Vector Spaces and their Role in Quantum Public Key Encryption", "Joe@ucalgary.ca", "Quantum Computing", "Joe Brown", "sample text", "accepted", "2019-2-3", "Glen@ucalgary.ca");
-INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission) Values("Machine Learning Algorithms: Random Forests and Their Applications", "Todd@ucalgary.ca", "Machine Learning", "Todd Haines", "sample text", "accepted", "2019-1-28");
-INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission) Values("Gradient Descent in Machine Learning", "Glen@ucalgary.ca", "Machine Learning", "Glen Adams", "sample text", "accepted", "2019-1-9");
+INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1, reviewerPreference2) Values("Effect of Routing Algorithms on Network Efficiency", "Joe@UCalgary.ca", "Networking", "Eduardo Picatto", "SamplePaper.pdf", "submitted", "2019-2-2", "Tom@ucalgary.ca", "Todd@ucalgary.ca");
+INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1) Values("Algorithmic Complexity Analysis of Matrix Multiplication", "Joe@UCalgary.ca", "Algorithmics", "Eduardo Picatto", "AnotherSample.pdf", "submitted", "2019-2-3", "Glen@ucalgary.ca");
+INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1) Values("Vector Spaces and their Role in Quantum Public Key Encryption", "Joe@ucalgary.ca", "Quantum Computing", "Joe Brown", "SamplePaper.pdf", "accepted", "2019-2-3", "Glen@ucalgary.ca");
+INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission) Values("Machine Learning Algorithms: Random Forests and Their Applications", "Todd@ucalgary.ca", "Machine Learning", "Todd Haines", "SamplePaper.pdf", "accepted", "2019-1-28");
+INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission) Values("Gradient Descent in Machine Learning", "Glen@ucalgary.ca", "Machine Learning", "Glen Adams", "SamplePaper.pdf", "accepted", "2019-1-9");
 
 
 -- Table for reviewer and writer 
