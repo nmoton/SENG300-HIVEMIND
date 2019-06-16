@@ -42,7 +42,7 @@
 							<a class="nav-link text-black" href="Editor/editor.php">Editor</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-black" href="pages/login.html">Sign Out</a>
+							<a class="nav-link text-black" href="../login.php">Sign Out</a>
 						</li>
 					</u1>
 				</div>
@@ -50,40 +50,35 @@
 		</nav>
 
 		<div class="container" id="dashboard-journals">
-			<div class="card">			
+			<?php 
+				//Displays 10 published papers
+				$db = mysqli_connect('localhost', 'root', '', 'journal');
+
+				$paperQuery = "SELECT * FROM submissionProfile WHERE PaperStatus = 'accepted'";
+				$papersResult = mysqli_query($db, $paperQuery);
+				
+				$paperNumber = 0;
+				
+				while (($paper = mysqli_fetch_assoc($papersResult)) && $paperNumber <= 10){
 			
-				<?php 
+					echo '
+					<div class="card">			
+						<div class="card-header">
+							<h4>' . $paper['authors'] . '</h4>
+							Published a Paper in ' . $paper['topic'] . '
+						</div>
+						<div class="card-body">
+							<h5 class="card-title">' . $paper['paperTitle'] . '</h5>
+							<a href="#">Download</a>
+						</div>
+						<div class="card-footer text-muted">
+							3 hours ago
+						</div>
+					</div>';
 					
-				
-				
+					$paperNumber++;
+				}
 				?>
-	  			<div class="card-header">
-	    			<h4>Nathan Moton</h4>
-	    			Added a new publication
-	  			</div>
-	  			<div class="card-body">
-	    			<h5 class="card-title">Machine Learning Algorithms: Random Forests and Their Applications</h5>
-	    			<p>Abstract: Random Forests are strong ML algorithms that are capable of performing both regression and classification tasks. The greater the number of trees in the forest, the greater the accuracy of predictions...</p>
-	    			<a href="#">Request full-text</a>
-	  			</div>
-	  			<div class="card-footer text-muted">
-	    			3 hours ago
-	  			</div>
-			</div>
-			<div class="card">
-	  			<div class="card-header">
-	    			<h4>Janet Leahy</h4>
-	    			Added a new conference paper
-	  			</div>
-	  			<div class="card-body">
-	    			<h5 class="card-title">Gradient Descent in Machine Learning</h5>
-	    			<p>Abstract: Gradient descent is a first-order iterative optimization algorithm used to minimize the cost function in machine learning algorithms...</p>
-	    			<a href="#">Request full-text</a>
-	  			</div>
-	  			<div class="card-footer text-muted">
-	    			11 hours ago
-	  			</div>
-			</div>
 		</div>
 
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>

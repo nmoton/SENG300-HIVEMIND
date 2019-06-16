@@ -3,7 +3,7 @@
 
 $db = mysqli_connect('localhost', 'root', '', 'journal');
 
-$paperQuery = "SELECT * FROM submissionProfile WHERE PaperStatus='Submitted' OR (numReviewers < '3' AND PaperStatus = 'underReview')";
+$paperQuery = "SELECT * FROM submissionProfile WHERE PaperStatus='submitted' OR (numReviewers < '3' AND PaperStatus = 'underReview')";
 $result = mysqli_query($db, $paperQuery);
 	
 	//generate cell information from DB
