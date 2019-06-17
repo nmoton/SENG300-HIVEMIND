@@ -53,7 +53,7 @@
   </div>
   
   	<br>
-	<b><h2><center> To Do List </center></h2></b>
+	<b><h2><center> To Do List for This Quarter </center></h2></b>
 	
   <form method="post" action="addReviewer.php">
   	<?php 

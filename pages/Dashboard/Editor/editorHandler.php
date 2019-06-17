@@ -9,6 +9,8 @@ ini_set("error_log", "editorHandlerError.log");
 
 $db = mysqli_connect('localhost', 'root', '', 'journal');
 
+updateExpiredPapers($db);
+
 //handles the "evaluate" button on the "To Do List" table
 if (isset($_POST['evaluate'])){
 	$submissionId = $_POST['evaluate'];
@@ -245,4 +247,50 @@ if (isset($_POST['add']))
 		array_push($errors, "Please enter a valid reviewer E-mail");
 	}
 }
+
+//function that returns true if $month is in the same quarter as the current date.
+//param: $month int (1-12)
+function thisQuarter($month){
+	$currentMonth = (int)date('m');
+	
+	error_log("current month: " . $currentMonth);
+	error_log("paper month: " . $month);
+	
+	if (($currentMonth == 1 || $currentMonth == 2 || $currentMonth == 3) && ($month == 1 || $month == 2 || $month == 3)){
+		return true;
+	}
+	if (($currentMonth == 4 || $currentMonth == 5 || $currentMonth == 6) && ($month == 4 || $month == 5 || $month == 6)){
+		return true;
+	}
+	if (($currentMonth == 7 || $currentMonth == 8 || $currentMonth == 9) && ($month == 7 || $month == 8 || $month == 9)){
+		return true;
+	}
+	if (($currentMonth == 10 || $currentMonth == 11 || $currentMonth == 12) && ($month == 10 || $month == 11 || $month == 12)){
+		return true;
+	}
+	return false;
+}
+
+//function that updates the database. 
+//All papers that are not in the current quarter that have not been accepted with major/minor revisions
+//will be assigned to "expired" status and subsequently not displayed on the editor's to do list.
+//@param the link to the database to update
+function updateExpiredPapers($dbLink){
+	$papersQuery = "SELECT * FROM submissionProfile WHERE paperStatus = 'submitted' OR paperStatus = 'underReview'";
+	$papersResult = mysqli_query($dbLink, $papersQuery);
+	
+	while ($paper = mysqli_fetch_assoc($papersResult)){
+		$dateSubmitted = $paper['dateOfSubmission'];
+		
+		$month = (int) substr($dateSubmitted,5,2);
+		
+		if (!thisQuarter($month)){
+			$submissionId = $paper['submissionId'];
+			$updateQuery = "UPDATE submissionProfile SET paperStatus = 'expired' WHERE submissionId = '$submissionId'";
+			$updateResult = mysqli_query($dbLink,$updateQuery);
+		}
+	}
+	
+}
+
 ?>
