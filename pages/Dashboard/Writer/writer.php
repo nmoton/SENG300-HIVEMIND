@@ -128,9 +128,9 @@
     <tr>
     <th>Submission ID</th>
     <th>Paper Title</th>
-	<th>Topic</th>
     <th>Status</th>
 	<th>Comments From Reviewer</th>
+	<th>Resubmit Deadline</th>
 	<th>Click to Download Paper</th> 
     </tr>
     </thead>
@@ -169,9 +169,9 @@
 							{
 								echo"<td>".$row["submissionId"]."</td>";
 								echo"<td>".$row["paperTitle"]."</td>";
-								echo"<td>".$row["topic"]."</td>";
 								echo"<td>".$row["PaperStatus"]."</td>";
 								echo"<td>".$row["WriterFeedback"]."</td>";
+								echo"<td>".$row["WriterResubmissionDate"]."</td>";
 								echo "<form action='viewPDF.php' method='post'>";
 								echo '<td><button type="submit" formaction="viewPDF.php" name = "viewPDF" value =' . $row['submissionId'] . '>View PDF</button></td>';
 								echo "</form>";
@@ -387,7 +387,7 @@
     </div>
 
 
-    <div class="section"><span>3</span>Reviewer Preference. Enter up to 3 names.</div>
+    <div class="section"><span>3</span>Reviewer Preference. Enter up to 3 names or emails.</div>
     <div class="inner-wrap">
         <label>Reviewer Preference 1 <input type="text" name="Reviewer_Preference_1" /></label>
 				<label>Reviewer Preference 2 <input type="text" name="Reviewer_Preference_2" /></label>
