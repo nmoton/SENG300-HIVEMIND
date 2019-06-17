@@ -64,8 +64,7 @@ INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission,
 DROP TABLE IF EXISTS reviewerSelection;
 CREATE TABLE reviewerSelection
 (
-	reviewerEmail varchar(225) NOT NULL,	
-	paperTitle varchar(225) NOT NULL,
+	reviewerEmail varchar(225) NOT NULL,
 	submissionId varchar(225) NOT NULL
 );
 

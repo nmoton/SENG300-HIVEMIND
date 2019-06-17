@@ -407,7 +407,7 @@
 								echo"<td>".$row["authors"]."</td>";
 								echo"<td>".$row["dateOfSubmission"]."</td>";
 
-								$message = $row['submissionId']."/".$email."/".$row['paperTitle'];
+								$message = $email."/".$row['submissionId'];
 								echo "<form action='reviewPreference.php' method='post'>";
 								echo '<td><button type="submit" formaction="reviewPreference.php" name = "reviewPreference" value =' . $message . '>Ask to review</button></td>';
 								echo "</form>";
