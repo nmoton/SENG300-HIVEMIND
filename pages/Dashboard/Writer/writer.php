@@ -191,7 +191,9 @@
     ?>
     </table>
 
+	<p>Note: to resubmit a paper after incorporating feedback, please withdraw the submission and create a new one.</p>
     <br><br>
+
 
 
 
@@ -466,7 +468,7 @@
 <form action="delete.php" method="post">
 	<div class="inner-wrap">
 		<center> 
-			<label> Enter SubmissionId: </label>
+			<label> Enter Submission ID: </label>
 			<input type="int" name="submissionId" required>
 		</center>
 	</div>
