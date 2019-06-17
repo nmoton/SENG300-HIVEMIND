@@ -47,7 +47,7 @@
 							if ($user['userType'] == 'editor'){
 								echo '		
 									<li class="nav-item">
-										<a class="nav-link text-black" href="Reviewer/reviewer.php">Reviewer</a>
+										<a class="nav-link text-black" href="Reviewer/reviewer.php">Review</a>
 									</li>
 									<li class="nav-item">
 										<a class="nav-link text-black" href="Editor/editor.php">Admin</a>
