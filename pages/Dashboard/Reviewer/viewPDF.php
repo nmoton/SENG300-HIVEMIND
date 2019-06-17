@@ -6,7 +6,7 @@
         if (isset($_POST['viewPDF'])) 
         {
                $submissionId = $_POST['viewPDF'];
-               
+
                 //go into mySQL to retrive pdf profile ID 
                 $user_check_query = "SELECT pdfSubmission FROM submissionProfile WHERE submissionId = '$submissionId' LIMIT 1";
 
@@ -15,10 +15,9 @@
                 while ($row = $result->fetch_assoc()) 
                 {
                     $fileName1 = $row['pdfSubmission'];
-                    
-                    
+
                     //check if this file existis
-                    $dir = "uploads/"; // trailing slash is important
+                    $dir = "../../../uploads/"; // trailing slash is important
                     $file = $dir . $fileName1;
 
 
@@ -40,7 +39,7 @@
                     
                     else 
                     {
-                        echo "The file $filename does not exist";
+                        echo "The file $file does not exist";
                     }
                 }
                
