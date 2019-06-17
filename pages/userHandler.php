@@ -56,10 +56,6 @@ if (isset($_POST['register']))
 	}
 }
 
-
-
-
-
 //for logging in users 
 if (isset($_POST['login'])) 
 {

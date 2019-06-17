@@ -50,10 +50,12 @@ CREATE TABLE submissionProfile
 	reviewerPreference3 varchar(225)
 );
 
-INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1, reviewerPreference2) Values("Effect of Routing Algorithms on Network Efficiency", "EduardoPicatto@UCalgary.ca", "Networking", "Eduardo Picatto", "SamplePaper.pdf", "submitted", "2019-2-2", "Ed Johnson", "Tom Smith");
-INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1) Values("Algorithmic Complexity Analysis of Matrix Multiplication", "EduardoPicatto@UCalgary.ca", "Algorithmics", "Eduardo Picatto", "AnotherSample.pdf", "submitted", "2019-2-3", "Ed Johnson");
 
-
+INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1, reviewerPreference2) Values("Effect of Routing Algorithms on Network Efficiency", "Joe@UCalgary.ca", "Networking", "Eduardo Picatto", "SamplePaper.pdf", "submitted", "2019-2-2", "Tom@ucalgary.ca", "Todd@ucalgary.ca");
+INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1) Values("Algorithmic Complexity Analysis of Matrix Multiplication", "Joe@UCalgary.ca", "Algorithmics", "Eduardo Picatto", "AnotherSample.pdf", "submitted", "2019-2-3", "Glen@ucalgary.ca");
+INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1) Values("Vector Spaces and their Role in Quantum Public Key Encryption", "Joe@ucalgary.ca", "Quantum Computing", "Joe Brown", "SamplePaper.pdf", "accepted", "2019-2-3", "Glen@ucalgary.ca");
+INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission) Values("Machine Learning Algorithms: Random Forests and Their Applications", "Todd@ucalgary.ca", "Machine Learning", "Todd Haines", "SamplePaper.pdf", "accepted", "2019-1-28");
+INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission) Values("Gradient Descent in Machine Learning", "Glen@ucalgary.ca", "Machine Learning", "Glen Adams", "SamplePaper.pdf", "accepted", "2019-1-9");
 
 
 -- Table for reviewer and writer 
@@ -74,7 +76,6 @@ CREATE TABLE reviewerSelection
            -- editor will assign a paper to reviewer. Editor will need to add ID of the paper, add reviewer's name
            -- assign deadline
 -- Reviewer role:
-
             -- Add recommendation for editor (accept, accept with major revisions, accept with minor revisions, reject)
             -- Add comments for writer/editor
 			-- Update the interim status (from 'submitted' to 'reviewed'), at which point editor will be able to assign deadline to writers for resubmission
@@ -97,4 +98,3 @@ INSERT INTO reviewStatus (AssignedSubmissionID, AssignedReviewerEmail, AssignedD
 INSERT INTO reviewStatus (AssignedSubmissionID, AssignedReviewerEmail, AssignedDeadlineReviewer, ReviewerRecommendation, WriterFeedback, EditorFeedback, InterimStatusUpdate, WritersResubmissionDate) Values(2, "jane@gmail.com", "2019-08-06", NULL, NULL, NULL, "submitted", "2019-12-18");
 INSERT INTO reviewStatus (AssignedSubmissionID, AssignedReviewerEmail, AssignedDeadlineReviewer, ReviewerRecommendation, WriterFeedback, EditorFeedback, InterimStatusUpdate, WritersResubmissionDate) Values(1, "jane@gmail.com", "2019-08-06", NULL, NULL, NULL, "submitted", "2019-12-18");
 INSERT INTO reviewStatus (AssignedSubmissionID, AssignedReviewerEmail, AssignedDeadlineReviewer, ReviewerRecommendation, WriterFeedback, EditorFeedback, InterimStatusUpdate, WritersResubmissionDate) Values(1, "Tom@gmail.com", "2019-08-06", "reject", "Trash", NULL, "reviewed", "2019-12-18");
-

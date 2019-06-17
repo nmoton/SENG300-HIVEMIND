@@ -1,5 +1,24 @@
 <!DOCTYPE html>
 
+<?php
+	include '../../userHandler.php';
+
+	if (!isset($_SESSION['email'])){
+		header('location:../../invalidPermissions.php');
+	} else {
+		$email = $_SESSION['email'];
+		
+		$userPrivilegeQuery = "SELECT * FROM userProfile WHERE email = '$email'";
+		$userPrivilegeResult = mysqli_query($db, $userPrivilegeQuery);
+		$userPrivilegeArray = mysqli_fetch_assoc($userPrivilegeResult);
+		
+		if ($userPrivilegeArray['userType'] != "editor"){
+			header('location:../../invalidPermissions.php');
+		}
+	}
+?>
+
+
 <html lang="en">
 	<head>
 		<title>Editor</title>
@@ -34,9 +53,7 @@
   </div>
   
   	<br>
-		<b><h2><center> To Do List </center></h2></b>
-	<br>
-	<br>
+	<b><h2><center> To Do List </center></h2></b>
 	
   <form method="post" action="addReviewer.php">
   	<?php 
@@ -44,17 +61,18 @@
 		include '../../../errors/errors.php';
 	?>
 	<br>
-		<b><h2><center> Papers Awaiting a Decision </center></h2></b>
+		<b><h4><center> Papers Awaiting a Decision </center></h4></b>
 	<br>	
  	<!--Generate columns -->
-  	<table>
+  	<table class = "table table-bordered">
 	<tr>
 		<th>Submission ID</th>
 		<th>Title</th>
 		<th>Submitter Email</th>
 		<th>Topic</th>
 		<th>Status</th>
-		<th>Date</th>
+		<th>Date Submitted</th>
+		<th></th>
 		<th></th>
 		<th></th>
 	<tr>
@@ -68,20 +86,18 @@
 	
   <form method="post" action="addReviewer.php">
 	<br>
-		<b><h2><center> Papers Awaiting a Reviewer </center></h2></b>
+		<b><h4><center> Papers Awaiting a Reviewer </center></h4></b>
 	<br>	
  	<!--Generate columns -->
-  	<table>
+  	<table class = "table table-bordered">
 	<tr>
 		<th>Submission ID</th>
 		<th>Title</th>
 		<th>Submitter Email</th>
 		<th>Topic</th>
 		<th>Status</th>
-		<th>Date</th>
-		<th>Reviewer Preference 1</th>
-		<th>Reviewer Preference 2</th>
-		<th>Reviewer Preference 3</th>
+		<th>Date Submitted</th>
+		<th></th>
 		<th></th>
 	<tr>
 	<!--Generate cells -->
@@ -91,6 +107,22 @@
 	</table>
   </form>
   
+  	<br>
+  	<br>
+		<b><h2><center> Assign Reviewer Privileges </center></h2></b>
+	<br>
+	<form method="post">
+		<center>
+		<div class="input-group">
+			<input type="text" placeholder="Enter the email of the user you want to assign privileges to" name = "enteredEmail">
+		</div>
+		<div class="input-group">
+			<button type="submit" name="createReviewer">Assign</button>
+		</div>
+		</center>
+    </form>
+	
+	<br>
   	<br>
 		<b><h2><center> Search All Papers </center></h2></b>
 	<br>
@@ -106,7 +138,7 @@
 		</center>
     </form>
    
-  	<table>
+  	<table class = "table table-bordered">
 	<tr>
 		<th>Submission ID</th>
 		<th>Title</th>
@@ -117,8 +149,10 @@
 		<th></th>
 	<tr>
 	
+	<form method = "post">
 	<?php 
 		include 'searchGenerator.php';
 	?>
+	</form>
   
 </html>

@@ -162,8 +162,6 @@
 						
 						$result = $db->query($user_check_query);
 		
-					
-						
 						if (!empty($result) && $result->num_rows > 0)
 						{
 							
@@ -505,7 +503,6 @@
 
 	
 </html>
-
 
 
 

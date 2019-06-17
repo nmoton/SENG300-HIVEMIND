@@ -5,6 +5,7 @@
 
         if (isset($_POST['viewPDF'])) 
         {
+				error_log("here");
                $submissionId = $_POST['viewPDF'];
 
                 //go into mySQL to retrive pdf profile ID 

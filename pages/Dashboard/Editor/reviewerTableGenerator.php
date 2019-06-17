@@ -3,7 +3,7 @@
 
 $db = mysqli_connect('localhost', 'root', '', 'journal');
 
-$paperQuery = "SELECT * FROM submissionProfile WHERE PaperStatus='Submitted' OR (numReviewers < '3' AND PaperStatus = 'underReview')";
+$paperQuery = "SELECT * FROM submissionProfile WHERE PaperStatus='submitted' OR (numReviewers < '3' AND PaperStatus = 'underReview')";
 $result = mysqli_query($db, $paperQuery);
 	
 	//generate cell information from DB
@@ -15,11 +15,9 @@ $result = mysqli_query($db, $paperQuery);
 			echo '<td>' . $row['topic'] . '</td>';
 			echo '<td>' . $row['PaperStatus'] . '</td>';
 			echo '<td>' . $row['dateOfSubmission'] . '</td>';
-			echo '<td>' . $row['reviewerPreference1'] . '</td>';
-			echo '<td>' . $row['reviewerPreference2'] . '</td>';
-			echo '<td>' . $row['reviewerPreference3'] . '</td>';
 			//The value of the button is set to be the same as the submission ID
 			echo '<td><button type="submit" name = "addReviewer" value =' . $row['submissionId'] . '>Add Reviewer</button></td>';
+			echo '<td><button type="submit" formaction="../Writer/viewPDF.php" name = "viewPDF" value =' . $row['submissionId'] . '>View PDF</button></td>';
 		echo '</tr>';
 	}
 	echo '<table>';

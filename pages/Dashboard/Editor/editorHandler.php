@@ -39,7 +39,8 @@ if (isset($_POST['evaluate'])){
 		echo $row['AssignedReviewerEmail'] . "&nbsp&nbsp";
 	}
 	
-	echo '<table>
+	echo '
+	<table class = "table table-bordered">
 	<tr>
 		<th>&nbsp&nbspReviewer&nbsp&nbsp</th>
 		<th>&nbsp&nbspReviewer Recommendation&nbsp&nbsp</th>
@@ -48,8 +49,8 @@ if (isset($_POST['evaluate'])){
 		<th>&nbsp&nbspWriter Resubmission Date&nbsp&nbsp</th>
 	<tr>';
 	
-	$reviewStatus_query = "SELECT * FROM reviewStatus WHERE AssignedSubmissionId = '$submissionId' AND InterimStatusUpdate = 'reviewed'";
-	$reviewStatus = mysqli_query($db, $reviewStatus_query);
+	$reviewStatusQuery = "SELECT * FROM reviewStatus WHERE AssignedSubmissionId = '$submissionId' AND InterimStatusUpdate = 'reviewed'";
+	$reviewStatus = mysqli_query($db, $reviewStatusQuery);
 	
 	while ($row = mysqli_fetch_assoc($reviewStatus)){
 		echo '<tr>';
@@ -62,20 +63,14 @@ if (isset($_POST['evaluate'])){
 	}
 	
 	echo '</table>';
-	echo '<br \><br>';
 	
 	echo '<form method="post"';
 	echo '<div class="input-group">
-			<button type="submit" class="btn" name="accept" value = ' . $submissionId .'>Accept</button>
-		</div>';
-	echo '<div class="input-group">
-			<button type="submit" class="btn" name="acceptMinorRevision" value = ' . $submissionId .'>Accept With Minor Revisions</button>
-		</div>';
-	echo '<div class="input-group">
-			<button type="submit" class="btn" name="acceptMajorRevision" value = ' . $submissionId .'>Accept With Major Revisions</button>
-		</div>';
-	echo '<div class="input-group">
-			<button type="submit" class="btn" name="reject" value = ' . $submissionId .'>Reject</button>
+			<center>
+			<button type="submit" style="width:140px; class="btn" name="accept" value = ' . $submissionId .'>Accept</button>
+			<button type="submit" style="width:300px; class="btn" name="acceptMinorRevision" value = ' . $submissionId .'>Accept With Minor Revisions</button>
+			<button type="submit" style="width:300px; class="btn" name="acceptMajorRevision" value = ' . $submissionId .'>Accept With Major Revisions</button>
+			<button type="submit" style="width:140px; class="btn" name="reject" value = ' . $submissionId .'>Reject</button>
 		</div>';
 }
 
@@ -85,6 +80,8 @@ if (isset($_POST['accept'])){
 	
 	$updateQuery = "UPDATE submissionProfile SET PaperStatus = 'accepted' WHERE submissionId = '$submissionId'";
 	$update = mysqli_query($db,$updateQuery);
+	
+	header('location: editor.php');
 }
 
 //handles the "Accept With Minor Revisions" button on the evaluatePaper.php page
@@ -93,6 +90,8 @@ if (isset($_POST['acceptMinorRevision'])){
 	
 	$updateQuery = "UPDATE submissionProfile SET PaperStatus = 'acceptMinor' WHERE submissionId = '$submissionId'";
 	$update = mysqli_query($db,$updateQuery);
+	
+	header('location: editor.php');
 }
 
 //handles the "Accept With Major Revisions" button on the evaluatePaper.php page
@@ -101,6 +100,8 @@ if (isset($_POST['acceptMajorRevision'])){
 	
 	$updateQuery = "UPDATE submissionProfile SET PaperStatus = 'acceptMajor' WHERE submissionId = '$submissionId'";
 	$update = mysqli_query($db,$updateQuery);
+	
+	header('location: editor.php');
 }
 
 //handles the "Reject" button on the evaluatePaper.php page
@@ -109,6 +110,8 @@ if (isset($_POST['reject'])){
 	
 	$updateQuery = "UPDATE submissionProfile SET PaperStatus = 'rejected' WHERE submissionId = '$submissionId'";
 	$update = mysqli_query($db,$updateQuery);
+	
+	header('location: editor.php');
 }
 
 //handles the "Add Reviewer" button on the "Papers Awaiting a Reviewer" table
@@ -179,6 +182,29 @@ if (isset($_POST['addReviewer']))
 	</form>	';
 }
 
+//handles the create a reviewer field on the editor page.
+if (isset($_POST['createReviewer'])){
+	$enteredEmail = $_POST['enteredEmail'];
+
+	$validEmailQuery = "SELECT * FROM userProfile WHERE email = '$enteredEmail'";
+	$validEmail = mysqli_query($db, $validEmailQuery);
+	
+	if (mysqli_num_rows($validEmail) == 0){
+		array_push($errors, "This user does not exist");
+	} else {
+		$userProfile = mysqli_fetch_assoc($validEmail);
+		if ($userProfile['userType'] == 'writer'){
+			$updateTypeQuery = "UPDATE userProfile SET userType = 'reviewer' WHERE email = '$enteredEmail'";
+			$result = mysqli_query($db, $updateTypeQuery);
+			
+			echo 'Succesfully assigned privileges';
+		} else {
+			array_push($errors, "This user already has reviewer privileges");
+		}
+	}
+	
+}
+
 //handles the add button the addReviewer page
 if (isset($_POST['add']))
 {
@@ -186,17 +212,17 @@ if (isset($_POST['add']))
 	$submissionId = $_POST['add'];
 
 	//check if the email belongs to a reviewer
-	$valid_email_query = "SELECT * FROM userProfile WHERE email = '$email' AND userType = 'reviewer'";
-	$valid_email = mysqli_query($db, $valid_email_query);
+	$validEmailQuery = "SELECT * FROM userProfile WHERE email = '$email' AND userType = 'reviewer'";
+	$validEmail = mysqli_query($db, $validEmailQuery);
 	
-	$already_assigned_query = "SELECT * FROM reviewStatus WHERE AssignedreviewerEmail = '$email' AND AssignedSubmissionID = '$submissionId'";
-	$already_assigned = mysqli_query($db, $already_assigned_query);
+	$alreadyAssignedQuery = "SELECT * FROM reviewStatus WHERE AssignedreviewerEmail = '$email' AND AssignedSubmissionID = '$submissionId'";
+	$alreadyAssigned = mysqli_query($db, $alreadyAssignedQuery);
 	
 	
-	if (mysqli_num_rows($already_assigned) > 0){
+	if (mysqli_num_rows($alreadyAssigned) > 0){
 		array_push($errors, "This reviewer is already assigned to this paper");
 	}
-	else if (mysqli_num_rows($valid_email)){
+	else if (mysqli_num_rows($validEmail)){
 
 		$assignedDeadlineReviewer = $_POST['reviewDeadline'];
 		$writerResubmissionDate = $_POST['resubmissionDeadline'];
