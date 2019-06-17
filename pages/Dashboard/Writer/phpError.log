@@ -1,11 +1,1 @@
-[12-Jun-2019 00:01:09 UTC] PHP Notice:  Undefined index: paperUpload in C:\Users\Janet\Desktop\SENG300-HIVEMIND\pages\Dashboard\Writer\userHandler.php on line 120
-[12-Jun-2019 00:05:22 UTC] PHP Notice:  Undefined index: paperUpload in C:\Users\Janet\Desktop\SENG300-HIVEMIND\pages\Dashboard\Writer\userHandler.php on line 120
-[12-Jun-2019 00:14:55 UTC] PHP Notice:  Undefined index: reviewStatus.ReviewerFeedback in C:\Users\Janet\Desktop\SENG300-HIVEMIND\pages\Dashboard\Writer\writer.php on line 107
-[14-Jun-2019 12:15:45 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Writer\writer.php on line 86
-[14-Jun-2019 12:33:19 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Writer\writer.php on line 86
-[14-Jun-2019 12:36:04 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Writer\writer.php on line 86
-[14-Jun-2019 12:44:31 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Writer\writer.php on line 86
-[14-Jun-2019 12:44:43 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Writer\writer.php on line 86
-[14-Jun-2019 12:44:50 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Writer\writer.php on line 86
-[14-Jun-2019 12:44:52 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Writer\writer.php on line 86
-[14-Jun-2019 12:44:54 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-master\pages\Dashboard\Writer\writer.php on line 86
+[17-Jun-2019 11:57:45 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in E:\xampp\htdocs\SENG300-HIVEMIND-FredReinink-EditorCreateReviewers\pages\Dashboard\Writer\userHandler.php on line 3

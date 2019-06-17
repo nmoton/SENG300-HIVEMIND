@@ -45,9 +45,9 @@
   <div class="topnav">
     <div class="topnav-right">
       <a href="../dashboard.php">Dashboard</a>
-      <a href="../Writer/writer.php">Writer</a>
-      <a href="../Reviewer/reviewer.php">Reviewer</a>
-      <a href="editor.php">Editor</a>
+      <a href="../Writer/writer.php">Submissions</a>
+      <a href="../Reviewer/reviewer.php">Review</a>
+      <a href="editor.php">Admin</a>
       <a href="../../login.php">Sign-out</a>
     </div>
   </div>

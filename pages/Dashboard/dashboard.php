@@ -33,14 +33,34 @@
 							<a class="nav-link text-black" href="dashboard.php">Dashboard</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-black" href="Writer/writer.php">Writer</a>
+							<a class="nav-link text-black" href="Writer/writer.php">Submissions</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link text-black" href="Reviewer/reviewer.php">Reviewer</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link text-black" href="Editor/editor.php">Editor</a>
-						</li>
+						<?php 
+							include('../userHandler.php');
+							
+							$userEmail = $_SESSION['email'];
+							
+							$userQuery = "SELECT * FROM userProfile WHERE email = '$userEmail'";
+							$userResult = mysqli_query($db, $userQuery);
+							$user = mysqli_fetch_assoc($userResult);
+							
+							if ($user['userType'] == 'editor'){
+								echo '		
+									<li class="nav-item">
+										<a class="nav-link text-black" href="Reviewer/reviewer.php">Reviewer</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link text-black" href="Editor/editor.php">Admin</a>
+									</li>
+								';
+							} else if ($user['userType'] == 'reviewer'){
+								echo '
+									<li class="nav-item">
+										<a class="nav-link text-black" href="Reviewer/reviewer.php">Review</a>
+									</li>
+								';
+							}
+						?>
 						<li class="nav-item">
 							<a class="nav-link text-black" href="../login.php">Sign Out</a>
 						</li>
