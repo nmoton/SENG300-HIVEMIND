@@ -161,7 +161,11 @@ if (isset($_POST['addReviewer']))
 	}
 	
 	echo "<br \><br>These reviewers have requested to review this paper: ";
-	//will add when the functionality for a reviewer to request a paper is implemented
+	$reviewerSelectionQuery = "SELECT * FROM reviewerSelection WHERE submissionId = '$submissionId'";
+	$reviewerSelectionResult = mysqli_query($db, $reviewerSelectionQuery);
+	while ($reviewerSelection = mysqli_fetch_assoc($reviewerSelectionResult)){
+		echo $row['reviewerEmail'] . "&nbsp&nbsp";
+	}
 	
 	echo '<br \><br><br>';
 	echo '<form method="post">
