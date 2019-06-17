@@ -45,8 +45,8 @@
 
   
 
-<!--feature 1: View all the submission made by the writer with their status 
-	Paper ID | Paper Title | Status 
+<!--feature 1: View all the submissions the reviewer has been requested to review 
+	Submission ID | Paper Title | Topic | Download | Deadline 
 	This should be a table -->
 
 	
@@ -67,8 +67,8 @@
     <th>Submission ID</th>
     <th>Paper Title</th>
 	<th>Topic</th>
-    <th>PDF</th>
     <th>Deadline</th>
+	<th>Click to Download Paper</th>
 
     </tr>
     </thead>
@@ -100,8 +100,11 @@
 								echo"<td>".$row["AssignedSubmissionID"]."</td>";
 								echo"<td>".$row["paperTitle"]."</td>";
 								echo"<td>".$row["topic"]."</td>";
-								echo"<td>".$row["pdfSubmission"]."</td>";
 								echo"<td>".$row["AssignedDeadlineReviewer"]."</td>";
+								echo "<form action='viewPDF.php' method='post'>";
+								echo '<td><button type="submit" formaction="viewPDF.php" name = "viewPDF" value =' . $row['AssignedSubmissionID'] . '>View PDF</button></td>';
+								echo "</form>";
+								echo "</tr>";
 							}
 						}
 
