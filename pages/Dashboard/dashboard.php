@@ -48,7 +48,7 @@
 				</div>
 			</div>
 		</nav>
-
+	<form method = "post">
 		<div class="container" id="dashboard-journals">
 			<?php 
 				//Displays the most recent 10 published papers
@@ -68,7 +68,7 @@
 						</div>
 						<div class="card-body">
 							<h5 class="card-title">' . $paper['paperTitle'] . '</h5>
-							<a href="#">Download</a>
+							<td><button type="submit" formaction="Writer/viewPDF.php" name = "viewPDF" value =' . $paper['submissionId'] . '>View PDF</button></td>
 						</div>
 						<div class="card-footer text-muted">
 							On ' . $paper['dateOfSubmission'] . '

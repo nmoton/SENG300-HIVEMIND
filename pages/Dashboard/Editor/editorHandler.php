@@ -253,9 +253,6 @@ if (isset($_POST['add']))
 function thisQuarter($month){
 	$currentMonth = (int)date('m');
 	
-	error_log("current month: " . $currentMonth);
-	error_log("paper month: " . $month);
-	
 	if (($currentMonth == 1 || $currentMonth == 2 || $currentMonth == 3) && ($month == 1 || $month == 2 || $month == 3)){
 		return true;
 	}
