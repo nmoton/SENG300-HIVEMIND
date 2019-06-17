@@ -54,7 +54,72 @@
     <body>
 	<br>
 	<p></p>
-    <h2><b><center>Your Submissions</center></b></h2>
+    <h2><b><center>Your Submissions:</center></b></h2>
+	<p></p>
+
+	<h4><b><center>Recently submitted</center></b></h4>
+
+	    <div class="container">
+    
+    <table class="table table-bordered">
+    <thead>
+    <tr>
+    <th>Submission ID</th>
+    <th>Paper Title</th>
+	<th>Topic</th>
+    <th>Status</th>
+	<th>Click to Download Paper</th> 
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+
+    <!-- shows all papers that have been submitted in the current quarter --> 
+    <?php
+			
+			$db = mysqli_connect('localhost','root','', 'journal');
+			if (!$db)
+			{
+				 die('Could not connect: ' . mysql_error());
+			}
+
+			$email = $_SESSION['email'];
+
+			$user_check_query = "SELECT * FROM submissionProfile WHERE email='$email'";
+           
+						
+						$result = $db->query($user_check_query);
+
+						
+						if (!empty($result) && $result->num_rows > 0)
+						{
+
+							while ($row = $result->fetch_assoc())
+							{
+								echo"<td>".$row["submissionId"]."</td>";
+								echo"<td>".$row["paperTitle"]."</td>";
+								echo"<td>".$row["topic"]."</td>";
+								echo"<td>".$row["PaperStatus"]."</td>";
+								echo "<form action='viewPDF.php' method='post'>";
+								echo '<td><button type="submit" formaction="viewPDF.php" name = "viewPDF" value =' . $row['submissionId'] . '>View PDF</button></td>';
+								echo "</form>";
+								echo "</tr>";
+
+							}
+						}
+						else
+						{
+							echo "<br>";
+							echo "<center><b>You have no new submissions. Make one today!</b></center>";
+						}		
+    ?>
+    </table>
+    <br><br>
+
+
+
+	<!-- shows all papers that have been reviewed -->
+	<h4><b><center>Reviewed</center></b></h4>
 
     <div class="container">
     
@@ -67,8 +132,6 @@
     <th>Status</th>
 	<th>Comments From Reviewer</th>
 	<th>Click to Download Paper</th> 
-
-
     </tr>
     </thead>
     <tbody>
@@ -123,20 +186,14 @@
 						else
 						{
 							echo "<br>";
-							echo "<center><b>You have no submission. Make one today!</b></center>";
+							echo "<center><b>None of your papers have been reviewed yet.</b></center>";
 						}
-
 					
 
     ?>
     </table>
 
-
     <br><br>
-
-	
-
-
 
 
 
@@ -152,11 +209,6 @@
   </p>
   
   
-
-
-
-
-
 
 
 
