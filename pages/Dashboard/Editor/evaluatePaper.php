@@ -30,13 +30,18 @@
       <a href="../Editor/editor.php">Editor</a>
       <a href="../../login.php">Sign-out</a>
     </div>
+	
+	<div class="topnav-left">
+	   <a href="editor.php">Back</a>
+	   </div>
   </div>
+  
   
   	<br>
 		<b><h2><center> Accept/Reject this Paper </center></h2></b>
 	<br>
 	
-	<table>
+  	<table class = "table table-bordered">
 	<tr>
 		<th>Submission ID</th>
 		<th>Title</th>

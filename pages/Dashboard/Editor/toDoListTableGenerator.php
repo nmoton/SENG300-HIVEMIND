@@ -18,6 +18,7 @@ $result = mysqli_query($db, $paperQuery);
 			//The value of the buttons is set to be the same as the submission ID
 			echo '<td><button type="submit" formaction="evaluatePaper.php" name= "evaluate" value =' . $row['submissionId'] . '">Evaluate</button></td>';
 			echo '<td><button type="submit" name= "addReviewer" value =' . $row['submissionId'] . '">Add Reviewer</button></td>';
+			echo '<td><button type="submit" formaction="../Writer/viewPDF.php" name = "viewPDF" value =' . $row['submissionId'] . '>View PDF</button></td>';
 		echo '</tr>';
 	}
 	echo '<table>';
