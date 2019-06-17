@@ -56,15 +56,8 @@
 
 
 
-
-
-
-
-
-  
-
 <!--feature 1: View all the submissions the reviewer has been requested to review 
-	Submission ID | Paper Title | Topic | Download | Deadline 
+	Submission ID | Paper Title | Topic | Deadline | Download 
 	This should be a table -->
 
 	
@@ -348,8 +341,6 @@
 
 
 
-
-
 <p>
   <!-- circle dots -->
   <div style="text-align:center">
@@ -358,6 +349,111 @@
     <span class="dot"></span>
   </div>
 </p>
+
+
+
+
+
+<!--Feature 3: allow reviewer to indicate preferences on which papers to review -->
+    <body>
+	<br>
+	<p></p>
+    <h4><b><center>Recent submissions:</center></b></h4>
+
+    <div class="container">
+    
+    <table class="table table-bordered">
+    <thead>
+    <tr>
+    <th>Submission ID</th>
+    <th>Paper Title</th>
+	<th>Topic</th>
+	<th>Authors</th>
+    <th>Date Submitted</th>
+	<th>Select</th>
+	<th>Click to Download Paper</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+
+    <!-- populate information in the table --> 
+    <?php
+			
+			$db = mysqli_connect('localhost','root','', 'journal');
+			if (!$db)
+			{
+				 die('Could not connect: ' . mysql_error());
+			}
+
+			$email = $_SESSION['email'];
+			$today = date("Y-m-d");
+           
+						//show all papers assigned to this reviewer, whose deadlines haven't expired yet
+						$user_check_query = "SELECT * FROM submissionProfile WHERE PaperStatus='submitted'";
+						$result = $db->query($user_check_query);
+		
+					
+						if ($result && $result->num_rows > 0)
+						{
+							
+							while ($row = $result->fetch_assoc())
+							{
+
+								echo"<td>".$row["submissionId"]."</td>";
+								echo"<td>".$row["paperTitle"]."</td>";
+								echo"<td>".$row["topic"]."</td>";
+								echo"<td>".$row["authors"]."</td>";
+								echo"<td>".$row["dateOfSubmission"]."</td>";
+
+								$message = $row['submissionId']."/".$email."/".$row['paperTitle'];
+								echo "<form action='reviewPreference.php' method='post'>";
+								echo '<td><button type="submit" formaction="reviewPreference.php" name = "reviewPreference" value =' . $message . '>Ask to review</button></td>';
+								echo "</form>";
+
+								echo "<form action='viewPDF.php' method='post'>";
+								echo '<td><button type="submit" formaction="viewPDF.php" name = "viewPDF" value =' . $row['submissionId'] . '>View PDF</button></td>';
+								echo "</form>";
+								echo "</tr>";
+							}
+						}
+
+						else
+						{
+							echo "<br>";
+							echo "<center><b>There are no recent submissions</b></center>";
+						}
+
+
+           						
+    ?>
+    </table>
+
+
+    <br><br>
+          
+
+	<p>
+  <!-- circle dots -->
+  <div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  </p>
+  
+
+
+
+
+
+
+
+
+
+
+
 
 
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
