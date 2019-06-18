@@ -18,12 +18,12 @@
   	<body> 
 		<nav class="navbar fixed-top navbar-expand-lg navbar-light">
 			<div class="container" id="home">
-				<div class="input-group md-form form-sm form-2 pl-0" id="search">
+				<!--<div class="input-group md-form form-sm form-2 pl-0" id="search">
 	  				<input class="form-control my-0 py-1" type="text" placeholder="Search Papers" aria-label="Search">
 	  				<div class="input-group-append">
 	    				<span class="input-group-text lighten-2" id="basic-text1"><i class="fas fa-search text-grey" aria-hidden="true"></i></span>
 	  				</div>
-				</div>
+				</div>-->
 				<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>

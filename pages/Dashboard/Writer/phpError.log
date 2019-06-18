@@ -1,1 +1,2 @@
-[17-Jun-2019 11:57:45 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in E:\xampp\htdocs\SENG300-HIVEMIND-FredReinink-EditorCreateReviewers\pages\Dashboard\Writer\userHandler.php on line 3
+[18-Jun-2019 06:44:54 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-FredReinink-EditorCreateReviewers\pages\Dashboard\Writer\writer.php on line 35
+[18-Jun-2019 06:44:54 Europe/Berlin] PHP Notice:  Undefined index: email in E:\xampp\htdocs\SENG300-HIVEMIND-FredReinink-EditorCreateReviewers\pages\Dashboard\Writer\writer.php on line 101
