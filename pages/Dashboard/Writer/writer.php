@@ -69,9 +69,12 @@
     <body>
 	<br>
 	<p></p>
-    <h2><b><center>Your Submissions</center></b></h2>
+    <h2><b><center>Your Submissions:</center></b></h2>
+	<p></p>
 
-    <div class="container">
+	<h4><b><center>Recently submitted</center></b></h4>
+
+	    <div class="container">
     
     <table class="table table-bordered">
     <thead>
@@ -80,10 +83,70 @@
     <th>Paper Title</th>
 	<th>Topic</th>
     <th>Status</th>
-	<th>Comments From Reviewer</th>
 	<th>Click to Download Paper</th> 
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+
+    <!-- shows all papers that have been submitted in the current quarter --> 
+    <?php
+			
+			$db = mysqli_connect('localhost','root','', 'journal');
+			if (!$db)
+			{
+				 die('Could not connect: ' . mysql_error());
+			}
+
+			$email = $_SESSION['email'];
+
+			$user_check_query = "SELECT * FROM submissionProfile WHERE email='$email'";
+           
+						
+						$result = $db->query($user_check_query);
+
+						
+						if (!empty($result) && $result->num_rows > 0)
+						{
+
+							while ($row = $result->fetch_assoc())
+							{
+								echo"<td>".$row["submissionId"]."</td>";
+								echo"<td>".$row["paperTitle"]."</td>";
+								echo"<td>".$row["topic"]."</td>";
+								echo"<td>".$row["PaperStatus"]."</td>";
+								echo "<form action='viewPDF.php' method='post'>";
+								echo '<td><button type="submit" formaction="viewPDF.php" name = "viewPDF" value =' . $row['submissionId'] . '>View PDF</button></td>';
+								echo "</form>";
+								echo "</tr>";
+
+							}
+						}
+						else
+						{
+							echo "<br>";
+							echo "<center><b>You have no new submissions. Make one today!</b></center>";
+						}		
+    ?>
+    </table>
+    <br><br>
 
 
+
+	<!-- shows all papers that have been reviewed -->
+	<h4><b><center>Reviewed</center></b></h4>
+
+    <div class="container">
+    
+    <table class="table table-bordered">
+    <thead>
+    <tr>
+    <th>Submission ID</th>
+    <th>Paper Title</th>
+    <th>Status</th>
+	<th>Comments From Reviewer</th>
+	<th>Resubmit Deadline</th>
+	<th>Click to Download Paper</th> 
     </tr>
     </thead>
     <tbody>
@@ -121,9 +184,9 @@
 							{
 								echo"<td>".$row["submissionId"]."</td>";
 								echo"<td>".$row["paperTitle"]."</td>";
-								echo"<td>".$row["topic"]."</td>";
 								echo"<td>".$row["PaperStatus"]."</td>";
 								echo"<td>".$row["WriterFeedback"]."</td>";
+								echo"<td>".$row["WriterResubmissionDate"]."</td>";
 								echo "<form action='viewPDF.php' method='post'>";
 								echo '<td><button type="submit" formaction="viewPDF.php" name = "viewPDF" value =' . $row['submissionId'] . '>View PDF</button></td>';
 								echo "</form>";
@@ -136,19 +199,15 @@
 						else
 						{
 							echo "<br>";
-							echo "<center><b>You have no submission. Make one today!</b></center>";
+							echo "<center><b>None of your papers have been reviewed yet.</b></center>";
 						}
-
 					
 
     ?>
     </table>
 
-
+	<p>Note: to resubmit a paper after incorporating feedback, please withdraw the submission and create a new one.</p>
     <br><br>
-
-	
-
 
 
 
@@ -165,11 +224,6 @@
   </p>
   
   
-
-
-
-
-
 
 
 
@@ -348,7 +402,7 @@
     </div>
 
 
-    <div class="section"><span>3</span>Reviewer Preference. Enter up to 3 names.</div>
+    <div class="section"><span>3</span>Reviewer Preference. Enter up to 3 names or emails.</div>
     <div class="inner-wrap">
         <label>Reviewer Preference 1 <input type="text" name="Reviewer_Preference_1" /></label>
 				<label>Reviewer Preference 2 <input type="text" name="Reviewer_Preference_2" /></label>
@@ -429,7 +483,7 @@
 <form action="delete.php" method="post">
 	<div class="inner-wrap">
 		<center> 
-			<label> Enter SubmissionId: </label>
+			<label> Enter Submission ID: </label>
 			<input type="int" name="submissionId" required>
 		</center>
 	</div>

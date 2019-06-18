@@ -27,9 +27,7 @@ if (isset($_POST['newPaperSubmission']))
 			$authorsPaper = $_POST['authorsPaper'];
 			$dateOfSubmission = $_POST['dateOfSubmission'];
 			$paperUpload = $_POST['paperUpload'];
-
-			$destination_file = 'Uploads';
-
+			$paperUpload = basename($paperUpload); //just stores the terminal filename in the SQL table
 			
 			$Reviewer_Preference_1 = $_POST['Reviewer_Preference_1'];
 			$Reviewer_Preference_2 = $_POST['Reviewer_Preference_2'];

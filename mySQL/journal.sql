@@ -50,6 +50,9 @@ CREATE TABLE submissionProfile
 	reviewerPreference3 varchar(225)
 );
 
+
+INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1, reviewerPreference2) Values("Effect of Routing Algorithms on Network Efficiency", "Joe@UCalgary.ca", "Networking", "Eduardo Picatto", "SamplePaper.pdf", "submitted", "2019-2-2", "Tom@ucalgary.ca", "Todd@ucalgary.ca");
+INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1) Values("Algorithmic Complexity Analysis of Matrix Multiplication", "Joe@UCalgary.ca", "Algorithmics", "Eduardo Picatto", "AnotherSample.pdf", "submitted", "2019-2-3", "Glen@ucalgary.ca");
 INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1, reviewerPreference2) Values("Effect of Routing Algorithms on Network Efficiency", "Joe@UCalgary.ca", "Networking", "Eduardo Picatto", "SamplePaper.pdf", "submitted", "2019-6-2", "Tom@ucalgary.ca", "Todd@ucalgary.ca");
 INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1) Values("Algorithmic Complexity Analysis of Matrix Multiplication", "Joe@UCalgary.ca", "Algorithmics", "Eduardo Picatto", "AnotherSample.pdf", "submitted", "2019-6-3", "Glen@ucalgary.ca");
 INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission, PaperStatus, dateOfSubmission, reviewerPreference1) Values("Go-Back N Versus Modern Reliable Data Transfer Protocols", "Tom@UCalgary.ca", "Networking", "Sammy Sprinkler", "AnotherSample.pdf", "submitted", "2019-2-19", "Glen@ucalgary.ca");
@@ -64,8 +67,7 @@ INSERT INTO submissionProfile (paperTitle, email, topic, authors, pdfSubmission,
 DROP TABLE IF EXISTS reviewerSelection;
 CREATE TABLE reviewerSelection
 (
-	reviewerEmail varchar(225) NOT NULL,	
-	paperTitle varchar(225) NOT NULL,
+	reviewerEmail varchar(225) NOT NULL,
 	submissionId varchar(225) NOT NULL
 );
 
