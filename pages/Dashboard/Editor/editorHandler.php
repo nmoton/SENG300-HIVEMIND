@@ -251,7 +251,7 @@ if (isset($_POST['add']))
 	
 		//updates tables to reflect the selected reviewer being assigned a paper
 		$query = "INSERT INTO reviewStatus (AssignedSubmissionID, AssignedReviewerEmail, AssignedDeadlineReviewer, InterimStatusUpdate,WritersResubmissionDate) 
-		 VALUES('$submissionId', '$email', '$assignedDeadlineReviewer', 'Empty', '$writerResubmissionDate')";
+		 VALUES('$submissionId', '$email', '$assignedDeadlineReviewer', 'submitted', '$writerResubmissionDate')";
 		$result = mysqli_query($db,$query);
 		
 		$updateSubmission = "UPDATE submissionProfile SET PaperStatus = 'underReview' WHERE submissionId = '$submissionId'";

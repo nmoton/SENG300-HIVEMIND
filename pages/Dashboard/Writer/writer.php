@@ -186,7 +186,7 @@
 								echo"<td>".$row["paperTitle"]."</td>";
 								echo"<td>".$row["PaperStatus"]."</td>";
 								echo"<td>".$row["WriterFeedback"]."</td>";
-								echo"<td>".$row["WriterResubmissionDate"]."</td>";
+								echo"<td>".$row["WritersResubmissionDate"]."</td>";
 								echo "<form action='viewPDF.php' method='post'>";
 								echo '<td><button type="submit" formaction="viewPDF.php" name = "viewPDF" value =' . $row['submissionId'] . '>View PDF</button></td>';
 								echo "</form>";
