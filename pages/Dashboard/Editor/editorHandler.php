@@ -18,6 +18,7 @@ if (isset($_POST['evaluate'])){
 	$submissionQuery = "SELECT * FROM submissionProfile WHERE submissionId = '$submissionId'";
 	$submission = mysqli_query($db, $submissionQuery);
 	
+	//echo paper information
 	while ($row = mysqli_fetch_assoc($submission)){
 		echo '<tr>';
 			echo '<td>' . $row['submissionId'] . '</td>';
@@ -37,10 +38,12 @@ if (isset($_POST['evaluate'])){
 	$reviewerQuery = "SELECT * FROM reviewStatus WHERE AssignedSubmissionId = '$submissionId' AND InterimStatusUpdate != 'reviewed'";
 	$incompleteReviewers = mysqli_query($db, $reviewerQuery);
 	
+	//echo which reviewers have not submitted a review
 	while ($row = mysqli_fetch_assoc($incompleteReviewers)){
 		echo $row['AssignedReviewerEmail'] . "&nbsp&nbsp";
 	}
 	
+	//echo the column structure for the table displaying reviewer feedback
 	echo '
 	<table class = "table table-bordered">
 	<tr>
@@ -54,6 +57,7 @@ if (isset($_POST['evaluate'])){
 	$reviewStatusQuery = "SELECT * FROM reviewStatus WHERE AssignedSubmissionId = '$submissionId' AND InterimStatusUpdate = 'reviewed'";
 	$reviewStatus = mysqli_query($db, $reviewStatusQuery);
 	
+	//echo the cell information for the table displaying reviewer feedback
 	while ($row = mysqli_fetch_assoc($reviewStatus)){
 		echo '<tr>';
 			echo '<td>' . $row['AssignedReviewerEmail'] . '</td>';
@@ -66,6 +70,7 @@ if (isset($_POST['evaluate'])){
 	
 	echo '</table>';
 	
+	//echo the buttons that allow the editor to accept/reject papers
 	echo '<form method="post"';
 	echo '<div class="input-group">
 			<center>
@@ -124,6 +129,7 @@ if (isset($_POST['addReviewer']))
 	$submissionQuery = "SELECT * FROM submissionProfile WHERE submissionId = '$submissionId'";
 	$submission = mysqli_query($db, $submissionQuery);
 	
+	//echos cell information for paper information
 	while ($row = mysqli_fetch_assoc($submission)){
 		echo '<tr>';
 			echo '<td>' . $row['submissionId'] . '</td>';
@@ -144,6 +150,8 @@ if (isset($_POST['addReviewer']))
 		echo "There are no reviewers currently assigned to this submission";
 	} else {
 		echo "These are the reviewers currently assigned to this submission:";
+		
+		//echo reviewers currently assigned to the submission
 		while ($row = mysqli_fetch_assoc($reviewers)){
 			echo $row['AssignedReviewerEmail'] . "&nbsp&nbsp";
 		}
@@ -151,15 +159,19 @@ if (isset($_POST['addReviewer']))
 	
 	echo '<br \><br>';
 	
+	
 	echo "The submitter has requested these reviewers: ";
 	$submissionQuery = "SELECT * FROM submissionProfile WHERE submissionId = '$submissionId'";
 	$submission = mysqli_query($db, $submissionQuery);
+	
+	//echos reviewer preferences
 	while ($row = mysqli_fetch_assoc($submission)){
 		echo $row['reviewerPreference1'] . "&nbsp&nbsp";
 		echo $row['reviewerPreference2'] . "&nbsp&nbsp";
 		echo $row['reviewerPreference3'];
 	}
 	
+	//echos paper preferences
 	echo "<br \><br>These reviewers have requested to review this paper: ";
 	$reviewerSelectionQuery = "SELECT * FROM reviewerSelection WHERE submissionId = '$submissionId'";
 	$reviewerSelectionResult = mysqli_query($db, $reviewerSelectionQuery);
@@ -167,6 +179,8 @@ if (isset($_POST['addReviewer']))
 		echo $row['reviewerEmail'] . "&nbsp&nbsp";
 	}
 	
+	
+	//echos the form that allows the editor to assign a reviewer to a paper
 	echo '<br \><br><br>';
 	echo '<form method="post">
 		<div class="input-group">
@@ -200,6 +214,8 @@ if (isset($_POST['createReviewer'])){
 	} else {
 		$userProfile = mysqli_fetch_assoc($validEmail);
 		if ($userProfile['userType'] == 'writer'){
+			
+			//privileges are assigned when the user exists and has writer privileges
 			$updateTypeQuery = "UPDATE userProfile SET userType = 'reviewer' WHERE email = '$enteredEmail'";
 			$result = mysqli_query($db, $updateTypeQuery);
 			
@@ -233,6 +249,7 @@ if (isset($_POST['add']))
 		$assignedDeadlineReviewer = $_POST['reviewDeadline'];
 		$writerResubmissionDate = $_POST['resubmissionDeadline'];
 	
+		//updates tables to reflect the selected reviewer being assigned a paper
 		$query = "INSERT INTO reviewStatus (AssignedSubmissionID, AssignedReviewerEmail, AssignedDeadlineReviewer, InterimStatusUpdate,WritersResubmissionDate) 
 		 VALUES('$submissionId', '$email', '$assignedDeadlineReviewer', 'Empty', '$writerResubmissionDate')";
 		$result = mysqli_query($db,$query);

@@ -3,6 +3,7 @@
 <?php
 	include '../../userHandler.php';
 
+	//this code displays different navigation options on the menu bar based on the users privileges
 	if (!isset($_SESSION['email'])){
 		header('location:../../invalidPermissions.php');
 	} else {
@@ -150,6 +151,7 @@
 	<tr>
 	
 	<form method = "post">
+	<!--Generate search results -->
 	<?php 
 		include 'searchGenerator.php';
 	?>
