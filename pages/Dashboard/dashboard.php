@@ -18,12 +18,12 @@
   	<body> 
 		<nav class="navbar fixed-top navbar-expand-lg navbar-light">
 			<div class="container" id="home">
-				<div class="input-group md-form form-sm form-2 pl-0" id="search">
+				<!--<div class="input-group md-form form-sm form-2 pl-0" id="search">
 	  				<input class="form-control my-0 py-1" type="text" placeholder="Search Papers" aria-label="Search">
 	  				<div class="input-group-append">
 	    				<span class="input-group-text lighten-2" id="basic-text1"><i class="fas fa-search text-grey" aria-hidden="true"></i></span>
 	  				</div>
-				</div>
+				</div>-->
 				<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -33,14 +33,34 @@
 							<a class="nav-link text-black" href="dashboard.php">Dashboard</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-black" href="Writer/writer.php">Writer</a>
+							<a class="nav-link text-black" href="Writer/writer.php">Submissions</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link text-black" href="Reviewer/reviewer.php">Reviewer</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link text-black" href="Editor/editor.php">Editor</a>
-						</li>
+						<?php 
+							include('../userHandler.php');
+							
+							$userEmail = $_SESSION['email'];
+							
+							$userQuery = "SELECT * FROM userProfile WHERE email = '$userEmail'";
+							$userResult = mysqli_query($db, $userQuery);
+							$user = mysqli_fetch_assoc($userResult);
+							
+							if ($user['userType'] == 'editor'){
+								echo '		
+									<li class="nav-item">
+										<a class="nav-link text-black" href="Reviewer/reviewer.php">Review</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link text-black" href="Editor/editor.php">Admin</a>
+									</li>
+								';
+							} else if ($user['userType'] == 'reviewer'){
+								echo '
+									<li class="nav-item">
+										<a class="nav-link text-black" href="Reviewer/reviewer.php">Review</a>
+									</li>
+								';
+							}
+						?>
 						<li class="nav-item">
 							<a class="nav-link text-black" href="../login.php">Sign Out</a>
 						</li>
@@ -48,7 +68,7 @@
 				</div>
 			</div>
 		</nav>
-
+	<form method = "post">
 		<div class="container" id="dashboard-journals">
 			<?php 
 				//Displays the most recent 10 published papers
@@ -68,7 +88,7 @@
 						</div>
 						<div class="card-body">
 							<h5 class="card-title">' . $paper['paperTitle'] . '</h5>
-							<a href="#">Download</a>
+							<td><button type="submit" formaction="Writer/viewPDF.php" name = "viewPDF" value =' . $paper['submissionId'] . '>View PDF</button></td>
 						</div>
 						<div class="card-footer text-muted">
 							On ' . $paper['dateOfSubmission'] . '

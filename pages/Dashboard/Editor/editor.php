@@ -3,6 +3,7 @@
 <?php
 	include '../../userHandler.php';
 
+	//this code displays different navigation options on the menu bar based on the users privileges
 	if (!isset($_SESSION['email'])){
 		header('location:../../invalidPermissions.php');
 	} else {
@@ -45,15 +46,15 @@
   <div class="topnav">
     <div class="topnav-right">
       <a href="../dashboard.php">Dashboard</a>
-      <a href="../Writer/writer.php">Writer</a>
-      <a href="../Reviewer/reviewer.php">Reviewer</a>
-      <a href="editor.php">Editor</a>
+      <a href="../Writer/writer.php">Submissions</a>
+      <a href="../Reviewer/reviewer.php">Review</a>
+      <a href="editor.php">Admin</a>
       <a href="../../login.php">Sign-out</a>
     </div>
   </div>
   
   	<br>
-	<b><h2><center> To Do List </center></h2></b>
+	<b><h2><center> To Do List for This Quarter </center></h2></b>
 	
   <form method="post" action="addReviewer.php">
   	<?php 
@@ -150,6 +151,7 @@
 	<tr>
 	
 	<form method = "post">
+	<!--Generate search results -->
 	<?php 
 		include 'searchGenerator.php';
 	?>
