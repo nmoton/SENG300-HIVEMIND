@@ -33,26 +33,25 @@ final class userHandlerTest extends TestCase
 		$testQuery = "SELECT * FROM userProfile WHERE email = '$testEmail'";
 		$testQueryResult = mysqli_query($db,$testQuery);
 		$testQueryArray = mysqli_fetch_assoc($testQueryResult);
-		$user = $testQueryArray['userType'];
 		
 		$this->assertEquals(
             $testEmail,
-            $user['email'])
+            $testQueryArray['email'])
         );
 		
 		$this->assertEquals(
             $testFirstName,
-            $user['firstName'])
+            $testQueryArray['firstName'])
         );
 		
 		$this->assertEquals(
             $testLastName,
-            $user['lastName'])
+            $testQueryArray['lastName'])
         );
 		
 		$this->assertEquals(
             $testInstitution,
-            $user['institution'])
+            $testQueryArray['institution'])
         );
     }
 
