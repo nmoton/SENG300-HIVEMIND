@@ -9,6 +9,8 @@ ini_set("error_log", "editorHandlerError.log");
 
 $db = mysqli_connect('localhost', 'root', '', 'journal');
 
+updateExpiredPapers($db);
+
 //handles the "evaluate" button on the "To Do List" table
 if (isset($_POST['evaluate'])){
 	$submissionId = $_POST['evaluate'];
@@ -16,6 +18,7 @@ if (isset($_POST['evaluate'])){
 	$submissionQuery = "SELECT * FROM submissionProfile WHERE submissionId = '$submissionId'";
 	$submission = mysqli_query($db, $submissionQuery);
 	
+	//echo paper information
 	while ($row = mysqli_fetch_assoc($submission)){
 		echo '<tr>';
 			echo '<td>' . $row['submissionId'] . '</td>';
@@ -35,10 +38,12 @@ if (isset($_POST['evaluate'])){
 	$reviewerQuery = "SELECT * FROM reviewStatus WHERE AssignedSubmissionId = '$submissionId' AND InterimStatusUpdate != 'reviewed'";
 	$incompleteReviewers = mysqli_query($db, $reviewerQuery);
 	
+	//echo which reviewers have not submitted a review
 	while ($row = mysqli_fetch_assoc($incompleteReviewers)){
 		echo $row['AssignedReviewerEmail'] . "&nbsp&nbsp";
 	}
 	
+	//echo the column structure for the table displaying reviewer feedback
 	echo '
 	<table class = "table table-bordered">
 	<tr>
@@ -52,6 +57,7 @@ if (isset($_POST['evaluate'])){
 	$reviewStatusQuery = "SELECT * FROM reviewStatus WHERE AssignedSubmissionId = '$submissionId' AND InterimStatusUpdate = 'reviewed'";
 	$reviewStatus = mysqli_query($db, $reviewStatusQuery);
 	
+	//echo the cell information for the table displaying reviewer feedback
 	while ($row = mysqli_fetch_assoc($reviewStatus)){
 		echo '<tr>';
 			echo '<td>' . $row['AssignedReviewerEmail'] . '</td>';
@@ -64,6 +70,7 @@ if (isset($_POST['evaluate'])){
 	
 	echo '</table>';
 	
+	//echo the buttons that allow the editor to accept/reject papers
 	echo '<form method="post"';
 	echo '<div class="input-group">
 			<center>
@@ -122,6 +129,7 @@ if (isset($_POST['addReviewer']))
 	$submissionQuery = "SELECT * FROM submissionProfile WHERE submissionId = '$submissionId'";
 	$submission = mysqli_query($db, $submissionQuery);
 	
+	//echos cell information for paper information
 	while ($row = mysqli_fetch_assoc($submission)){
 		echo '<tr>';
 			echo '<td>' . $row['submissionId'] . '</td>';
@@ -142,6 +150,8 @@ if (isset($_POST['addReviewer']))
 		echo "There are no reviewers currently assigned to this submission";
 	} else {
 		echo "These are the reviewers currently assigned to this submission:";
+		
+		//echo reviewers currently assigned to the submission
 		while ($row = mysqli_fetch_assoc($reviewers)){
 			echo $row['AssignedReviewerEmail'] . "&nbsp&nbsp";
 		}
@@ -149,18 +159,28 @@ if (isset($_POST['addReviewer']))
 	
 	echo '<br \><br>';
 	
+	
 	echo "The submitter has requested these reviewers: ";
 	$submissionQuery = "SELECT * FROM submissionProfile WHERE submissionId = '$submissionId'";
 	$submission = mysqli_query($db, $submissionQuery);
+	
+	//echos reviewer preferences
 	while ($row = mysqli_fetch_assoc($submission)){
 		echo $row['reviewerPreference1'] . "&nbsp&nbsp";
 		echo $row['reviewerPreference2'] . "&nbsp&nbsp";
 		echo $row['reviewerPreference3'];
 	}
 	
+	//echos paper preferences
 	echo "<br \><br>These reviewers have requested to review this paper: ";
-	//will add when the functionality for a reviewer to request a paper is implemented
+	$reviewerSelectionQuery = "SELECT * FROM reviewerSelection WHERE submissionId = '$submissionId'";
+	$reviewerSelectionResult = mysqli_query($db, $reviewerSelectionQuery);
+	while ($reviewerSelection = mysqli_fetch_assoc($reviewerSelectionResult)){
+		echo $row['reviewerEmail'] . "&nbsp&nbsp";
+	}
 	
+	
+	//echos the form that allows the editor to assign a reviewer to a paper
 	echo '<br \><br><br>';
 	echo '<form method="post">
 		<div class="input-group">
@@ -194,6 +214,8 @@ if (isset($_POST['createReviewer'])){
 	} else {
 		$userProfile = mysqli_fetch_assoc($validEmail);
 		if ($userProfile['userType'] == 'writer'){
+			
+			//privileges are assigned when the user exists and has writer privileges
 			$updateTypeQuery = "UPDATE userProfile SET userType = 'reviewer' WHERE email = '$enteredEmail'";
 			$result = mysqli_query($db, $updateTypeQuery);
 			
@@ -227,6 +249,7 @@ if (isset($_POST['add']))
 		$assignedDeadlineReviewer = $_POST['reviewDeadline'];
 		$writerResubmissionDate = $_POST['resubmissionDeadline'];
 	
+		//updates tables to reflect the selected reviewer being assigned a paper
 		$query = "INSERT INTO reviewStatus (AssignedSubmissionID, AssignedReviewerEmail, AssignedDeadlineReviewer, InterimStatusUpdate,WritersResubmissionDate) 
 		 VALUES('$submissionId', '$email', '$assignedDeadlineReviewer', 'Empty', '$writerResubmissionDate')";
 		$result = mysqli_query($db,$query);
@@ -245,4 +268,47 @@ if (isset($_POST['add']))
 		array_push($errors, "Please enter a valid reviewer E-mail");
 	}
 }
+
+//function that returns true if $month is in the same quarter as the current date.
+//param: $month int (1-12)
+function thisQuarter($month){
+	$currentMonth = (int)date('m');
+	
+	if (($currentMonth == 1 || $currentMonth == 2 || $currentMonth == 3) && ($month == 1 || $month == 2 || $month == 3)){
+		return true;
+	}
+	if (($currentMonth == 4 || $currentMonth == 5 || $currentMonth == 6) && ($month == 4 || $month == 5 || $month == 6)){
+		return true;
+	}
+	if (($currentMonth == 7 || $currentMonth == 8 || $currentMonth == 9) && ($month == 7 || $month == 8 || $month == 9)){
+		return true;
+	}
+	if (($currentMonth == 10 || $currentMonth == 11 || $currentMonth == 12) && ($month == 10 || $month == 11 || $month == 12)){
+		return true;
+	}
+	return false;
+}
+
+//function that updates the database. 
+//All papers that are not in the current quarter that have not been accepted with major/minor revisions
+//will be assigned to "expired" status and subsequently not displayed on the editor's to do list.
+//@param the link to the database to update
+function updateExpiredPapers($dbLink){
+	$papersQuery = "SELECT * FROM submissionProfile WHERE paperStatus = 'submitted' OR paperStatus = 'underReview'";
+	$papersResult = mysqli_query($dbLink, $papersQuery);
+	
+	while ($paper = mysqli_fetch_assoc($papersResult)){
+		$dateSubmitted = $paper['dateOfSubmission'];
+		
+		$month = (int) substr($dateSubmitted,5,2);
+		
+		if (!thisQuarter($month)){
+			$submissionId = $paper['submissionId'];
+			$updateQuery = "UPDATE submissionProfile SET paperStatus = 'expired' WHERE submissionId = '$submissionId'";
+			$updateResult = mysqli_query($dbLink,$updateQuery);
+		}
+	}
+	
+}
+
 ?>

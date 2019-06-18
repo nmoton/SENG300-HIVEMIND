@@ -3,6 +3,7 @@
 <?php
 	include '../../userHandler.php';
 
+	//this code displays different navigation options on the menu bar based on the users privileges
 	if (!isset($_SESSION['email'])){
 		header('location:../../invalidPermissions.php');
 	} else {
@@ -45,9 +46,21 @@
   <div class="topnav">
     <div class="topnav-right">
       <a href="../dashboard.php">Dashboard</a>
-      <a href="../Writer/writer.php">Writer</a>
-      <a href="reviewer.php">Reviewer</a>
-      <a href="../Editor/editor.php">Editor</a>
+      <a href="../Writer/writer.php">Submissions</a>
+      <a href="reviewer.php">Review</a>
+		<?php 
+			$userEmail = $_SESSION['email'];
+			
+			$userQuery = "SELECT * FROM userProfile WHERE email = '$userEmail'";
+			$userResult = mysqli_query($db, $userQuery);
+			$user = mysqli_fetch_assoc($userResult);
+			
+			if ($user['userType'] == 'editor'){
+				echo '		
+					<a href="../Editor/editor.php">Admin</a>
+				';
+			} 
+		?>
       <a href="../../login.php">Sign-out</a>
     </div>
   </div>
