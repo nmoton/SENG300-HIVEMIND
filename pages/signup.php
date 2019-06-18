@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -45,20 +43,16 @@
 						<input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" required="" />
 					</div>
 				</div>
-				<label class="checkbox">
-					<input type="checkbox" value="notARobot" id="notARobot" name="notARobot">
-					I agree to all Terms & Conditions
-				</label>
 				<button class="btn btn-lg btn-primary btn-block" name = "register">Complete Registration</button>
 			</form>
 		</div>
 		<div class="wrapper" id="underLogin">
 			<small>
+				<a href="../index.html">Home</a>
+                .
 				<a href="">Help</a>
                 .
 				<a href="">Privacy</a>
-                .
-				<a href="">Terms & Conditions</a>
 				.
 			</small>
 			<small>
