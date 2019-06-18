@@ -38,6 +38,14 @@
 		</div>
 		<div class="wrapper" id="underLogin">
 			<small>
+				<a href="../index.html">Home</a>
+                .
+				<a href="">Help</a>
+                .
+				<a href="">Privacy</a>
+				.
+			</small>
+			<small>
 				New to Hive Mind?
 				<a href="signup.php">Join For Free</a>
 			</small>
